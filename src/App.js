@@ -1,10 +1,13 @@
 import React from 'react';
 import './App.css';
-import PrimarySearchAppBar from './components/Navbar'
-import Pricing from './components/Footer';
-import Home from './components/Home';
-import About from './components/About';
-import Shop from './components/Shop';
+import PrimarySearchAppBar from './components/Navbar/Navbar'
+import Pricing from './components/Footer/Footer';
+import Home from './components/Home/Home';
+import About from './components/About/About';
+import Shop from './components/Shop/Shop';
+import Menu from './components/Menu/Menu';
+import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,11 +20,17 @@ function App() {
     <Router>
       <div className="App">
         <PrimarySearchAppBar/>
-        
+        <Menu></Menu>
       
         <Switch>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
           </Route>
           <Route path="/shop">
             <Shop />
