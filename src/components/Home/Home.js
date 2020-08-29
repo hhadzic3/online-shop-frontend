@@ -69,7 +69,7 @@ export default function Album() {
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <WhiteTypography component="h1" variant="h2" align="center" color="white"/*color="textPrimary"*/ gutterBottom>
-              Album layout
+              Easy shoping
             </WhiteTypography>
             <WhiteTypography variant="h5" align="center" /*color="textSecondary"*/ paragraph>
               Something short and leading about the collection below—its contents, the creator, etc.
@@ -85,7 +85,7 @@ export default function Album() {
                 </Grid>
                 <Grid item>
                   <Button variant="outlined" color="primary">
-                    See simelar products
+                    Simelar products
                   </Button>
                 </Grid>
               </Grid>

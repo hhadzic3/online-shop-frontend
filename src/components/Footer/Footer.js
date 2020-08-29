@@ -64,19 +64,23 @@ const useStyles = makeStyles((theme) => ({
 const footers = [
   {
     title: 'Online shop Company',
-    description: ['About us', 'Privacy policy','Terms of use'],
+    description: ['About us', 'Privacy and policy','Tearms of use'],
+    //link: ['/about', '/privacy','/tearms']
   },
   {
     title: 'Features',
     description: ['Best price', 'Easy shoping', 'Best products'],
+    //link: ['/shop', '/shop','/shop']
   },
   {
     title: 'Social',
     description: ['Instagram', 'Facebook', 'Twitter'],
+    //link: ['/', '/','/']
   },
   {
     title: 'Get in touch',
     description: ['+123 456 789', 'support@onlineshop.ba' ],
+    //link: ['/', '/']
   },
 ];
 
