@@ -20,7 +20,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Online shop
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -63,20 +63,20 @@ const useStyles = makeStyles((theme) => ({
 
 const footers = [
   {
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
+    title: 'Online shop Company',
+    description: ['About us', 'Privacy policy','Terms of use'],
   },
   {
     title: 'Features',
-    description: ['Cool stuff', 'Random feature', 'Team feature', 'Developer stuff', 'Another one'],
+    description: ['Best price', 'Easy shoping', 'Best products'],
   },
   {
-    title: 'Resources',
-    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
+    title: 'Social',
+    description: ['Instagram', 'Facebook', 'Twitter'],
   },
   {
-    title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
+    title: 'Get in touch',
+    description: ['+123 456 789', 'support@onlineshop.ba' ],
   },
 ];
 
