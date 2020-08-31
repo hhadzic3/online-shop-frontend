@@ -1,7 +1,5 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -17,6 +15,7 @@ import img from '../images/nike.jpg'
 
 import { withStyles } from "@material-ui/core/styles";
 import  Tab  from './Tab';
+import Item from '../Item/Item'
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -49,7 +48,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
-  
+  actions:{
+    margin:'auto'
+  }
 }));
 const WhiteTypography = withStyles({
     root: {
@@ -58,8 +59,6 @@ const WhiteTypography = withStyles({
   })(Typography);
 
 const cards1 = [1, 2, 3];
-const cards2 = [1, 2, 3, 4];
-const cards3 = [1, 2, 3, 4];
 
 export default function Album() {
   const classes = useStyles();
@@ -107,23 +106,20 @@ export default function Album() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
+                    image={img}
+                    title="Title"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      Shoes
                     </Typography>
                     <Typography>
                       This is a media card. You can use this section to describe the content.
                     </Typography>
                   </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
+                  <CardActions className={classes.actions}>
+                    <Button size="small"  color="primary">
+                      Shop now
                     </Button>
                   </CardActions>
                 </Card>
@@ -131,36 +127,10 @@ export default function Album() {
             ))}
           </Grid>
           <h2>Feature Products</h2>
-          <Grid container spacing={4}>
-            
-            {cards1.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Heading
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
+          <Item></Item>
+          <Item></Item>
+          <Item></Item>
+          <Item></Item>
           
           <Tab></Tab>
 

@@ -28,6 +28,7 @@ class ConnectedItem extends Component {
             style={{ height: 140 }}
             //image={this.props.item.imageUrls[0]}
             image={img}
+            aria-label="Bay now"
           />
           <CardContent style={{ height: 50 }}>
             <div
@@ -42,17 +43,15 @@ class ConnectedItem extends Component {
               Name
             </div>
             <div style={{ margin: 5 }}>Price: 999 $</div>
-            <div style={{ color: "#1a9349", fontWeight: "bold", margin: 5 }}>
-              {  "Popular"}
-            </div>
+            
           </CardContent>
         </CardActionArea>
         <CardActions
-          style={{ display: "flex", alignItems: "center", height: 45 }}
+          style={{ display: "flex", alignItems: "center", height: '50px' }}
         >
           <Button
             size="small"
-            style={{ marginRight: 60 }}
+            style={{ marginRight: 22 }}
             onClick={() => {
               this.props.history.push("/details/" + this.props.item.id);
             }}
@@ -60,7 +59,7 @@ class ConnectedItem extends Component {
             {" "}
             Details
           </Button>
-          <Tooltip title="Add to cart">
+          <Tooltip title="Bay now">
             <IconButton
               size="small"
               /*onClick={e => {
@@ -70,9 +69,9 @@ class ConnectedItem extends Component {
                 );
               }}*/
               color="primary"
-              aria-label="Add to shopping cart"
+              aria-label="Bay now"
             >
-              <AddShoppingCartIcon size="small" />
+              BAY NOW
             </IconButton>
           </Tooltip>
         </CardActions>
