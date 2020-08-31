@@ -99,7 +99,7 @@ export default function SignInSide() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link to="/" variant="body2">
+                <Link to="/signup" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
