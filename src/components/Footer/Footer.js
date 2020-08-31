@@ -64,24 +64,20 @@ const useStyles = makeStyles((theme) => ({
 const footers = [
   {
     title: 'Online shop Company',
-    description: ['About us', 'Privacy and policy','Tearms of use'],
-    //link: ['/about', '/privacy','/tearms']
+    description: [ {desc : 'About us' , link: '/about'}, {desc:'Privacy and policy', link: '/privacy'},{ desc: 'Tearms of use', link: '/tearms'}]
   },
   {
     title: 'Features',
-    description: ['Best price', 'Easy shoping', 'Best products'],
-    //link: ['/shop', '/shop','/shop']
+    description: [ {desc: 'Best price' , link:'/shop'},{desc: 'Easy shoping',link:'/shop'},{ desc: 'Best products', link:'/shop'}]
   },
   {
     title: 'Social',
-    description: ['Instagram', 'Facebook', 'Twitter'],
-    //link: ['/', '/','/']
+    description: [{desc:'Instagram',link:'/'},{desc: 'Facebook', link:'/'},{desc: 'Twitter',link:'/'}]
   },
   {
     title: 'Get in touch',
-    description: ['+123 456 789', 'support@onlineshop.ba' ],
-    //link: ['/', '/']
-  },
+    description: [ {desc:'+123 456 789' , link:'/'},{desc: 'support@onlineshop.ba',link:'/'} ]
+  }
 ];
 
 export default function Pricing() {
@@ -100,9 +96,9 @@ export default function Pricing() {
               </Typography>
               <ul>
                 {footer.description.map((item) => (
-                  <li key={item}>
-                    <Link href="#" variant="subtitle1" color="textSecondary">
-                      {item}
+                  <li key={item.desc}>
+                    <Link to={item.link}  color="textSecondary">
+                      {item.desc}
                     </Link>
                   </li>
                 ))}

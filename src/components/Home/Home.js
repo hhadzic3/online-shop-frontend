@@ -16,6 +16,7 @@ import Link from '@material-ui/core/Link';
 import img from '../images/nike.jpg'
 
 import { withStyles } from "@material-ui/core/styles";
+import  Tab  from './Tab';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -48,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
+  
 }));
 const WhiteTypography = withStyles({
     root: {
@@ -55,7 +57,9 @@ const WhiteTypography = withStyles({
     }
   })(Typography);
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards1 = [1, 2, 3];
+const cards2 = [1, 2, 3, 4];
+const cards3 = [1, 2, 3, 4];
 
 export default function Album() {
   const classes = useStyles();
@@ -94,8 +98,11 @@ export default function Album() {
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
+
+          <h2>Feature Collection</h2>
           <Grid container spacing={4}>
-            {cards.map((card) => (
+            
+            {cards1.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
@@ -123,6 +130,42 @@ export default function Album() {
               </Grid>
             ))}
           </Grid>
+          <h2>Feature Products</h2>
+          <Grid container spacing={4}>
+            
+            {cards1.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://source.unsplash.com/random"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Heading
+                    </Typography>
+                    <Typography>
+                      This is a media card. You can use this section to describe the content.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      View
+                    </Button>
+                    <Button size="small" color="primary">
+                      Edit
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+          
+          <Tab></Tab>
+
+         
+
         </Container>
       </main>
       

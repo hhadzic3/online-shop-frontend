@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import PrimarySearchAppBar from './components/Navbar/Navbar'
-import Pricing from './components/Footer/Footer';
+import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Shop from './components/Shop/Shop';
@@ -40,8 +40,8 @@ function App() {
           </Route>
         </Switch>
         
+        <Footer/>
         
-        <Pricing></Pricing>
     </div>
       </Router>
   );
