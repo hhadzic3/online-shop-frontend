@@ -10,10 +10,11 @@ import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/StarBorder';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+//import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
+import { Link } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -35,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
           padding: 0,
           listStyle: 'none',
         },
+        li:{
+          cursor:'pointer'
+        },
+        a:{
+          textDecoration: 'none'
+        }
       },
       appBar: {
         borderBottom: `1px solid ${theme.palette.divider}`,
@@ -96,8 +103,8 @@ export default function Pricing() {
               </Typography>
               <ul>
                 {footer.description.map((item) => (
-                  <li key={item.desc}>
-                    <Link to={item.link}  color="textSecondary">
+                  <li component={Link}  key={item.desc} color="textSecondary">
+                    <Link to={item.link} color="textSecondary">
                       {item.desc}
                     </Link>
                   </li>

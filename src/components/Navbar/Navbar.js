@@ -17,7 +17,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  //Link
 } from "react-router-dom";
 
 import clsx from 'clsx';
@@ -28,6 +28,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   list: {
@@ -128,7 +129,7 @@ export default function PrimarySearchAppBar() {
     >
       <List>
         {['All categories', 'Shoes', 'Tech', 'Outfit'].map((text, index) => (
-          <ListItem button  key={text}>
+          <ListItem button component={Link} to="/shop" key={text}>
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -136,7 +137,7 @@ export default function PrimarySearchAppBar() {
       <Divider />
       <List>
         {['Laptops', 'Mobiles', 'Home accessories'].map((text, index) => (
-          <ListItem button  key={text}>
+          <ListItem button component={Link} to="/shop" key={text}>
             <ListItemText primary={text} />
           </ListItem>
         ))}

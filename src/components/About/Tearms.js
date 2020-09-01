@@ -7,6 +7,7 @@ import Box from '@material-ui/core/Box';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 2,
+    padding:25
   },
   paper: {
     padding: theme.spacing(2),
@@ -22,7 +23,7 @@ function Tearms() {
     <div className={classes.root}>
       <Grid container spacing={2} justify="flex-start">
         <Grid item xs={12}>  
-          <h2>About us</h2>
+          <h2>Tearms of use</h2>
         </Grid>
 
       <Grid item xs={12}>  
