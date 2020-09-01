@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{ useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import img from '../images/nike.jpg'
+import axios from 'axios'
 
 import { withStyles } from "@material-ui/core/styles";
 import  Tab  from './Tab';
@@ -50,18 +51,34 @@ const useStyles = makeStyles((theme) => ({
   },
   actions:{
     margin:'auto'
+  },
+  white: {
+    color: "#fff",
+    textShadow: '2px 2px 4px #000000'
   }
 }));
-const WhiteTypography = withStyles({
-    root: {
-      color: "#FFFFFF"
-    }
-  })(Typography);
+
 
 const cards1 = [1, 2, 3];
 
-export default function Album() {
+export default function Home() {
   const classes = useStyles();
+  
+  const [productsFeature, setProductsFeature] = useState([]);
+
+  useEffect(() => {
+    // GET request using axios inside useEffect React hook
+    axios.get('http://localhost:8080/api/products?label=feature')
+    .then(response => {
+      console.log(response.data)
+      setProductsFeature(response.data)
+    })
+    .catch(err => {
+      console.log(err);
+    })
+
+// empty dependency array means this effect will only run once (like componentDidMount in classes)
+},[]);
 
   return (
     <React.Fragment>
@@ -71,19 +88,19 @@ export default function Album() {
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
-            <WhiteTypography component="h1" variant="h2" align="center" color="white"/*color="textPrimary"*/ gutterBottom>
+            <Typography className={classes.white} component={"span"} variant="h2" align="center"  gutterBottom>
               Easy shoping
-            </WhiteTypography>
-            <WhiteTypography variant="h5" align="center" /*color="textSecondary"*/ paragraph>
+            </Typography>
+            <Typography className={classes.white} variant="h5" align="center" /*color="textSecondary"*/ >
               Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
+              Make it short and sweet, but not too short so folks simply skip over it
               entirely.
-            </WhiteTypography>
+            </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
                 <Grid item>
                   <Button variant="contained" color="primary">
-                    Bay now
+                    Buy now
                   </Button>
                 </Grid>
                 <Grid item>
@@ -101,7 +118,7 @@ export default function Album() {
           <h2>Feature Collection</h2>
           <Grid container spacing={4}>
             
-            {cards1.map((card) => (
+            {cards1.map((card, index) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
@@ -126,19 +143,16 @@ export default function Album() {
               </Grid>
             ))}
           </Grid>
+
           <h2>Feature Products</h2>
-          <Item></Item>
-          <Item></Item>
-          <Item></Item>
-          <Item></Item>
+          { productsFeature && productsFeature.map( (prod , index ) =>(
+            <Item key={index} product={prod}></Item>
+          ))}
           
           <Tab></Tab>
 
-         
-
         </Container>
-      </main>
-      
+      </main>      
     </React.Fragment>
   );
 }

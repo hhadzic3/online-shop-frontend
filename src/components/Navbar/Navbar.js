@@ -128,7 +128,7 @@ export default function PrimarySearchAppBar() {
     >
       <List>
         {['All categories', 'Shoes', 'Tech', 'Outfit'].map((text, index) => (
-          <ListItem button key={text}>
+          <ListItem button  key={text}>
             <ListItemText primary={text} />
           </ListItem>
         ))}
@@ -136,7 +136,7 @@ export default function PrimarySearchAppBar() {
       <Divider />
       <List>
         {['Laptops', 'Mobiles', 'Home accessories'].map((text, index) => (
-          <ListItem button key={text}>
+          <ListItem button  key={text}>
             <ListItemText primary={text} />
           </ListItem>
         ))}

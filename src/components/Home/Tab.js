@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{ useEffect, useState }from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -7,6 +7,11 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Item from '../Item/Item'
+import axios from 'axios'
+
+
+
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -55,6 +60,38 @@ function SimpleTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [productsTop, setProductsTop] = useState([]);
+  const [productsNew, setProductsNew] = useState([]);
+  const [productsLast, setProductsLast] = useState([]);
+
+  useEffect(() => {
+    // GET request using axios inside useEffect React hook
+    axios.get('http://localhost:8080/api/products?label=new_arrival')
+    .then(response => {
+      console.log(response.data)
+      setProductsNew(response.data)
+    })
+    .then( 
+      axios.get('http://localhost:8080/api/products?label=top_rated')
+      .then(response => {
+        console.log(response.data)
+        setProductsTop(response.data)
+      })
+      )
+    .then( 
+      axios.get('http://localhost:8080/api/products?label=last_chance')
+      .then(response => {
+        console.log(response.data)
+        setProductsLast(response.data)
+      })
+      )
+        .catch(err => {
+          console.log(err);
+        })
+
+// empty dependency array means this effect will only run once (like componentDidMount in classes)
+},[]);
+
 
   return (
     <div className={classes.root}>
@@ -66,16 +103,19 @@ function SimpleTabs() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Item></Item>
+        { productsNew && productsNew.map((product) => (
+          <Item key={product.id} product={product}></Item>
+        )) }
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Item></Item>
-        <Item></Item>
+      { productsTop && productsTop.map((product) => (
+          <Item key={product.id} product={product}></Item>
+      ))   }
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Item></Item>
-        <Item></Item>
-        <Item></Item>
+      { productsLast && productsLast.map((product) => (
+          <Item key={product.id} product={product}></Item>
+      )) }
       </TabPanel>
     </div>
   );
