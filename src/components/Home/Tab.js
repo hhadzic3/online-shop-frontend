@@ -66,18 +66,18 @@ function SimpleTabs() {
 
   useEffect(() => {
     // GET request using axios inside useEffect React hook
-    axios.get('http://localhost:8080/api/products?label=new_arrival')
+    axios.get(`${process.env.REACT_APP_BASEURL}:${process.env.REACT_APP_PORT}/api/products?label=new_arrival`)
     .then(response => {
       setProductsNew(response.data)
     })
     .then( 
-      axios.get('http://localhost:8080/api/products?label=top_rated')
+      axios.get(`${process.env.REACT_APP_BASEURL}:${process.env.REACT_APP_PORT}/api/products?label=top_rated`)
       .then(response => {
         setProductsTop(response.data)
       })
       )
     .then( 
-      axios.get('http://localhost:8080/api/products?label=last_chance')
+      axios.get(`${process.env.REACT_APP_BASEURL}:${process.env.REACT_APP_PORT}/api/products?label=last_chance`)
       .then(response => {
         setProductsLast(response.data)
       })

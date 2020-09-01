@@ -15,12 +15,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import { Link } from "react-router-dom";
-
+import footers from './Data';
+import './style.scss'
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" to="https://harunhadzic.ml/">
         Online shop
       </Link>{' '}
       {new Date().getFullYear()}
@@ -30,31 +31,19 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
-    '@global': {
-        ul: {
-          margin: 0,
-          padding: 0,
-          listStyle: 'none',
-        },
-        li:{
-          cursor:'pointer'
-        },
-        a:{
-          textDecoration: 'none'
-        }
-      },
-      appBar: {
-        borderBottom: `1px solid ${theme.palette.divider}`,
-      },
-      toolbar: {
-        flexWrap: 'wrap',
-      },
-      toolbarTitle: {
-        flexGrow: 1,
-      },
-      link: {
-        margin: theme.spacing(1, 1.5),
-      },
+    
+  appBar: {
+    borderBottom: `1px solid ${theme.palette.divider}`,
+  },
+  toolbar: {
+    flexWrap: 'wrap',
+  },
+  toolbarTitle: {
+    flexGrow: 1,
+  },
+  link: {
+    margin: theme.spacing(1, 1.5),
+  },
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
     marginTop: theme.spacing(8),
@@ -64,28 +53,8 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: theme.spacing(6),
       paddingBottom: theme.spacing(6),
     },
-  },
-}));
-
-
-const footers = [
-  {
-    title: 'Online shop Company',
-    description: [ {desc : 'About us' , link: '/about'}, {desc:'Privacy and policy', link: '/privacy'},{ desc: 'Terms of use', link: '/terms'}]
-  },
-  {
-    title: 'Features',
-    description: [ {desc: 'Best price' , link:'/shop'},{desc: 'Easy shoping',link:'/shop'},{ desc: 'Best products', link:'/shop'}]
-  },
-  {
-    title: 'Social',
-    description: [{desc:'Instagram',link:'/'},{desc: 'Facebook', link:'/'},{desc: 'Twitter',link:'/'}]
-  },
-  {
-    title: 'Get in touch',
-    description: [ {desc:'+123 456 789' , link:'/'},{desc: 'support@onlineshop.ba',link:'/'} ]
   }
-];
+}));
 
 export default function Pricing() {
   const classes = useStyles();

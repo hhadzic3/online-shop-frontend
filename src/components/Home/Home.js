@@ -68,7 +68,7 @@ export default function Home() {
 
   useEffect(() => {
     // GET request using axios inside useEffect React hook
-    axios.get('http://localhost:8080/api/products?label=feature')
+    axios.get(`${process.env.REACT_APP_BASEURL}:${process.env.REACT_APP_PORT}/api/products?label=feature`)
     .then(response => {
       setProductsFeature(response.data)
     })
