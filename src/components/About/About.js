@@ -6,6 +6,7 @@ import img from '../images/nike.jpg';
 import Box from '@material-ui/core/Box';
 import { Typography } from '@material-ui/core';
 
+// TODO: and FIXME: Styles should be in a separate .scss file which is imported from javascript file.
 const useStyles = makeStyles((theme) => ({
   paper: {
     margin: theme.spacing(4, 2),
@@ -17,17 +18,18 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-     backgroundImage: `url(${img})`,
+    backgroundImage: `url(${img})`,
     backgroundRepeat: 'no-repeat',
     backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[20] : theme.palette.grey[900],
+    theme.palette.type === 'light' ? theme.palette.grey[20] : theme.palette.grey[900],
     backgroundSize: '110vh',
     backgroundPosition: 'center',
   }
- 
+  
 }));
 
 function About() {
+  // TODO: and FIXME: Name classes as components so it is easier to distinct them in scss.
   const classes = useStyles();
 
   return (
@@ -44,33 +46,5 @@ function About() {
 
   );
 }
- /*   <>
-    <Paper className={classes.paper}>
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}> About us </Paper>
-        </Grid>
-        <Grid item xs={6}>
-        <Paper className={classes.paper}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Paper>
-        
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}><img src={img}/></Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>IMAGE</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>IMAGE</Paper>
-        </Grid>
-        
-      </Grid>
-    </div>
-    </Paper>
-    </> 
-*/
+ 
 export default About;

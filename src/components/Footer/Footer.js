@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
 const footers = [
   {
     title: 'Online shop Company',
-    description: [ {desc : 'About us' , link: '/about'}, {desc:'Privacy and policy', link: '/privacy'},{ desc: 'Tearms of use', link: '/tearms'}]
+    description: [ {desc : 'About us' , link: '/about'}, {desc:'Privacy and policy', link: '/privacy'},{ desc: 'Terms of use', link: '/terms'}]
   },
   {
     title: 'Features',

@@ -68,26 +68,23 @@ function SimpleTabs() {
     // GET request using axios inside useEffect React hook
     axios.get('http://localhost:8080/api/products?label=new_arrival')
     .then(response => {
-      console.log(response.data)
       setProductsNew(response.data)
     })
     .then( 
       axios.get('http://localhost:8080/api/products?label=top_rated')
       .then(response => {
-        console.log(response.data)
         setProductsTop(response.data)
       })
       )
     .then( 
       axios.get('http://localhost:8080/api/products?label=last_chance')
       .then(response => {
-        console.log(response.data)
         setProductsLast(response.data)
       })
       )
-        .catch(err => {
-          console.log(err);
-        })
+      .catch(err => {
+        console.log(err);
+      })
 
 // empty dependency array means this effect will only run once (like componentDidMount in classes)
 },[]);

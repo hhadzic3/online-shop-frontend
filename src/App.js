@@ -5,9 +5,8 @@ import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import About from './components/About/About';
 import Privacy from './components/About/Privacy';
-import Tearms from './components/About/Tearms';
+import Tearms from './components/About/Terms';
 import Shop from './components/Shop/Shop';
-import Menu from './components/Menu/Menu';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import {
@@ -22,13 +21,12 @@ function App() {
     <Router>
       <div className="App">
         <PrimarySearchAppBar/>
-        <Menu></Menu>
       
         <Switch>
           <Route path="/privacy">
             <Privacy />
           </Route>
-          <Route path="/tearms">
+          <Route path="/terms">
             <Tearms />
           </Route>
           <Route path="/about">

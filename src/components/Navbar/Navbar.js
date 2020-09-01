@@ -118,6 +118,8 @@ export default function PrimarySearchAppBar() {
     setState({ ...state, [anchor]: open });
   };
 
+// TODO: Categories should be fetched from backend.
+
   const list = (anchor) => (
     <div
       className={clsx(classes.list, {

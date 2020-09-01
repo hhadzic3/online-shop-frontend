@@ -70,7 +70,6 @@ export default function Home() {
     // GET request using axios inside useEffect React hook
     axios.get('http://localhost:8080/api/products?label=feature')
     .then(response => {
-      console.log(response.data)
       setProductsFeature(response.data)
     })
     .catch(err => {
@@ -105,7 +104,7 @@ export default function Home() {
                 </Grid>
                 <Grid item>
                   <Button variant="outlined" color="primary">
-                    Simelar products
+                    Similar products
                   </Button>
                 </Grid>
               </Grid>
