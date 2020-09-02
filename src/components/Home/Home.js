@@ -1,9 +1,5 @@
 import React ,{ useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -12,13 +8,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import img from '../images/nike.jpg'
-import axios from 'axios'
 
+import Divider from '@material-ui/core/Divider';
 import { withStyles } from "@material-ui/core/styles";
 import  Tab  from './Tab';
 import Item from '../Item/Item'
+import './Home.scss'
 
 import * as ApiService from '../ApiService/ApiService'
+import CollectionCard from './CollectionCard';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -32,36 +30,11 @@ const useStyles = makeStyles((theme) => ({
   heroButtons: {
     marginTop: theme.spacing(4),
   },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
-  actions:{
-    margin:'auto'
-  },
   white: {
     color: "#fff",
     textShadow: '2px 2px 4px #000000'
   }
 }));
-
-
-const cards1 = [1, 2, 3];
 
 export default function Home() {
   const classes = useStyles();
@@ -69,12 +42,10 @@ export default function Home() {
   const [productsFeature, setProductsFeature] = useState([]);
 
   useEffect(() => {
-   ApiService.getAll("/api/products","?label=feature").then(res => {
-    setProductsFeature(res);
-  })
-
-// empty dependency array means this effect will only run once (like componentDidMount in classes)
-},[]);
+    ApiService.getAll("/api/products","?label=feature").then(res => {
+      setProductsFeature(res);
+    })  
+  },[]);// will only run once (like componentDidMount in classes)
 
   return (
     <React.Fragment>
@@ -87,7 +58,7 @@ export default function Home() {
             <Typography className={classes.white} component={"span"} variant="h2" align="center"  gutterBottom>
               Easy shoping
             </Typography>
-            <Typography className={classes.white} variant="h5" align="center" /*color="textSecondary"*/ >
+            <Typography className={classes.white} variant="h5" align="center"  >
               Something short and leading about the collection below—its contents, the creator, etc.
               Make it short and sweet, but not too short so folks simply skip over it
               entirely.
@@ -110,43 +81,23 @@ export default function Home() {
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
+          <div className='subtitle'>
+            <h2>Feature Collection</h2>
+            <Divider />
+          </div>
 
-          <h2>Feature Collection</h2>
-          <Grid container spacing={4}>
-            
-            {cards1.map((card, index) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={img}
-                    title="Title"
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Shoes
-                    </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe the content.
-                    </Typography>
-                  </CardContent>
-                  <CardActions className={classes.actions}>
-                    <Button size="small"  color="primary">
-                      Shop now
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-
-          <h2>Feature Products</h2>
+          <CollectionCard />
+         
+          <div className='subtitle'>
+            <h2>Feature Products</h2>
+            <Divider />
+          </div>
+      
           { productsFeature && productsFeature.map( (prod , index ) =>(
             <Item key={index} product={prod}></Item>
           ))}
           
           <Tab></Tab>
-
         </Container>
       </main>      
     </React.Fragment>

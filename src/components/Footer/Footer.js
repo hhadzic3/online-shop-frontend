@@ -16,7 +16,8 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import { Link } from "react-router-dom";
 import footers from './Data';
-import './style.scss'
+import './Footer.scss'
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">

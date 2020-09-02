@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useEffect}from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,12 +13,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { Button } from '@material-ui/core';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  //Link
-} from "react-router-dom";
+import { BrowserRouter as Router,Switch,Route} from "react-router-dom";
 
 import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
@@ -27,6 +22,8 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Link } from "react-router-dom";
+
+import * as ApiService from '../ApiService/ApiService'
 
 const useStyles = makeStyles((theme) => ({
   list: {
@@ -102,11 +99,15 @@ export default function PrimarySearchAppBar() {
 
   const classes = useStyles();
   const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
+    left: false
   });
+  const [categories, setCategories] = React.useState([]);
+
+  useEffect(() => {
+    ApiService.getAll("/api/categories","").then(res => {
+      setCategories(res);
+    })  
+  },[]);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -116,37 +117,27 @@ export default function PrimarySearchAppBar() {
     setState({ ...state, [anchor]: open });
   };
 
-// TODO: Categories should be fetched from backend.
-
   const list = (anchor) => (
     <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-      })}
+      className={clsx(classes.list)}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['All categories', 'Shoes', 'Tech', 'Outfit'].map((text, index) => (
-          <ListItem button component={Link} to="/shop" key={text}>
-            <ListItemText primary={text} />
+        <ListItem button component={Link} to="/shop" key='0'>
+          <ListItemText primary='All categories' />
+        </ListItem>
+        <Divider/>
+        {categories.map((text, index) => (
+          <ListItem button component={Link} to="/shop" key={text.name}>
+            <ListItemText primary={text.name} />
           </ListItem>
         ))}
       </List>
-      <Divider />
-      <List>
-        {['Laptops', 'Mobiles', 'Home accessories'].map((text, index) => (
-          <ListItem button component={Link} to="/shop" key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      
     </div>
   );
-
-
-
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
