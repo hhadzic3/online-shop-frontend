@@ -1,5 +1,11 @@
 ## -> [Backend repository](https://github.com/hhadzic3/online-shop-backend)
 
+1.npm install
+2.npm start
+
+.env:
+REACT_APP_BASEURL=http://localhost
+REACT_APP_PORT=8080
 
 ## Available Scripts
 
