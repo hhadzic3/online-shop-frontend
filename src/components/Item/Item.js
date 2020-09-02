@@ -20,9 +20,9 @@ const ConnectedItem = (props) => {
   const { product } = props;
   if (!product || product.length === 0) return <h2>No products, sorry</h2>;
 
-    return (
-      
-      <Card key={product.id}  className="cardContainer">
+  return (
+    <Card key={product.id}  className="cardContainer">
+    
         <CardActionArea
           onClick={() => {
             this.props.history.push("/details/" + this.props.item.id);
@@ -50,8 +50,8 @@ const ConnectedItem = (props) => {
           >
             Buy now
           </Button>
-          
         </CardActions>
+      
       </Card>
       
     );

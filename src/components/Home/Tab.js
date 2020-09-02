@@ -25,7 +25,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <div>{children}</div>
         </Box>
       )}
     </div>
@@ -101,18 +101,20 @@ function SimpleTabs() {
       <TabPanel value={value} index={0}>
         { productsNew && productsNew.map((product) => (
           <Item key={product.id} product={product}></Item>
-        )) }
+          )) }
       </TabPanel>
       <TabPanel value={value} index={1}>
       { productsTop && productsTop.map((product) => (
-          <Item key={product.id} product={product}></Item>
-      ))   }
+        <Item key={product.id} product={product}></Item>
+        ))   }
       </TabPanel>
       <TabPanel value={value} index={2}>
       { productsLast && productsLast.map((product) => (
-          <Item key={product.id} product={product}></Item>
-      )) }
+        <Item key={product.id} product={product}></Item>
+        )) }
       </TabPanel>
+        {/* 
+    */}
     </div>
   );
 }

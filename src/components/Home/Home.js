@@ -92,11 +92,11 @@ export default function Home() {
             <h2>Feature Products</h2>
             <Divider />
           </div>
-      
+          
           { productsFeature && productsFeature.map( (prod , index ) =>(
             <Item key={index} product={prod}></Item>
           ))}
-          
+
           <Tab></Tab>
         </Container>
       </main>      

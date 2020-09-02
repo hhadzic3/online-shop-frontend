@@ -221,12 +221,12 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Online shop
-          </Typography>
           <Drawer anchor='left' open={state['left']} onClose={toggleDrawer('left', false)}>
             {list('left')}
           </Drawer>
+          <Typography className={classes.title} variant="h6" noWrap>
+            Online shop
+          </Typography>
 
           <div className={classes.search}>
             <div className={classes.searchIcon}>
