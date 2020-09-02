@@ -18,6 +18,8 @@ import { withStyles } from "@material-ui/core/styles";
 import  Tab  from './Tab';
 import Item from '../Item/Item'
 
+import * as ApiService from '../ApiService/ApiService'
+
 const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -67,14 +69,9 @@ export default function Home() {
   const [productsFeature, setProductsFeature] = useState([]);
 
   useEffect(() => {
-    // GET request using axios inside useEffect React hook
-    axios.get(`${process.env.REACT_APP_BASEURL}:${process.env.REACT_APP_PORT}/api/products?label=feature`)
-    .then(response => {
-      setProductsFeature(response.data)
-    })
-    .catch(err => {
-      console.log(err);
-    })
+   ApiService.getAll("/api/products","?label=feature").then(res => {
+    setProductsFeature(res);
+  })
 
 // empty dependency array means this effect will only run once (like componentDidMount in classes)
 },[]);

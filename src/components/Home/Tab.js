@@ -9,7 +9,7 @@ import Box from '@material-ui/core/Box';
 import Item from '../Item/Item'
 import axios from 'axios'
 
-
+import * as ApiService from '../ApiService/ApiService'
 
 
 function TabPanel(props) {
@@ -65,21 +65,20 @@ function SimpleTabs() {
   const [productsLast, setProductsLast] = useState([]);
 
   useEffect(() => {
-    // GET request using axios inside useEffect React hook
-    axios.get(`${process.env.REACT_APP_BASEURL}:${process.env.REACT_APP_PORT}/api/products?label=new_arrival`)
-    .then(response => {
-      setProductsNew(response.data)
+    
+    ApiService.getAll("/api/products","?label=new_arrival").then(res => {
+      setProductsNew(res);
     })
     .then( 
-      axios.get(`${process.env.REACT_APP_BASEURL}:${process.env.REACT_APP_PORT}/api/products?label=top_rated`)
-      .then(response => {
-        setProductsTop(response.data)
+      
+      ApiService.getAll("/api/products","?label=top_rated").then(res => {
+        setProductsTop(res);
       })
       )
     .then( 
-      axios.get(`${process.env.REACT_APP_BASEURL}:${process.env.REACT_APP_PORT}/api/products?label=last_chance`)
-      .then(response => {
-        setProductsLast(response.data)
+      
+      ApiService.getAll("/api/products","?label=last_chance").then(res => {
+        setProductsLast(res);
       })
       )
       .catch(err => {
