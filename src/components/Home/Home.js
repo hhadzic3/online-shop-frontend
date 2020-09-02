@@ -2,15 +2,12 @@ import React ,{ useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 import img from '../images/nike.jpg'
 
 import Divider from '@material-ui/core/Divider';
-import { withStyles } from "@material-ui/core/styles";
 import  Tab  from './Tab';
 import Item from '../Item/Item'
 import './Home.scss'

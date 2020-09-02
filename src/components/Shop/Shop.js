@@ -1,6 +1,5 @@
 import React ,{ useEffect, useState } from 'react';
 import Item from '../Item/Item';
-import axios from 'axios'
 import * as ApiService from '../ApiService/ApiService'
 
 function Shop() {

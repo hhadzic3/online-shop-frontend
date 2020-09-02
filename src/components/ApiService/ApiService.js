@@ -1,4 +1,3 @@
-import React from 'react';
 import axios from 'axios'
 
 const urlport = `${process.env.REACT_APP_BASEURL}:${process.env.REACT_APP_PORT}`
