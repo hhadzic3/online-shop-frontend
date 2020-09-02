@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { addItemInCart } from "../../Redux/Actions";
 import { withRouter } from "react-router-dom";*/
 import img from '../images/nike.jpg'
+import './Item.scss'
 
 const ConnectedItem = (props) => {
 
@@ -21,64 +22,35 @@ const ConnectedItem = (props) => {
 
     return (
       
-      <Card key={product.id}
-        style={{ width: 200, height: 270, margin: 10, display: "inline-block" }}
-      >
+      <Card key={product.id}  className="cardContainer">
         <CardActionArea
           onClick={() => {
             this.props.history.push("/details/" + this.props.item.id);
           }}
         >
-          <CardMedia
-            style={{ height: 150 }}
+          <CardMedia className='cardMedia'
             //image={this.props.item.imageUrls[0]}
             image={img}
-            aria-label="Bay now"
+            aria-label="Buy now"
           />
-          <CardContent style={{ height: 50 }}>
-            <p
-              style={{
-                marginLeft: 5,
-                fontWeight: "bold",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis"
-              }}
-            >
+          <CardContent className='cardContent'>
+            <p>
               {product.name}
             </p>
-            <p component='p' style={{ margin: 12 }}>Price: {product.price} $</p>
+            <p className='price'>Price: {product.price} $</p>
             
           </CardContent>
         </CardActionArea>
-        <CardActions
-          style={{ display: "flex", alignItems: "center", height: '50px',marginTop:'10px' }}
-        >
-          <Button
+        <CardActions className='cardActions'>
+          <Button className='butt'
             size="small"
-            style={{ marginRight: 22 }}
             onClick={() => {
               this.props.history.push("/details/" + this.props.item.id);
             }}
           >
-            {" "}
-            Details
+            Buy now
           </Button>
-          <Tooltip title="Buy now">
-            <IconButton
-              size="small"
-              /*onClick={e => {
-                e.stopPropagation();
-                this.props.dispatch(
-                  addItemInCart({ ...this.props.item, quantity: 1 })
-                );
-              }}*/
-              color="primary"
-              aria-label="Bay now"
-            >
-              BUY NOW
-            </IconButton>
-          </Tooltip>
+          
         </CardActions>
       </Card>
       

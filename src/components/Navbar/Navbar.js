@@ -24,6 +24,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { Link } from "react-router-dom";
 
 import * as ApiService from '../ApiService/ApiService'
+import './Navbar.scss'
 
 const useStyles = makeStyles((theme) => ({
   list: {
@@ -113,7 +114,6 @@ export default function PrimarySearchAppBar() {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-
     setState({ ...state, [anchor]: open });
   };
 
@@ -126,7 +126,7 @@ export default function PrimarySearchAppBar() {
     >
       <List>
         <ListItem button component={Link} to="/shop" key='0'>
-          <ListItemText primary='All categories' />
+          <ListItemText primary='All Categories' />
         </ListItem>
         <Divider/>
         {categories.map((text, index) => (
