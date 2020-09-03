@@ -20,21 +20,13 @@ const ConnectedItem = (props) => {
     return (
         <Card key={product.id} className="cardContainer">
 
-            <CardActionArea
-                onClick={() => {
-                this
-                    .props
-                    .history
-                    .push("/details/" + this.props.item.id);
-            }}>
-                <CardMedia className='cardMedia' //image={this.props.item.imageUrls[0]
-            }} image={img} aria-label="Buy now"/>
+            <CardActionArea >
+                <CardMedia className='cardMedia' image={img} aria-label="Buy now"/>
                 <CardContent className='cardContent'>
                     <p>
                         {product.name}
                     </p>
-                    <p className='price'>Price: {product.price}
-                        $</p>
+                    <p className='price'>Price: {product.price} $</p>
 
                 </CardContent>
             </CardActionArea>
@@ -53,9 +45,7 @@ const ConnectedItem = (props) => {
             </CardActions>
 
         </Card>
-
     );
-
 }
 
 //export default withRouter(connect()(ConnectedItem));
