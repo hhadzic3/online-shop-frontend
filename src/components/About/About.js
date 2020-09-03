@@ -4,8 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import img from '../images/nike.jpg';
 import {Typography} from '@material-ui/core';
 import './About.scss'
-// TODO: and FIXME: Styles should be in a separate .scss file which is imported
-// from javascript file.
+
 
 function About() {
 

@@ -22,8 +22,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from "react-router-dom";
 
 import * as ApiService from '../../ApiService/ApiService'
-import './Navbar.scss'
+//import './Navbar.scss'
 
+// TODO: Styles should be in a separate .scss file which is imported from javascript file.
 const useStyles = makeStyles((theme) => ({
     list: {
         width: 250
