@@ -7,7 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import Item from '../Item/Item'
 
-import * as ApiService from '../ApiService/ApiService'
+import * as ApiService from '../../ApiService/ApiService'
 
 
 function TabPanel(props) {
@@ -64,18 +64,18 @@ function SimpleTabs() {
 
   useEffect(() => {
     
-    ApiService.getAll("/api/products","?label=new_arrival").then(res => {
+    ApiService.get("/api/products","?label=new_arrival").then(res => {
       setProductsNew(res);
     })
     .then( 
       
-      ApiService.getAll("/api/products","?label=top_rated").then(res => {
+      ApiService.get("/api/products","?label=top_rated").then(res => {
         setProductsTop(res);
       })
       )
     .then( 
       
-      ApiService.getAll("/api/products","?label=last_chance").then(res => {
+      ApiService.get("/api/products","?label=last_chance").then(res => {
         setProductsLast(res);
       })
       )

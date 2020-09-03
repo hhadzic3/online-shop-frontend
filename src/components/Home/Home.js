@@ -12,7 +12,7 @@ import  Tab  from './Tab';
 import Item from '../Item/Item'
 import './Home.scss'
 
-import * as ApiService from '../ApiService/ApiService'
+import * as ApiService from '../../ApiService/ApiService'
 import CollectionCard from './CollectionCard';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +39,7 @@ export default function Home() {
   const [productsFeature, setProductsFeature] = useState([]);
 
   useEffect(() => {
-    ApiService.getAll("/api/products","?label=feature").then(res => {
+    ApiService.get("/api/products","?label=feature").then(res => {
       setProductsFeature(res);
     })  
   },[]);// will only run once (like componentDidMount in classes)

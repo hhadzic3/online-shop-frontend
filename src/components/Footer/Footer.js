@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import { Link } from "react-router-dom";
-import footers from './Data';
+import footers from '../../data/FooterData';
 import './Footer.scss'
 
 function Copyright() {

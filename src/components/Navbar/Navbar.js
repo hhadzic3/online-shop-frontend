@@ -21,7 +21,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Link } from "react-router-dom";
 
-import * as ApiService from '../ApiService/ApiService'
+import * as ApiService from '../../ApiService/ApiService'
 import './Navbar.scss'
 
 const useStyles = makeStyles((theme) => ({
@@ -103,7 +103,7 @@ export default function PrimarySearchAppBar() {
   const [categories, setCategories] = React.useState([]);
 
   useEffect(() => {
-    ApiService.getAll("/api/categories","").then(res => {
+    ApiService.get("/api/categories","").then(res => {
       setCategories(res);
     })  
   },[]);
