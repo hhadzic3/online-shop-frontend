@@ -1,0 +1,17 @@
+.root {
+    height: 100vh;
+    padding: 20px;
+}
+.image{
+    background-image: 'url(https://source.unsplash.com/random)';
+    background-repeat: 'no-repeat';
+    background-color: grey;
+    background-size: 'cover';
+    background-position: 'center'
+}
+.paper {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}

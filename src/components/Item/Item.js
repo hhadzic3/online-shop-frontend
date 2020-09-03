@@ -5,9 +5,6 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
-/*import { connect } from "react-redux";
-import { addItemInCart } from "../../Redux/Actions";
-import { withRouter } from "react-router-dom";*/
 import img from '../images/nike.jpg'
 import './Item.scss'
 
