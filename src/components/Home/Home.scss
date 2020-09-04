@@ -34,3 +34,17 @@
         margin: auto
     }
 }
+
+.tab {
+    flex-grow: 1;
+    background-color: transparent;
+    margin-top: 30px;
+
+    .tabBar{
+        background-color: transparent;
+        color: black;
+        box-shadow: none;
+    }
+
+
+}

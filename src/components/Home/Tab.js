@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
-import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -43,16 +42,7 @@ function a11yProps(index) {
     return {id: `simple-tab-${index}`, 'aria-controls': `simple-tabpanel-${index}`};
 }
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        backgroundColor: theme.palette.background.paper,
-        marginTop: '30px'
-    }
-}));
-
 function SimpleTabs() {
-    const classes = useStyles();
     const [value,
         setValue] = React.useState(0);
 
@@ -82,18 +72,15 @@ function SimpleTabs() {
             .catch(err => {
                 console.log(err);
             })
-
-            // empty dependency array means this effect will only run once (like
-            // componentDidMount in classes)
     }, []);
 
     return (
-        <div className={classes.root}>
-            <AppBar position="static">
+        <div className='tab'>
+            <AppBar className='tabBar' position="static">
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                    <Tab label="New Arrivals" {...a11yProps(0)}/>
-                    <Tab label="Top Rated" {...a11yProps(1)}/>
-                    <Tab label="Last Chance" {...a11yProps(2)}/>
+                    <Tab className='tabTitle' label="New Arrivals" {...a11yProps(0)}/>
+                    <Tab className='tabTitle' label="Top Rated" {...a11yProps(1)}/>
+                    <Tab className='tabTitle' label="Last Chance" {...a11yProps(2)}/>
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
