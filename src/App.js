@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import PrimarySearchAppBar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
@@ -47,7 +47,7 @@ function App() {
         
         <Footer/>
         
-    </div>
+        </div>
       </Router>
   );
 }

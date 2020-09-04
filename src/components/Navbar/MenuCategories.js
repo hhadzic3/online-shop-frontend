@@ -44,12 +44,12 @@ export default function MenuCategories() {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}>
             <List>
-                <ListItem button component={Link} to="/shop" key='0'>
-                    <ListItemText primary='All Categories'/>
+                <ListItem button className='menuList' component={Link} to="/shop" key='0'>
+                    <ListItemText className='menuItem' primary='All Categories'/>
                 </ListItem>
                 <Divider/> {categories.map((text, index) => (
-                    <ListItem button component={Link} to="/shop" key={text.name}>
-                        <ListItemText primary={text.name}/>
+                    <ListItem button className='menuList' component={Link} to="/shop" key={text.name}>
+                        <ListItemText className='menuItem' primary={text.name}/>
                     </ListItem>
                 ))}
             </List>
