@@ -13,21 +13,36 @@ const ConnectedItem = (props) => {
         return <h2>No products, sorry</h2>;
     
     return (
-        <Card key={product.id} className="cardContainer">
+      
+        <>
+        <div key={product.id} className="product-card">
+		<div className="badge">Hot</div>
+		<div className="product-tumb">
+			<img src="https://i.imgur.com/xdbHo4E.png" alt=""/>
+		</div>
+		<div className="product-details">
+			{/*<span className="product-catagory">Women,bag</span>*/}
+			<p>{product.name}</p>
+			<div className="product-bottom-details">
+				<div className="product-price"><small>  </small>{product.price} $</div>
+			</div>
+		</div>
+	    </div>
+        </>
+    );
+}
+/* <Card key={product.id} classNameName="cardContainer">
 
             <CardActionArea >
-                <CardMedia className='cardMedia' image={img} aria-label="Buy now"/>
-                <CardContent className='cardContent'>
+                <CardMedia classNameName='cardMedia' image={img} aria-label="Buy now"/>
+                <CardContent classNameName='cardContent'>
                     <p>
                         {product.name}
                     </p>
-                    <p className='price'>Price: {product.price} $</p>
+                    <p classNameName='price'>Price: {product.price} $</p>
 
                 </CardContent>
             </CardActionArea>
-        </Card>
-    );
-}
-
+    </Card>*/ 
 //export default withRouter(connect()(ConnectedItem));
 export default ConnectedItem;

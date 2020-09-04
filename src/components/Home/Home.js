@@ -18,6 +18,12 @@ export default function Home() {
     const [productsFeature,
         setProductsFeature] = useState([]);
 
+    const collections = [
+        {id:1,name:'Shoes nike',price:'start from 200'},
+        {id:2,name:'Addidas',price:'start from 200'},
+        {id:3,name:'HP laptops',price:'start from 200'}
+    ]
+
     useEffect(() => {
         ApiService
             .get("/api/products", "?label=feature")
@@ -65,7 +71,9 @@ export default function Home() {
                         <Divider/>
                     </div>
 
-                    <CollectionCard/>
+                    {collections && collections.map((prod, index) => (
+                        <Item key={index} product={prod}></Item>
+                    ))}
 
                     <div className='subtitle'>
                         <h2>Feature Products</h2>
