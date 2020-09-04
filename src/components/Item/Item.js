@@ -18,7 +18,10 @@ const ConnectedItem = (props) => {
         <div key={product.id} className="product-card">
 		<div className="badge">Hot</div>
 		<div className="product-tumb">
-			<img src="https://i.imgur.com/xdbHo4E.png" alt=""/>
+			<img className='ima' src="https://i.imgur.com/xdbHo4E.png" alt=""/>
+        <div class="middle">
+            <div class="text">Buy now</div>
+        </div>
 		</div>
 		<div className="product-details">
 			{/*<span className="product-catagory">Women,bag</span>*/}
