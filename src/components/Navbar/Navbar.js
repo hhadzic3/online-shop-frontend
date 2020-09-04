@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {fade, makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,37 +7,17 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {Button} from '@material-ui/core';
-
-import clsx from 'clsx';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from "react-router-dom";
 
-import * as ApiService from '../../ApiService/ApiService'
-//import './Navbar.scss'
+import './Navbar.scss'
+import MenuCategories from './MenuCategories';
 
 // TODO: Styles should be in a separate .scss file which is imported from javascript file.
 const useStyles = makeStyles((theme) => ({
-    list: {
-        width: 250
-    },
-    fullList: {
-        width: 'auto'
-    },
-    grow: {
-        flexGrow: 1
-    },
-    menuButton: {
-        marginRight: theme.spacing(2)
-    },
     title: {
         display: 'none',
         [
@@ -66,15 +46,6 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: theme.spacing(3),
             width: 'auto'
         }
-    },
-    searchIcon: {
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
     },
     inputRoot: {
         color: 'inherit'
@@ -120,48 +91,6 @@ const useStyles = makeStyles((theme) => ({
 export default function PrimarySearchAppBar() {
 
     const classes = useStyles();
-    const [state,
-        setState] = React.useState({left: false});
-    const [categories,
-        setCategories] = React.useState([]);
-
-    useEffect(() => {
-        ApiService
-            .get("/api/categories", "")
-            .then(res => {
-                setCategories(res);
-            })
-    }, []);
-
-    const toggleDrawer = (anchor, open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
-        }
-        setState({
-            ...state,
-            [anchor]: open
-        });
-    };
-
-    const list = (anchor) => (
-        <div
-            className={clsx(classes.list)}
-            role="presentation"
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}>
-            <List>
-                <ListItem button component={Link} to="/shop" key='0'>
-                    <ListItemText primary='All Categories'/>
-                </ListItem>
-                <Divider/> {categories.map((text, index) => (
-                    <ListItem button component={Link} to="/shop" key={text.name}>
-                        <ListItemText primary={text.name}/>
-                    </ListItem>
-                ))}
-            </List>
-
-        </div>
-    );
 
     const [anchorEl,
         setAnchorEl] = React.useState(null);
@@ -230,9 +159,6 @@ export default function PrimarySearchAppBar() {
             <Button component={Link} to="/">
                 Home
             </Button>
-            <Button component={Link} to="/about">
-                About
-            </Button>
             <Button component={Link} to="/shop">
                 Shop
             </Button>
@@ -250,29 +176,18 @@ export default function PrimarySearchAppBar() {
     );
 
     return (
-        <div className={classes.grow}>
+        <div className='grow'>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={toggleDrawer('left', true)}
-                        className={classes.menuButton}>
-                        <MenuIcon/>
-                    </IconButton>
-                    <Drawer
-                        anchor='left'
-                        open={state['left']}
-                        onClose={toggleDrawer('left', false)}>
-                        {list('left')}
-                    </Drawer>
+                    
+                    <MenuCategories/>
+
                     <Typography className={classes.title} variant="h6" noWrap>
                         Online shop
                     </Typography>
 
                     <div className={classes.search}>
-                        <div className={classes.searchIcon}>
+                        <div className='searchIcon'>
                             <SearchIcon/>
                         </div>
                         <InputBase
@@ -285,16 +200,13 @@ export default function PrimarySearchAppBar() {
                             'aria-label': 'search'
                         }}/>
                     </div>
-                    <div className={classes.grow}/>
+                    <div className='grow'/>
                     <div className={classes.sectionDesktop}>
                         <Button component={Link} to="/">
                             Home
                         </Button>
                         <Button component={Link} to="/shop">
                             Shop
-                        </Button>
-                        <Button component={Link} to="/about">
-                            About us
                         </Button>
                         <IconButton
                             edge="end"

@@ -1,7 +1,5 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import img from '../images/nike.jpg';
 import {Typography} from '@material-ui/core';
 import './About.scss'
 
@@ -30,8 +28,9 @@ function About() {
                     containing Lorem Ipsum passages, and more recently with desktop publishing
                     software like Aldus PageMaker including versions of Lorem Ipsum.</Typography>
             </Grid>
-
-            <Grid item className='image' xs={false} sm={2} md={6}/>
+            
+                <Grid item className='image' xs={false} sm={2} md={6}/>
+            
         </Grid>
 
     );

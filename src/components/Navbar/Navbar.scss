@@ -1,0 +1,18 @@
+.list {
+    width: 250px;
+}
+.grow {
+    flex-grow: 1
+}   
+.menuButton {
+    margin-right: 10px
+}
+.searchIcon {
+    padding: 10px;
+    height:  100% ;
+    position:  absolute ;
+    pointer-events:  none ;
+    display:  flex ;
+    align-items:  center ;
+    justify-content:  center 
+}
