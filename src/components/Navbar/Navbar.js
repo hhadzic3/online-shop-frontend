@@ -177,7 +177,7 @@ export default function PrimarySearchAppBar() {
 
     return (
         <div className='grow'>
-            <AppBar position="static">
+            <AppBar position="static" className='appBar'>
                 <Toolbar>
                     
                     <MenuCategories/>
@@ -202,10 +202,10 @@ export default function PrimarySearchAppBar() {
                     </div>
                     <div className='grow'/>
                     <div className={classes.sectionDesktop}>
-                        <Button component={Link} to="/">
+                        <Button className='navButton' component={Link} to="/">
                             Home
                         </Button>
-                        <Button component={Link} to="/shop">
+                        <Button className='navButton' component={Link} to="/shop">
                             Shop
                         </Button>
                         <IconButton

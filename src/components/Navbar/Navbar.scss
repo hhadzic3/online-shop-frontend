@@ -1,18 +1,30 @@
-.list {
-    width: 250px;
-}
 .grow {
-    flex-grow: 1
+    flex-grow: 1;
+    
+    .appBar{
+        background: #2E3B55;
+    }
+    .menuButton {
+        margin-right: 10px;
+    }
+    .searchIcon {
+        padding-left: 10px;
+        height:  100% ;
+        position:  absolute ;
+        pointer-events:  none ;
+        display:  flex ;
+        align-items:  center ;
+        justify-content:  center 
+    }
+    .navButton{
+        color: aliceblue;
+        border-radius: 0em;
+    }
+    .navButton:hover{
+        box-shadow: inset 0 -10px 0 0 cyan;
+    }
 }   
-.menuButton {
-    margin-right: 10px
-}
-.searchIcon {
-    padding: 10px;
-    height:  100% ;
-    position:  absolute ;
-    pointer-events:  none ;
-    display:  flex ;
-    align-items:  center ;
-    justify-content:  center 
+
+.list {
+    width: 220px;
 }
