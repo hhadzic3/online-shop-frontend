@@ -1,6 +1,6 @@
 const footers = [
     {
-      title: 'Online shop Company',
+      title: 'Online shop',
       description: [ {desc : 'About us' , link: '/about'}, {desc:'Privacy and policy', link: '/privacy'},{ desc: 'Terms of use', link: '/terms'}]
     },
     {

@@ -1,13 +1,26 @@
-
-    ul  {
-      margin: 0px;
-      padding: 0px;
-      list-style: none
-    }
-    li {
-      cursor:pointer
-    }
-    a {
-      text-decoration: none
-    }
+.footer {
+  border-top: 1px solid;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   
+  ul  {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    
+    li {
+      cursor:pointer;
+      
+      a {
+        text-decoration: none;
+        color: blueviolet;
+      }
+    }
+  }
+}
+
+.companyLink {
+  text-decoration: none;
+  color: blueviolet;
+}

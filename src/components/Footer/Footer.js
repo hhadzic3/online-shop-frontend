@@ -13,7 +13,7 @@ function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
             {'Copyright © '}
-            <Link color="inherit" to="https://harunhadzic.ml/">
+            <Link color="inherit" className='companyLink' to="https://harunhadzic.ml/">
                 Online shop
             </Link>{' '} {new Date().getFullYear()}
             {'.'}
@@ -21,44 +21,12 @@ function Copyright() {
     );
 }
 
-const useStyles = makeStyles((theme) => ({
-
-    appBar: {
-        borderBottom: `1px solid ${theme.palette.divider}`
-    },
-    toolbar: {
-        flexWrap: 'wrap'
-    },
-    toolbarTitle: {
-        flexGrow: 1
-    },
-    link: {
-        margin: theme.spacing(1, 1.5)
-    },
-    footer: {
-        borderTop: `1px solid ${theme.palette.divider}`,
-        marginTop: theme.spacing(8),
-        paddingTop: theme.spacing(3),
-        paddingBottom: theme.spacing(3),
-        [
-            theme
-                .breakpoints
-                .up('sm')
-        ]: {
-            paddingTop: theme.spacing(6),
-            paddingBottom: theme.spacing(6)
-        }
-    }
-}));
 
 export default function Pricing() {
-    const classes = useStyles();
 
     return (
         <React.Fragment>
-
-            {/* Footer */}
-            <Container maxWidth="md" component="footer" className={classes.footer}>
+            <Container maxWidth="md" component="footer" className='footer'>
                 <Grid container spacing={4} justify="space-evenly">
                     {footers.map((footer) => (
                         <Grid item xs={6} sm={3} key={footer.title}>
@@ -83,7 +51,6 @@ export default function Pricing() {
                     <Copyright/>
                 </Box>
             </Container>
-            {/* End footer */}
         </React.Fragment>
     );
 }
