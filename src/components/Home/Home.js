@@ -52,13 +52,8 @@ export default function Home() {
                         <div className='heroButtons'>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="contained" color="primary">
+                                    <Button variant="contained">
                                         Buy now
-                                    </Button>
-                                </Grid>
-                                <Grid item>
-                                    <Button variant="outlined" color="primary">
-                                        Similar products
                                     </Button>
                                 </Grid>
                             </Grid>

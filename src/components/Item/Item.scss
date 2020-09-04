@@ -1,28 +1,25 @@
 .cardContainer {
-    width: 200px;
-    height: 270px; 
+    width: 220px;
+    height: 250px; 
     margin: 10px; 
     display: inline-block; 
-}
-
-.cardMedia{
-    height: 165px 
-}
-
-.cardContent{
-    height: 50px;
-    p{
-        font-size: 15px;
-        font-weight: bold;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    
+    .cardMedia{
+        height: 155px;
+        margin-bottom: none;
     }
-    p .price{
-        margin: 10
-    }
-}
 
-.cardActions{
-    margin: 22px 20px 20px 55px;
+    .cardContent{
+        height: 50px;
+        text-align: left;
+        p{
+            font-size: 15px;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        
+            
+        }
+    }
 }

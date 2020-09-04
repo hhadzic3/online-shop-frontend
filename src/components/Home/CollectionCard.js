@@ -22,15 +22,10 @@ export default function CollectionCard() {
                         <Card className='card'>
                             <CardMedia className='cardMedia' image={img} title="Title"/>
                             <CardContent className='cardContent'>
-                                <Typography gutterBottom variant="h5" component="h2">
+                                <Typography className='text' gutterBottom variant="h5" component="h2">
                                     Shoes
                                 </Typography>
                             </CardContent>
-                            <CardActions className='actions'    >
-                                <Button size="small" color="primary">
-                                    Shop now
-                                </Button>
-                            </CardActions>
                         </Card>
                     </Grid>
                 ))}

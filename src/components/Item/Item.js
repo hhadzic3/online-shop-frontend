@@ -27,20 +27,6 @@ const ConnectedItem = (props) => {
 
                 </CardContent>
             </CardActionArea>
-            <CardActions className='cardActions'>
-                <Button
-                    className='butt'
-                    size="small"
-                    onClick={() => {
-                    this
-                        .props
-                        .history
-                        .push("/details/" + this.props.item.id);
-                }}>
-                    Buy now
-                </Button>
-            </CardActions>
-
         </Card>
     );
 }
