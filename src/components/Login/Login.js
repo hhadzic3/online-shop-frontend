@@ -57,7 +57,6 @@ export default function SignIn() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             className='submit'
           >
             Sign In

@@ -1,3 +1,5 @@
+$nav-color: #2E3B55;
+
 .main{
   margin-top: 40px;
   .paper {
@@ -15,6 +17,8 @@
     }
     .submit {
       margin-top: 20px;
+      background: $nav-color;
+      color: whitesmoke;
     }
 
   }
