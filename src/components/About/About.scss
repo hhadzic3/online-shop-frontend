@@ -1,14 +1,17 @@
-.root {
+.rootAbout {
     height: 100vh;
     padding: 20px;
 }
-.image{
-    background-image: url(https://source.unsplash.com/random);
-    background-repeat: no-repeat;
-    background-color: grey;
-    background-size: cover;
-    background-position: center;
+
+.textAbout{
+    margin: 70px 10px 10px 10px;
 }
+
+.imgAbout{
+    margin: 40px 10px 10px 10px;
+}
+
+
 .paper {
     margin: 30px;
     display: flex;

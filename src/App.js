@@ -9,6 +9,7 @@ import Tearms from './components/About/Terms';
 import Shop from './components/Shop/Shop';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import Detail from './components/Detail/Detail';
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,6 +23,9 @@ function App() {
         <PrimarySearchAppBar/>
       
         <Switch>
+          <Route path="/detail">
+            <Detail />
+          </Route>
           <Route path="/privacy">
             <Privacy />
           </Route>

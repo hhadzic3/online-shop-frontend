@@ -7,9 +7,8 @@ import './About.scss'
 function About() {
 
     return (
-        <Grid container component="main" className='root'>
-
-            <Grid item xs={12} sm={10} md={6} elevation={6}>
+        <Grid container component="main" >
+            <div className='textAbout'>
                 <h2>About us</h2>
                 <Typography className='paper'>Lorem Ipsum is simply dummy text of the
                     printing and typesetting industry. Lorem Ipsum has been the industry's standard
@@ -27,12 +26,9 @@ function About() {
                     unchanged. It was popularised in the 1960s with the release of Letraset sheets
                     containing Lorem Ipsum passages, and more recently with desktop publishing
                     software like Aldus PageMaker including versions of Lorem Ipsum.</Typography>
-            </Grid>
             
-                <Grid item className='image' xs={false} sm={2} md={6}/>
-            
+            </div>
         </Grid>
-
     );
 }
 

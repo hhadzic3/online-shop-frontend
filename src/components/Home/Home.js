@@ -11,7 +11,6 @@ import Item from '../Item/Item'
 import './Home.scss'
 
 import * as ApiService from '../../ApiService/ApiService'
-import CollectionCard from './CollectionCard';
 
 export default function Home() {
 
