@@ -1,25 +1,56 @@
+$breakpoint-tablet: 790px;
+$breakpoint-mobile: 700px;
+
 .shopPage{
     .formControl {
         margin: 90px 10px 0px 10px;
         min-width: 250px;
     }
     .shop{
-        padding: 1% 2%;
+        padding: 0px;
+        width: 100%;
     }
 }
-
 
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-  }
-  
+    
+    .filter {
+      margin-left: 25px;
+      margin-right: 25px;
+      text-align: center;
+      width: 170px;  
+    }
+    .shop {
+      width: 70%;
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
   .flex-container .filter {
-    
+    margin-left: 5px;
+    margin-right: 0px;
+  }
+}
+
+
+@media (max-width: $breakpoint-mobile) {
+  .flex-container {
+    display: flex;
     text-align: center;
-    width: 20%;
-    
+    .filter {
+      margin: 5px auto;
+      width: 40%;  
+    }
+    .shop {
+      margin: 5px auto;
+    }
   }
-  .flex-container .shop {
-    width: 70%;
-  }
+
+}
+
+.rootFilter {
+  width: 100%;
+  max-width: 240px;
+}

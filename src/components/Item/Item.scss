@@ -1,46 +1,5 @@
-/*.cardContainer {
-    width: 220px;
-    height: 250px; 
-    margin: 10px; 
-    display: inline-block; 
-    
-    .cardMedia{
-        height: 155px;
-        margin-bottom: none;
-    }
-
-    .cardContent{
-        height: 50px;
-        text-align: left;
-        p{
-            font-size: 15px;
-            font-weight: bold;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        
-            
-        }
-    }
-}
-*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
-/**{
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
-
-body
-{
-    font-family: 'Roboto', sans-serif;
-}
-a
-{
-    text-decoration: none;
-}*/
 .product-card {
     width: 250px;
     height: auto;

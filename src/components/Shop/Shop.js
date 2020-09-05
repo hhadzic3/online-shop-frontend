@@ -3,13 +3,18 @@ import Item from '../Item/Item';
 import * as ApiService from '../../ApiService/ApiService'
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import './Shop.scss';
 
 import Filter from './Filter'
 
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 
 function Shop() {
 
@@ -20,6 +25,12 @@ function Shop() {
     
     const handleChange = (event) => {
         setAge(event.target.value);
+    };
+
+    const [open, setOpen] = React.useState(true);
+
+    const handleClick = () => {
+        setOpen(!open);
     };
 
 
@@ -50,11 +61,22 @@ function Shop() {
             </FormControl> 
             <div className="flex-container">
                 <div className="filter">
+                <ListItem button onClick={handleClick}>
+                    <ListItemText primary="Filter" />
+                    {open ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={open} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                <ListItem button >
                     <Filter ></Filter> 
+                </ListItem>
+                </List>
+                </Collapse>
+
                 </div>
                 <div className="shop">
                     {products && products.map((prod) => (
-                        <Item key={prod.id} product={prod}></Item>
+                        <Item key={prod.id} className='item' product={prod}></Item>
                     ))}
                 </div>
             </div>

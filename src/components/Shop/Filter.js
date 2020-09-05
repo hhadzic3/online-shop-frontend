@@ -1,23 +1,15 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React , {useEffect} from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Checkbox from '@material-ui/core/Checkbox';
-import Avatar from '@material-ui/core/Avatar';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: 240,
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
+import * as ApiService from '../../ApiService/ApiService'
+
 
 export default function CheckboxListSecondary() {
-  const classes = useStyles();
+ 
   const [checked, setChecked] = React.useState([1]);
 
   const handleToggle = (value) => () => {
@@ -33,14 +25,25 @@ export default function CheckboxListSecondary() {
     setChecked(newChecked);
   };
 
+  const [categories,
+    setCategories] = React.useState([]);
+
+    useEffect(() => {
+        ApiService
+            .get("/api/categories", "")
+            .then(res => {
+                setCategories(res);
+            })
+    }, []);
+
   return (
-    <List dense className={classes.root}>
-      {[0, 1, 2, 3].map((value) => {
-        const labelId = `checkbox-list-secondary-label-${value}`;
+    <List dense className='rootFilter'>
+      {categories.map((value) => {
+        const labelId = `checkbox-list-secondary-label-${value.name}`;
         return (
-          <ListItem key={value} button>
+          <ListItem key={value.name} button>
             
-            <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+            <ListItemText id={labelId} primary={`${value.name}`} />
             <ListItemSecondaryAction>
               <Checkbox
                 edge="end"
