@@ -10,7 +10,7 @@ function Terms() {
   return (
     <Grid container component="main" >
     <div className='textAbout'>
-        <h2>About us</h2>
+        <h2>Terms of use</h2>
         <Typography className='paper'>Lorem Ipsum is simply dummy text of the
             printing and typesetting industry. Lorem Ipsum has been the industry's standard
             dummy text ever since the 1500s, when an unknown printer took a galley of type

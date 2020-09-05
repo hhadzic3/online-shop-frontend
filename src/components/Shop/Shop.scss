@@ -9,3 +9,20 @@
     }
 
 }
+
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .flex-container .filter {
+    
+    text-align: center;
+    width: 250px;
+    
+  }
+  .flex-container .shop {
+    
+    width: 800px;
+  }

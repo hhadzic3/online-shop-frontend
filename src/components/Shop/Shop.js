@@ -8,7 +8,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import './Shop.scss';
 
-
+import Filter from './Filter'
 
 
 function Shop() {
@@ -47,11 +47,16 @@ function Shop() {
                         <MenuItem value={15}>Lowest price first</MenuItem>
                         <MenuItem value={20}>Highest price first</MenuItem>
                     </Select>
-            </FormControl>    
-            <div className="shop">
-                {products && products.map((prod) => (
-                    <Item key={prod.id} product={prod}></Item>
-                ))}
+            </FormControl> 
+            <div className="flex-container">
+                <div className="filter">
+                    <Filter ></Filter> 
+                </div>
+                <div className="shop">
+                    {products && products.map((prod) => (
+                        <Item key={prod.id} product={prod}></Item>
+                    ))}
+                </div>
             </div>
         </div>
     );
