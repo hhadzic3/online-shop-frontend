@@ -41,8 +41,11 @@ function Shop() {
                     value={age}
                     onChange={handleChange}
                     >
-                        <MenuItem value={10}>Price (from higher to lover) </MenuItem>
-                        <MenuItem value={20}>Price (from lover to higher) </MenuItem>
+                        <MenuItem value={10}>Best rating</MenuItem>
+                        <MenuItem value={25}>Sort by Popularity</MenuItem>
+                        <MenuItem value={25}>Sort by Newcomes</MenuItem>
+                        <MenuItem value={15}>Lowest price first</MenuItem>
+                        <MenuItem value={20}>Highest price first</MenuItem>
                     </Select>
             </FormControl>    
             <div className="shop">

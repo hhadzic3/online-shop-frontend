@@ -5,6 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import img from '../images/nike.jpg'
 import './Item.scss'
+import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 
 const ConnectedItem = (props) => {
 
@@ -20,7 +21,7 @@ const ConnectedItem = (props) => {
 		<div className="product-tumb">
 			<img className='ima' src="https://i.imgur.com/xdbHo4E.png" alt=""/>
         <div class="middle">
-            <div class="text">Buy now</div>
+            <LocalMallOutlinedIcon fontSize='large' />
         </div>
 		</div>
 		<div className="product-details">

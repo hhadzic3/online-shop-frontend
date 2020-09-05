@@ -47,10 +47,13 @@ export default function MenuCategories() {
                 <ListItem button className='menuList' component={Link} to="/shop" key='0'>
                     <ListItemText className='menuItem' primary='All Categories'/>
                 </ListItem>
-                <Divider/> {categories.map((text, index) => (
-                    <ListItem button className='menuList' component={Link} to="/shop" key={text.name}>
-                        <ListItemText className='menuItem' primary={text.name}/>
+                <Divider/> {categories.map((cat, index) => (
+                    ( cat.description == 'primary' ? ( 
+                    <ListItem button className='menuList' component={Link} to="/shop" key={cat.name}>
+                        <ListItemText className='menuItem' primary={cat.name}/>
                     </ListItem>
+                    ) : null
+                    )
                 ))}
             </List>
 
