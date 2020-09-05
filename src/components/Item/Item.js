@@ -17,7 +17,7 @@ const ConnectedItem = (props) => {
             <Link to='/detail'>
                 <div className="product-tumb">
                     <img className='ima' src="https://i.imgur.com/xdbHo4E.png" alt=""/>
-                    <div class="middle">
+                    <div className="middle">
                         <LocalMallOutlinedIcon fontSize='large'/>
                     </div>
                 </div>

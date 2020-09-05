@@ -13,7 +13,7 @@ import './Signup.scss'
 export default function SignUp() {
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container className='main' component="main" maxWidth="xs">
             <CssBaseline/>
             <div className='paper'>
                 <Avatar className='avatar'>
