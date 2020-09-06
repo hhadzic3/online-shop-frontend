@@ -1,17 +1,28 @@
+$nav-color: #2E3B55;
+
 .heroContent {
     background-color: gray;
     padding: 11% 8%;
     background-image: url('../images/nike.jpg');
-
     .heroButtons {
         margin-top: 20px;
+        
+        .MUIbutton{
+            border-radius: 0px;
+            border: 6px solid $nav-color;
+            min-width: 150px;
+            &:hover{
+                background: whitesmoke;
+                border: 2px solid $nav-color;
+            }
+        }
     }
+    
     .white {
         color: #fff;
         text-shadow: 2px 2px 4px #000000
     }
 }
-
 .subtitle{
     text-align: left;
     margin-bottom: 18px;

@@ -45,7 +45,7 @@ export default function MenuCategories() {
             onKeyDown={toggleDrawer(anchor, false)}>
             <List>
                 <ListItem button className='menuList' component={Link} to="/shop" key='0'>
-                    <ListItemText className='menuItem' primary='All Categories'/>
+                    <ListItemText className='menuItem menuTitle' primary='All Categories'/>
                 </ListItem>
                 <Divider/> {categories.map((cat, index) => (
                     ( cat.description === 'primary' ? ( 

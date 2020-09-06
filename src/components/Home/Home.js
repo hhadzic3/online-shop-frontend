@@ -55,8 +55,8 @@ export default function Home() {
                         <div className='heroButtons'>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button variant="contained">
-                                        Buy now
+                                    <Button className='MUIbutton' variant="contained">
+                                        Buy now 
                                     </Button>
                                 </Grid>
                             </Grid>

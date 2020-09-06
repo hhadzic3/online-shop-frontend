@@ -18,7 +18,37 @@ export const get = (params,query) => {
         throw error;
       });
  };
- 
+
+  export const del = (params,query) => {
+      const URL = `${urlport}${params}${query}`;
+      return axios(URL, {
+        method: 'DELETE'
+      })
+        .then(response => response.data)
+        .catch(error => {
+          throw error;
+        });
+   };
+
+
+
+ // TODO: POST method
+/*
+export const post = (params) => {
+    const URL = `${urlport}${params}${query}`;
+    return axios(URL, {
+      method: 'POST'
+    })
+      .then(response => response.data)
+      .catch(error => {
+        throw error;
+      });
+ };
+ */
+
+ // TODO: Put method
+
+
  export const justAnAlert = () => {
     alert('hello');
  };
