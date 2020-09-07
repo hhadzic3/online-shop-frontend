@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 $nav-color: #2E3B55;
-
+$shadow: #dfdfdf;
 .product-card {
     width: 250px;
     height: auto;
     position: relative;
-    box-shadow: 0 2px 7px #dfdfdf;
+    box-shadow: 0 2px 7px $shadow;
     margin: 20px 10px;
-    background: #fafafa;
+    background: white;
     display: inline-block; 
 }
 
@@ -29,9 +29,8 @@ $nav-color: #2E3B55;
     align-items: center;
     justify-content: center;
     height: 200px;
-    padding: 40px;
-    background: #f0f0f0;
-    
+    padding: 0px;
+    //background: white;
 }
 
 .product-tumb img {
