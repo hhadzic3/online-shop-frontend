@@ -16,6 +16,8 @@ export default function Home() {
 
     const [productsFeature,
         setProductsFeature] = useState([]);
+    
+
 
     const collections = [
         {id:1,name:'Shoes nike',price:'start from 200'},
