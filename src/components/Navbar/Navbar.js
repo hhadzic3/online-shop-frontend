@@ -181,10 +181,11 @@ export default function PrimarySearchAppBar() {
                 <Toolbar>
                     
                     <MenuCategories/>
-
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        Online shop
-                    </Typography>
+                    <Link to='/'>
+                        <Typography className={classes.title} variant="h6" noWrap>
+                            Online shop
+                        </Typography>
+                    </Link>
 
                     <div className={classes.search}>
                         <div className='searchIcon'>

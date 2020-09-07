@@ -9,7 +9,12 @@ $nav-color: #2E3B55;
         width: 100%;
         margin-top: 0px;
         background: $nav-color;
+        a {
+            text-decoration: none;
+            color: white;
+        }
     }
+    
     .menuButton {
         margin-right: 10px;
     }

@@ -16,7 +16,7 @@ const ConnectedItem = (props) => {
     return (
 
         <div key={product.id} className="product-card">
-            {product.label !== 'classic' && product.label !== 'feature' ? (
+            {product.label && product.label !== 'classic' && product.label !== 'feature' ? (
                 <div className="badge">
                     {product.label}
                 </div>
