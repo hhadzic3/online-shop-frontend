@@ -5,9 +5,10 @@ $breakpoint-mobile: 750px;
     flex-grow: 1;
    
     .appBar{
-        position: fixed;
+        /*position: fixed;
         top: 0;
-        width: 100%;
+        width: 100%;*/
+        
         margin-top: 0px;
         background: $nav-color;
         a {

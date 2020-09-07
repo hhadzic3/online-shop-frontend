@@ -10,6 +10,7 @@ import Shop from './components/Shop/Shop';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Detail from './components/Detail/Detail';
+import HeaderBar from './components/HeaderBar/HeaderBar';
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,6 +21,8 @@ function App() {
   return (
     <Router>
       <div className="App">
+        
+      <HeaderBar></HeaderBar>
         <PrimarySearchAppBar/>
       
         <Switch>

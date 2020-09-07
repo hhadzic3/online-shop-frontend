@@ -1,20 +1,33 @@
+$nav-color: #242424;
+
+.containerFooter{
+  
+  background-color: $nav-color;
+}
+
+
 .footer {
-  border-top: 1px solid;
   margin-top: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
   
+  .social{
+    width: 100%;
+    margin: 1px auto;
+  }
+
   ul  {
     margin: 0px;
     padding: 0px;
     list-style: none;
+    color: white;
     
     li {
       cursor:pointer;
-      
+      text-align: center;
       a {
         text-decoration: none;
-        color: #2E3B55;
+        color: white;
       }
     }
   }
@@ -22,5 +35,5 @@
 
 .companyLink {
   text-decoration: none;
-  color: #2E3B55;
+  color: white;
 }

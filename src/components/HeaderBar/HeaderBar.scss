@@ -1,0 +1,32 @@
+.headerBar{
+    height: 22px;
+    background: black;
+}    
+    
+.social{
+    display: inline;
+    margin-right: 59%;
+    margin-top: 10px;
+    .a{
+        color: white;
+        margin: 3px;
+    }
+}
+
+.links{
+    display: inline;
+    .link{
+        margin-left: 1%;
+        margin-top: 0px;
+        text-decoration: none;
+        color: white;
+    }
+}
+
+$breakpoint-mobile: 700px;
+
+@media (max-width: $breakpoint-mobile) {
+
+    
+
+}

@@ -12,6 +12,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {Button} from '@material-ui/core';
 import {Link} from "react-router-dom";
+import HeaderBar from "../HeaderBar/HeaderBar"
 
 import './Navbar.scss'
 import MenuCategories from './MenuCategories';
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     search: {
+        height: 42,
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -38,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
         //marginRight: theme.spacing(17),
         marginRight: '12%',
         marginLeft: 0,
+        marginTop: 0,
         //marginLeft: theme.spacing(4),
         
         width: '100%',
@@ -51,12 +54,17 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     inputRoot: {
-        color: 'inherit'
+        color: 'inherit',
+        marginBottom: 5
     },
     inputInput: {
         //padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
-        paddingBottom: '10px',
+        paddingBottom: 22,
+        paddingTop: '0px',
+        fontSize: 20,
+        //margin: 0,
+        marginBottom: 10,
         paddingLeft: `calc(1em + ${theme.spacing(1)}px)`,
         transition: theme
             .transitions
@@ -138,7 +146,6 @@ export default function PrimarySearchAppBar() {
         }}
             open={isMenuOpen}
             onClose={handleMenuClose}>
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
             <MenuItem onClick={handleMenuClose} component={Link} to="/login">Log in</MenuItem>
             <MenuItem onClick={handleMenuClose} component={Link} to="/signup">Sign up</MenuItem>
@@ -181,6 +188,8 @@ export default function PrimarySearchAppBar() {
     );
 
     return (
+        <>
+        
         <div className='grow'>
             <AppBar position="static" className='appBar'>
                 <Toolbar>
@@ -216,15 +225,15 @@ export default function PrimarySearchAppBar() {
                         <Button className='navButton' component={Link} to="/shop">
                             Shop
                         </Button>
-                        <IconButton
+                        <Button className='navButton'
                             edge="end"
                             aria-label="account of current user"
                             aria-controls={menuId}
                             aria-haspopup="true"
                             onClick={handleProfileMenuOpen}
                             color="inherit">
-                            <AccountCircle/>
-                        </IconButton>
+                                Account
+                        </Button>
                     </div>
                     <div className={classes.sectionMobile}>
 
@@ -242,5 +251,6 @@ export default function PrimarySearchAppBar() {
             {renderMobileMenu}
             {renderMenu}
         </div>
+        </>
     );
 }
