@@ -1,8 +1,9 @@
 $nav-color: #2E3B55;
+$breakpoint-mobile: 750px;
 
 .grow {
     flex-grow: 1;
-    
+   
     .appBar{
         position: fixed;
         top: 0;
@@ -12,20 +13,28 @@ $nav-color: #2E3B55;
         a {
             text-decoration: none;
             color: white;
+            margin-right: 10px;
+            margin-left: 3%;
         }
     }
     
     .menuButton {
-        margin-right: 10px;
+        
+        visibility: hidden;
     }
     .searchIcon {
-        padding-left: 10px;
+        //padding-left: 10px;
+        /*display:  flex ;
         height:  100% ;
+        align-items:  center ;
         position:  absolute ;
         pointer-events:  none ;
-        display:  flex ;
-        align-items:  center ;
-        justify-content:  center 
+        justify-content:  center;*/
+        display: inline;
+        //margin: 25px 20px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+        margin-right: 15px;
     }
     .navButton{
         color: aliceblue;
@@ -39,6 +48,22 @@ $nav-color: #2E3B55;
         box-shadow: inset 0 -5px 0 0 whitesmoke;
     }
 }   
+
+
+@media (max-width: $breakpoint-mobile) {
+
+    .grow {
+        .menuButton {
+            visibility: visible;
+        }
+    }
+
+}
+
+
+
+
+
 
 .list {
     width: 220px;

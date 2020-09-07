@@ -35,8 +35,11 @@ const useStyles = makeStyles((theme) => ({
         '&:hover': {
             backgroundColor: fade(theme.palette.common.white, 0.25)
         },
-        marginRight: theme.spacing(2),
+        //marginRight: theme.spacing(17),
+        marginRight: '12%',
         marginLeft: 0,
+        //marginLeft: theme.spacing(4),
+        
         width: '100%',
         [
             theme
@@ -51,9 +54,10 @@ const useStyles = makeStyles((theme) => ({
         color: 'inherit'
     },
     inputInput: {
-        padding: theme.spacing(1, 1, 1, 0),
+        //padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+        paddingBottom: '10px',
+        paddingLeft: `calc(1em + ${theme.spacing(1)}px)`,
         transition: theme
             .transitions
             .create('width'),
@@ -63,10 +67,11 @@ const useStyles = makeStyles((theme) => ({
                 .breakpoints
                 .up('md')
         ]: {
-            width: '20ch'
+            width: '35ch'
         }
     },
     sectionDesktop: {
+        marginRight: '7%',
         display: 'none',
         [
             theme
@@ -181,27 +186,29 @@ export default function PrimarySearchAppBar() {
                 <Toolbar>
                     
                     <MenuCategories/>
+
                     <Link to='/'>
                         <Typography className={classes.title} variant="h6" noWrap>
-                            Online shop
+                            SHOPIFY
                         </Typography>
                     </Link>
 
+
+                    <div className='grow'/>
                     <div className={classes.search}>
-                        <div className='searchIcon'>
-                            <SearchIcon/>
-                        </div>
                         <InputBase
-                            placeholder="Search…"
+                            placeholder="Try enter: Shoes"
                             classes={{
-                            root: classes.inputRoot,
-                            input: classes.inputInput
+                                root: classes.inputRoot,
+                                input: classes.inputInput
                         }}
                             inputProps={{
-                            'aria-label': 'search'
+                                'aria-label': 'search'
                         }}/>
+                                    <SearchIcon className='searchIcon' />
+                                
                     </div>
-                    <div className='grow'/>
+                    
                     <div className={classes.sectionDesktop}>
                         <Button className='navButton' component={Link} to="/">
                             Home
