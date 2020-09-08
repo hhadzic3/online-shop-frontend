@@ -20,21 +20,20 @@ function Shop() {
 
     const [products,
         setProducts] = useState([]);
-    
 
-        
-    const [age, setAge] = React.useState('');
-    
+    const [age,
+        setAge] = React.useState('');
+
     const handleChange = (event) => {
         setAge(event.target.value);
     };
 
-    const [open, setOpen] = React.useState(true);
+    const [open,
+        setOpen] = React.useState(true);
 
     const handleClick = () => {
         setOpen(!open);
     };
-
 
     useEffect(() => {
         ApiService
@@ -47,33 +46,34 @@ function Shop() {
     return (
         <div className='shopPage'>
             <FormControl className='formControl'>
-                <InputLabel id="demo-simple-select-label">Sort by</InputLabel>
-                    <Select
+                <InputLabel id="demo-simple-select-label">Default Sorting</InputLabel>
+                <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={age}
-                    onChange={handleChange}
-                    >
-                        <MenuItem value={10}>Best rating</MenuItem>
-                        <MenuItem value={25}>Sort by Popularity</MenuItem>
-                        <MenuItem value={25}>Sort by Newcomes</MenuItem>
-                        <MenuItem value={15}>Lowest price first</MenuItem>
-                        <MenuItem value={20}>Highest price first</MenuItem>
-                    </Select>
-            </FormControl> 
+                    onChange={handleChange}>
+                    <MenuItem value={10}>Best rating</MenuItem>
+                    <MenuItem value={25}>Sort by Popularity</MenuItem>
+                    <MenuItem value={25}>Sort by Newcomes</MenuItem>
+                    <MenuItem value={15}>Lowest price first</MenuItem>
+                    <MenuItem value={20}>Highest price first</MenuItem>
+                </Select>
+            </FormControl>
             <div className="flex-container">
                 <div className="filter">
-                <ListItem button onClick={handleClick}>
-                    <ListItemText primary="Filter" />
-                    {open ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                <ListItem button >
-                    <Filter ></Filter> 
-                </ListItem>
-                </List>
-                </Collapse>
+                    {/*<ListItem button onClick={handleClick}>
+                        <ListItemText className='titleFilter' primary="Product Categories"/> {open
+                            ? <ExpandLess/>
+                            : <ExpandMore/>}
+                        </ListItem>*/}
+                    <Collapse in={open} timeout="auto" unmountOnExit>
+                        <List component="div" className='border' disablePadding>
+                        <ListItemText className='titleFilter' primary="Product Categories"/>
+                            <ListItem button>
+                                <Filter ></Filter>
+                            </ListItem>
+                        </List>
+                    </Collapse>
 
                 </div>
                 <div className="shop">

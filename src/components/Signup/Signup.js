@@ -16,9 +16,6 @@ export default function SignUp() {
         <Container className='main' component="main" maxWidth="xs">
             <CssBaseline/>
             <div className='paper'>
-                <Avatar className='avatar'>
-                    <LockOutlinedIcon/>
-                </Avatar>
                 <Typography component="h1" variant="h5">
                     Sign up
                 </Typography>
@@ -116,8 +113,8 @@ export default function SignUp() {
 
                     </Grid>
                     <div >
-                        <Button className="submit" type="submit" fullWidth variant="contained" color="primary">
-                            Sign Up
+                        <Button className="submit register" type="submit" fullWidth variant="contained" color="primary">
+                            REGISTER
                         </Button>
                         <Grid container justify="flex-end">
                             <Grid item>

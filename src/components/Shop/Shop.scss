@@ -3,8 +3,9 @@ $breakpoint-mobile: 700px;
 
 .shopPage{
     .formControl {
-        margin: 40px 10px 0px 10px;
+        margin: 30px 5px 5px 5px;
         min-width: 250px;
+        //border: 2px solid gainsboro;
     }
     .shop{
         padding: 0px;
@@ -16,14 +17,27 @@ $breakpoint-mobile: 700px;
     display: flex;
     flex-wrap: wrap;
     
+    .titleFilter{
+      color: purple;
+      text-transform: uppercase;
+      font: bold;
+    }
     .filter {
       margin-left: 25px;
-      margin-right: 25px;
+      margin-right: 15px;
       text-align: center;
-      width: 170px;  
+      min-width: 200px;
+      
+    }
+    .rootFilter{
+      margin-left: 0px;
+    }
+    .border{
+      border: 2px solid gainsboro;
     }
     .shop {
       width: 70%;
+      text-align: center;
     }
 }
 

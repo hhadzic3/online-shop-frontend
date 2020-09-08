@@ -1,9 +1,9 @@
-$nav-color: #2E3B55;
+$nav-color: purple;
 
 .main{
     padding-top: 40px;
     margin-bottom: 70px;
-    
+    border: 2px solid gainsboro;
     .paper {
         margin: 30px 10px;
         display: flex;
@@ -11,17 +11,19 @@ $nav-color: #2E3B55;
         align-items: center;
         
         .avatar {
-            margin: 5px;
-            background-color: $nav-color;
+            margin: 0px;
         }
         .form {
             width: 100%; // Fix IE 11 issue.
             margin-top: 5px;
         }
-        .submit {
+        
+        .submit{
+            
             margin: 0px;
             color: whitesmoke;
             background: $nav-color;
+        
         }
     }
 }
