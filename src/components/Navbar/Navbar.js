@@ -31,15 +31,16 @@ const useStyles = makeStyles((theme) => ({
     },
     search: {
         position: 'relative',
-        borderRadius: theme.shape.borderRadius,
+        borderRadius: 'none',
         backgroundColor: fade(theme.palette.common.black, 0.15),
         '&:hover': {
             backgroundColor: fade(theme.palette.common.black, 0.25)
         },
         marginRight: theme.spacing(8),
         marginLeft: 0,
+        margin: '0px auto',
         width: '100%',
-        minWidth: '300px',
+        minWidth: '360px',
         [
             theme
                 .breakpoints
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     inputInput: {
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
-        paddingLeft: `calc(0.5em + ${theme.spacing(1)}px)`,
+        paddingLeft: '0px',
         transition: theme
             .transitions
             .create('width'),
@@ -65,11 +66,11 @@ const useStyles = makeStyles((theme) => ({
                 .breakpoints
                 .up('md')
         ]: {
-            width: '20ch'
+            width: '29ch'
         }
     },
     sectionDesktop: {
-        marginRight: '7%',
+        marginRight: '2%',
         display: 'none',
         [
             theme
@@ -184,58 +185,56 @@ export default function PrimarySearchAppBar() {
             <AppBar position="static" className='appBar'>
                 <Toolbar>
                     
-                    <MenuCategories/>
+                <MenuCategories/>
 
-                    <Link to='/'>
-                        <Typography className={classes.title} variant="h6" noWrap>
-                            SHOPIFY
-                        </Typography>
-                    </Link>
+                <Link to='/'>
+                    <Typography className={classes.title} variant="h6" noWrap>
+                        SHOPIFY
+                    </Typography>
+                </Link>
+        <div className='grow'/>
+            <div className={classes.search}>
+                <div className='searchIcon'>
+                    <SearchIcon/>
+                </div>
+                <InputBase
+                    placeholder="Try enter: Shoes"
+                    classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput
+                }}
+                    inputProps={{
+                    'aria-label': 'search'
+                }}/>
+            </div>
+                <div className={classes.sectionDesktop}>
+                    <Button className='navButton' component={Link} to="/">
+                        Home
+                    </Button>
+                    <Button className='navButton' component={Link} to="/shop">
+                        Shop
+                    </Button>
+                    <Button className='navButton acc'
+                        edge="end"
+                        aria-label="account of current user"
+                        aria-controls={menuId}
+                        aria-haspopup="true"
+                        onClick={handleProfileMenuOpen}
+                        color="inherit">
+                            My Account
+                    </Button>
+                </div>
+                <div className={classes.sectionMobile}>
 
-                    <div className='grow'/>
-                    <div className={classes.search}>
-                        <div className='searchIcon'>
-                            <SearchIcon/>
-                        </div>
-                        <InputBase
-                            placeholder="Try enter: Shoes"
-                            classes={{
-                            root: classes.inputRoot,
-                            input: classes.inputInput
-                        }}
-                            inputProps={{
-                            'aria-label': 'search'
-                        }}/>
-                    </div>
-                    
-                    <div className={classes.sectionDesktop}>
-                        <Button className='navButton' component={Link} to="/">
-                            Home
-                        </Button>
-                        <Button className='navButton' component={Link} to="/shop">
-                            Shop
-                        </Button>
-                        <Button className='navButton acc'
-                            edge="end"
-                            aria-label="account of current user"
-                            aria-controls={menuId}
-                            aria-haspopup="true"
-                            onClick={handleProfileMenuOpen}
-                            color="inherit">
-                                My Account
-                        </Button>
-                    </div>
-                    <div className={classes.sectionMobile}>
-
-                        <IconButton
-                            aria-label="show more"
-                            aria-controls={mobileMenuId}
-                            aria-haspopup="true"
-                            onClick={handleMobileMenuOpen}
-                            color="default">
-                            <MoreIcon />
-                        </IconButton>
-                    </div>
+                    <IconButton
+                        aria-label="show more"
+                        aria-controls={mobileMenuId}
+                        aria-haspopup="true"
+                        onClick={handleMobileMenuOpen}
+                        color="default">
+                        <MoreIcon />
+                    </IconButton>
+                </div>
                 </Toolbar>
             </AppBar>
             {renderMobileMenu}

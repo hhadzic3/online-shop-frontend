@@ -16,16 +16,12 @@ export default function DenseAppBar() {
             margin: 0
         }} position="static">
             <div className='headerBar'>
-                <div className='social'>
-                    <Link className='a' to='/'><FacebookIcon fontSize='small'/></Link>
-                    <Link className='a' to='/'><InstagramIcon fontSize='small'/></Link>
-                    <Link className='a' to='/'><TwitterIcon fontSize='small'/></Link>
-                </div>
+                
                 <div  className='links'>
                     <Link className='link' to='/login'>
                         <span>Login</span>
                     </Link>
-                    <span className='link'>or</span>
+                    <span className='link or'>or</span>
                     <Link className='link' to='/signup'>
                         <span >Create an Account</span>
                     </Link>

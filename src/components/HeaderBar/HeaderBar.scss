@@ -2,17 +2,6 @@
     height: 24px;
     background: rgb(65, 65, 65);
 }    
-    
-.social{
-    display: inline;
-    margin-right: 59%;
-    margin-top: 10px;
-    .a{
-        color: white;
-        margin: 3px;
-        padding-top: 8px ;
-    }
-}
 
 .links{
     display: inline;
@@ -23,15 +12,8 @@
         color: white;
         font-size: 15px;
     }
-}
-
-$breakpoint-mobile: 750px;
-
-@media (max-width: $breakpoint-mobile) {
-
-    .social{
-        margin-right: 10%;
+    .or{
+        color: gainsboro;
     }
-    
-
 }
+
