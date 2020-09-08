@@ -1,6 +1,6 @@
-$nav-color: #2E3B55;
+$nav-color: whitesmoke;
 $breakpoint-mobile: 750px;
-
+$color-items: purple;
 .grow {
     flex-grow: 1;
    
@@ -13,32 +13,31 @@ $breakpoint-mobile: 750px;
         background: $nav-color;
         a {
             text-decoration: none;
-            color: white;
+            color: $color-items;
             margin-right: 10px;
             margin-left: 3%;
         }
     }
     
     .menuButton {
-        
         visibility: hidden;
+        color: black;
+    }
+    .acc{
+        min-width: 110px;
     }
     .searchIcon {
-        //padding-left: 10px;
-        /*display:  flex ;
+        padding-left: 10px;
         height:  100% ;
-        align-items:  center ;
         position:  absolute ;
         pointer-events:  none ;
-        justify-content:  center;*/
-        display: inline;
-        //margin: 25px 20px;
-        margin-top: 10px;
-        margin-bottom: 0px;
-        margin-right: 15px;
+        display:  flex ;
+        align-items:  center ;
+        justify-content:  center ;
+        color: black;
     }
     .navButton{
-        color: aliceblue;
+        color: $color-items;
         border-radius: 0em;
         font-size: 15px;
         margin: 0px 10px;
@@ -46,7 +45,7 @@ $breakpoint-mobile: 750px;
         height: 64px;
     }
     .navButton:hover{
-        box-shadow: inset 0 -5px 0 0 whitesmoke;
+        box-shadow: inset 0 -5px 0 0 $color-items;
     }
 }   
 

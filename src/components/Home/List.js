@@ -35,7 +35,7 @@ useEffect(() => {
     <div className='categoriesList'>
      <List>
                 <ListItem button className='menuList' component={Link} to="/shop" key='categories'>
-                    <ListItemText className='menuItem menuTitle' primary='Categories'/>
+                    <ListItemText className='menuItem menuTitle' variant='h3' primary='Categories'/>
                 </ListItem>
                 <Divider/> 
                 {categories.map((cat, index) => (

@@ -1,6 +1,6 @@
 .headerBar{
     height: 22px;
-    background: black;
+    background: rgb(65, 65, 65);
 }    
     
 .social{
@@ -20,13 +20,17 @@
         margin-top: 0px;
         text-decoration: none;
         color: white;
+        font-size: 15px;
     }
 }
 
-$breakpoint-mobile: 700px;
+$breakpoint-mobile: 750px;
 
 @media (max-width: $breakpoint-mobile) {
 
+    .social{
+        margin-right: 10%;
+    }
     
 
 }

@@ -30,20 +30,16 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     search: {
-        height: 42,
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
+        backgroundColor: fade(theme.palette.common.black, 0.15),
         '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.25)
+            backgroundColor: fade(theme.palette.common.black, 0.25)
         },
-        //marginRight: theme.spacing(17),
-        marginRight: '6%',
+        marginRight: theme.spacing(8),
         marginLeft: 0,
-        marginTop: 0,
-        //marginLeft: theme.spacing(4),
-        
         width: '100%',
+        minWidth: '300px',
         [
             theme
                 .breakpoints
@@ -54,18 +50,12 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     inputRoot: {
-        color: 'inherit',
-        marginBottom: 5
+        color: 'black'
     },
     inputInput: {
-        //padding: theme.spacing(1, 1, 1, 0),
+        padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
-        paddingBottom: 22,
-        paddingTop: '0px',
-        fontSize: 20,
-        //margin: 0,
-        marginBottom: 10,
-        paddingLeft: `calc(1em + ${theme.spacing(1)}px)`,
+        paddingLeft: `calc(0.5em + ${theme.spacing(1)}px)`,
         transition: theme
             .transitions
             .create('width'),
@@ -75,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
                 .breakpoints
                 .up('md')
         ]: {
-            width: '35ch'
+            width: '20ch'
         }
     },
     sectionDesktop: {
@@ -202,20 +192,20 @@ export default function PrimarySearchAppBar() {
                         </Typography>
                     </Link>
 
-
                     <div className='grow'/>
                     <div className={classes.search}>
+                        <div className='searchIcon'>
+                            <SearchIcon/>
+                        </div>
                         <InputBase
                             placeholder="Try enter: Shoes"
                             classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput
+                            root: classes.inputRoot,
+                            input: classes.inputInput
                         }}
                             inputProps={{
-                                'aria-label': 'search'
+                            'aria-label': 'search'
                         }}/>
-                                    <SearchIcon className='searchIcon' />
-                                
                     </div>
                     
                     <div className={classes.sectionDesktop}>
@@ -225,14 +215,14 @@ export default function PrimarySearchAppBar() {
                         <Button className='navButton' component={Link} to="/shop">
                             Shop
                         </Button>
-                        <Button className='navButton'
+                        <Button className='navButton acc'
                             edge="end"
                             aria-label="account of current user"
                             aria-controls={menuId}
                             aria-haspopup="true"
                             onClick={handleProfileMenuOpen}
                             color="inherit">
-                                Account
+                                My Account
                         </Button>
                     </div>
                     <div className={classes.sectionMobile}>

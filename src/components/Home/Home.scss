@@ -3,7 +3,7 @@ $nav-color: #2E3B55;
 .heroContent {
     background-color: gray;
     //padding: 11% 8%;
-    background-image: url('../images/nike.jpg');
+    background-image: url('../images/back2.png');
     width: 100%;
     margin: auto;
     height: 500px;
@@ -14,17 +14,24 @@ $nav-color: #2E3B55;
         
         .MUIbutton{
             border-radius: 0px;
-            border: 3px solid $nav-color;
+            border: 3px solid purple;
             min-width: 150px;
+            background: rgb(255, 255, 255);
             &:hover{
-                background: whitesmoke;
+                background: rgb(238, 238, 238);
             }
         }
     }
     
     .white {
-        color: #fff;
-        text-shadow: 2px 2px 4px #000000
+        color: #000000;
+        text-shadow: 2px 2px 4px #fff
+    }
+    .price{
+        color: purple;
+    }
+    .txt{
+        margin-right: 19%;
     }
 }
 
@@ -32,14 +39,15 @@ $nav-color: #2E3B55;
     width: 20%;
     float: left;
     height: 500px;
-    margin-left: 15px;
+    margin-left: 75px;
+    
 } 
 .rightText{ 
-    width: 40%;
+    width: 60%;
     float: left;
     height: 300px;
     align-items: left;
-    margin: 40px 30px;
+    margin: 7% 1%;
 
     .white{
         text-align: left;
@@ -91,4 +99,46 @@ $nav-color: #2E3B55;
     width: 100%;
     max-width: 360px;
     background-color: white;
+
+
+    .menuTitle{
+        font-variant-caps: all-petite-caps;
+        font-size: 30px;
+        color: purple;
+        span{
+            font-size: 1.5rem;
+            font: bolder;
+            line-height: 20px;
+        }
+    }
+}
+
+@media (max-width: 750px){
+    .categoriesList{
+        display: none;
+    }
+    .heroContent{
+        height: 380px;
+    }
+    .rightText{
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        
+        .txt{
+            font-size: 15px;
+            margin-right: 0px;
+        }
+        .price{
+            font-size: 25px;
+        }   
+        .title{
+            font-size: 30px;
+        }   
+    }
+    .leftList{
+        margin-right: 0px;
+        margin-left: 0px;
+    }
 }

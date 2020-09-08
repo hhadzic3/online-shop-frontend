@@ -44,20 +44,20 @@ export default function Home() {
                     <div className='rightText'>
                         <Container maxWidth="sm" >
                             <Typography
-                                className='white'
-                                variant="h3"
+                                className='white title'
+                                variant="h4"
                                 align="left"
                                 gutterBottom>
-                                Running shoes
+                                Nike shoes
                             </Typography>
                             <Typography
-                                className='white'
-                                variant="h4"
+                                className='white price'
+                                variant="h5"
                                 align="left"
                                 gutterBottom>
                                 From $ 90
                             </Typography>
-                            <Typography className='white' variant="h5" >
+                            <Typography className='white txt' variant="h6" >
                                 Something short and leading about the collection below—its contents, the
                                 creator, etc. Make it short and sweet, but not too short so folks simply skip
                                 over it entirely.
