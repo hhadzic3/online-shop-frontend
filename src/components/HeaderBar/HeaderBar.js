@@ -21,7 +21,7 @@ export default function DenseAppBar() {
                     <Link className='a' to='/'><InstagramIcon fontSize='small'/></Link>
                     <Link className='a' to='/'><TwitterIcon fontSize='small'/></Link>
                 </div>
-                <div className='links'>
+                <div  className='links'>
                     <Link className='link' to='/login'>
                         <span>Login</span>
                     </Link>

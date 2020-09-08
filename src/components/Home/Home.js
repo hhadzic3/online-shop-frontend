@@ -78,7 +78,7 @@ export default function Home() {
                     {/* End hero unit */}
                     <div className='subtitle'>
                         <h2>Feature Collection</h2>
-                        <Divider/>
+                        <Divider style={{height:4}}/>
                     </div>
 
                     {collections && collections.map((prod, index) => (
@@ -87,7 +87,7 @@ export default function Home() {
 
                     <div className='subtitle'>
                         <h2>Feature Products</h2>
-                        <Divider/>
+                        <Divider style={{height:4}}/>
                     </div>
 
                     {productsFeature && productsFeature.map((prod, index) => (

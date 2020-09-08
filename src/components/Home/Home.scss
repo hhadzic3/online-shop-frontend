@@ -6,7 +6,7 @@ $nav-color: #2E3B55;
     background-image: url('../images/back2.png');
     width: 100%;
     margin: auto;
-    height: 500px;
+    height: 460px;
 
     .heroButtons {
         margin-top: 20px;
@@ -38,9 +38,8 @@ $nav-color: #2E3B55;
 .leftList { 
     width: 20%;
     float: left;
-    height: 500px;
+    height: 460px;
     margin-left: 75px;
-    
 } 
 .rightText{ 
     width: 60%;
@@ -61,6 +60,7 @@ $nav-color: #2E3B55;
     margin-bottom: 18px;
     h2 {
         margin-bottom: 0px;
+        font-weight: normal;
     }
 }
 
@@ -92,14 +92,22 @@ $nav-color: #2E3B55;
         background-color: transparent;
         color: black;
         box-shadow: none;
+        .PrivateTabIndicator-colorSecondary-9 {
+            background-color: purple;
+        }
+        .tabTitle{
+            font-size: 18px;
+            text-transform: none;
+        }
     }
 }
 
 .categoriesList{
     width: 100%;
     max-width: 360px;
-    background-color: white;
-
+    background-color: whitesmoke;
+    border-right: 2px solid rgb(209, 209, 209);
+    border-bottom: 2px solid rgb(209, 209, 209);
 
     .menuTitle{
         font-variant-caps: all-petite-caps;

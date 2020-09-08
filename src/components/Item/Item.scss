@@ -59,16 +59,16 @@ $shadow: #dfdfdf;
 }
 
 .product-details p {
-    font-size: 15px;
+    font-size: 18px;
     line-height: 22px;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     margin-top:2px;
-    color: #999;
+    color: black;
+
 }
 
 .product-bottom-details {
     overflow: hidden;
-    border-top: 1px solid #eee;
     padding-top: 10px;
 }
 
@@ -78,8 +78,8 @@ $shadow: #dfdfdf;
 }
 
 .product-price {
-    font-size: 18px;
-    color: $nav-color;
+    font-size: 14px;
+    color: black;
     font-weight: 600;
 }
 
