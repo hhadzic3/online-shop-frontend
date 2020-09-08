@@ -56,6 +56,10 @@ $color-items: purple;
         .menuButton {
             visibility: visible;
         }
+        #search{
+            min-width: 250px;
+            margin-right: 10px;
+        }
     }
 
 }

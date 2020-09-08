@@ -72,6 +72,7 @@ const useStyles = makeStyles((theme) => ({
     sectionDesktop: {
         marginRight: '2%',
         display: 'none',
+
         [
             theme
                 .breakpoints
@@ -193,16 +194,16 @@ export default function PrimarySearchAppBar() {
                     </Typography>
                 </Link>
         <div className='grow'/>
-            <div className={classes.search}>
+            <div className={classes.search} id='search' >
                 <div className='searchIcon'>
                     <SearchIcon/>
                 </div>
                 <InputBase
                     placeholder="Try enter: Shoes"
                     classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput
-                }}
+                        root: classes.inputRoot,
+                        input: classes.inputInput
+                    }}
                     inputProps={{
                     'aria-label': 'search'
                 }}/>

@@ -20,12 +20,14 @@ export default function SignIn() {
     <Container className='main' component="main" maxWidth="xs">
         <CssBaseline/>
         <div className='paper'>
-            
-            <Typography component="h1" variant="h5">
+          <div className='title'>
+            <Typography  component="h1" variant="h5">
                 LOGIN
             </Typography>
+            </div>
             <form className='form' noValidate>
                 <TextField
+                    className='field'
                     variant="outlined"
                     margin="normal"
                     required
@@ -36,6 +38,7 @@ export default function SignIn() {
                     autoComplete="email"
                     autoFocus/>
                 <TextField
+                    className='field'
                     variant="outlined"
                     margin="normal"
                     required
@@ -52,7 +55,7 @@ export default function SignIn() {
                 <Button type="submit" fullWidth variant="contained" className='submit'>
                     Log In
                 </Button>
-                <Grid container>
+                <Grid className='end' container>
                     <Grid item xs>
                         <Link to="/" variant="body2">
                             Forgot password?

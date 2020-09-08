@@ -16,8 +16,8 @@ export default function SignUp() {
         <Container className='main' component="main" maxWidth="xs">
             <CssBaseline/>
             <div className='paper'>
-                <Typography component="h1" variant="h5">
-                    Sign up
+                <Typography className='title' component="h1" variant="h5">
+                    REGISTER
                 </Typography>
                 <form className='form' noValidate>
                     <Grid container spacing={2}>
@@ -112,7 +112,7 @@ export default function SignUp() {
                         </Grid>
 
                     </Grid>
-                    <div >
+                    <div className="end">
                         <Button className="submit register" type="submit" fullWidth variant="contained" color="primary">
                             REGISTER
                         </Button>
