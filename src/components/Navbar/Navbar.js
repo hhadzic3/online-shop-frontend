@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: fade(theme.palette.common.white, 0.25)
         },
         //marginRight: theme.spacing(17),
-        marginRight: '12%',
+        marginRight: '6%',
         marginLeft: 0,
         marginTop: 0,
         //marginLeft: theme.spacing(4),

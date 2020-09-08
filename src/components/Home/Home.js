@@ -9,7 +9,7 @@ import Divider from '@material-ui/core/Divider';
 import Tab from './Tab';
 import Item from '../Item/Item'
 import './Home.scss'
-
+import List from './List'
 import * as ApiService from '../../ApiService/ApiService'
 
 export default function Home() {
@@ -17,8 +17,6 @@ export default function Home() {
     const [productsFeature,
         setProductsFeature] = useState([]);
     
-
-
     const collections = [
         {id:1,name:'Shoes nike',price:'start from 200'},
         {id:2,name:'Addidas',price:'start from 200'},
@@ -40,30 +38,41 @@ export default function Home() {
             <main>
                 {/* Hero unit */}
                 <div className='heroContent'>
-                    <Container maxWidth="sm">
-                        <Typography
-                            className='white'
-                            component={"span"}
-                            variant="h2"
-                            align="center"
-                            gutterBottom>
-                            Easy shoping
-                        </Typography>
-                        <Typography className='white' variant="h5" align="center">
-                            Something short and leading about the collection below—its contents, the
-                            creator, etc. Make it short and sweet, but not too short so folks simply skip
-                            over it entirely.
-                        </Typography>
-                        <div className='heroButtons'>
-                            <Grid container spacing={2} justify="center">
-                                <Grid item>
-                                    <Button className='MUIbutton' variant="contained">
-                                        Buy now 
-                                    </Button>
+                    <div className='leftList'>
+                        <List ></List>
+                    </div>
+                    <div className='rightText'>
+                        <Container maxWidth="sm" >
+                            <Typography
+                                className='white'
+                                variant="h3"
+                                align="left"
+                                gutterBottom>
+                                Running shoes
+                            </Typography>
+                            <Typography
+                                className='white'
+                                variant="h4"
+                                align="left"
+                                gutterBottom>
+                                From $ 90
+                            </Typography>
+                            <Typography className='white' variant="h5" >
+                                Something short and leading about the collection below—its contents, the
+                                creator, etc. Make it short and sweet, but not too short so folks simply skip
+                                over it entirely.
+                            </Typography>
+                            <div className='heroButtons'>
+                                <Grid container spacing={2} >
+                                    <Grid item>
+                                        <Button className='MUIbutton' variant="contained">
+                                            Buy now 
+                                        </Button>
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                        </div>
-                    </Container>
+                            </div>
+                        </Container>
+                    </div>
                 </div>
                 <Container className='cardGrid' maxWidth="md">
                     {/* End hero unit */}

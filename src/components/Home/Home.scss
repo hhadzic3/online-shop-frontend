@@ -2,14 +2,19 @@ $nav-color: #2E3B55;
 
 .heroContent {
     background-color: gray;
-    padding: 11% 8%;
+    //padding: 11% 8%;
     background-image: url('../images/nike.jpg');
+    width: 100%;
+    margin: auto;
+    height: 500px;
+
     .heroButtons {
         margin-top: 20px;
+        text-align: left;
         
         .MUIbutton{
             border-radius: 0px;
-            border: 6px solid $nav-color;
+            border: 3px solid $nav-color;
             min-width: 150px;
             &:hover{
                 background: whitesmoke;
@@ -22,6 +27,27 @@ $nav-color: #2E3B55;
         text-shadow: 2px 2px 4px #000000
     }
 }
+
+.leftList { 
+    width: 20%;
+    float: left;
+    height: 500px;
+    margin-left: 15px;
+} 
+.rightText{ 
+    width: 40%;
+    float: left;
+    height: 300px;
+    align-items: left;
+    margin: 40px 30px;
+
+    .white{
+        text-align: left;
+    }
+
+} 
+
+
 .subtitle{
     text-align: left;
     margin-bottom: 18px;
@@ -59,4 +85,10 @@ $nav-color: #2E3B55;
         color: black;
         box-shadow: none;
     }
+}
+
+.categoriesList{
+    width: 100%;
+    max-width: 360px;
+    background-color: white;
 }
