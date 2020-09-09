@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
-$nav-color: #2E3B55;
-$shadow: #dfdfdf;
+@import '../../global/constants.scss';
+
 .product-card {
     width: 250px;
     height: auto;
@@ -19,7 +18,7 @@ $shadow: #dfdfdf;
     font-size: 13px;
     font-weight: 700;
     background: $nav-color;
-    color: #fff;
+    color: $white;
     padding: 3px 10px;
 }
 
@@ -49,7 +48,7 @@ $shadow: #dfdfdf;
     display: block;
     margin: 0px;
     text-transform: uppercase;
-    color: #363636;
+    color: $nav-color;
     text-decoration: none;
     transition: 0.3s;
 }
@@ -112,5 +111,3 @@ $shadow: #dfdfdf;
   .product-tumb:hover .middle {
     opacity: 1;
   }
-  
-  
