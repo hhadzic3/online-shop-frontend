@@ -61,11 +61,11 @@ function Shop() {
             </FormControl>
             <div className="flex-container">
                 <div className="filter">
-                    {/*<ListItem button onClick={handleClick}>
-                        <ListItemText className='titleFilter' primary="Product Categories"/> {open
+                    <ListItem className='filterMobile' button onClick={handleClick}>
+                        <ListItemText className='titleFilter' primary="Filter"/> {open
                             ? <ExpandLess/>
                             : <ExpandMore/>}
-                        </ListItem>*/}
+                        </ListItem>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <List component="div" className='border' disablePadding>
                         <ListItemText className='titleFilter' primary="Product Categories"/>

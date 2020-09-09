@@ -3,10 +3,12 @@
 .headerBar{
     height: 24px;
     background: $dark;
+    text-align: right;
 }    
 
 .links{
     display: inline;
+    margin-right: 9%;
     .link{
         margin-left: 1%;
         margin-top: 0px;

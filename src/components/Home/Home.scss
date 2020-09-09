@@ -105,9 +105,9 @@
 .categoriesList{
     width: 100%;
     max-width: 360px;
-    background-color: whitesmoke;
-    border-right: 3px solid rgb(209, 209, 209);
-    border-bottom: 3px solid rgb(209, 209, 209);
+    background-color: $white;
+    border-right: 3px solid lightgray;
+    border-bottom: 3px solid lightgray;
 
     .menuTitle{
         font-variant-caps: all-petite-caps;
@@ -122,6 +122,7 @@
 }
 
 @media (max-width: 750px){
+
     .categoriesList{
         display: none;
     }

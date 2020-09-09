@@ -181,7 +181,6 @@ export default function PrimarySearchAppBar() {
 
     return (
         <>
-        
         <div className='grow'>
             <AppBar position="static" className='appBar'>
                 <Toolbar>
