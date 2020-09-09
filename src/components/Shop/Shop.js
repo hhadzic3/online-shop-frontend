@@ -28,6 +28,12 @@ function Shop() {
         setAge(event.target.value);
     };
 
+    const categ = [
+        {name:'primary'},
+        {name:'color'},
+        {name:'size'}
+    ]
+
     const [open,
         setOpen] = React.useState(true);
 
@@ -42,6 +48,15 @@ function Shop() {
                 setProducts(res);
             })
     }, []); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+
+    function FilterTitle({props}) {
+        if (props === 'primary')
+            return (<ListItemText className='titleFilter' primary="Product Categories"/>)
+        else if (props === 'color')
+            return (<ListItemText className='titleFilter' primary="Filter by color"/>)
+        else return (<ListItemText className='titleFilter' primary="Filter by size"/>)
+    }
+
 
     return (
         <div className='shopPage'>
@@ -67,12 +82,14 @@ function Shop() {
                             : <ExpandMore/>}
                         </ListItem>
                     <Collapse in={open} timeout="auto" unmountOnExit>
-                        <List component="div" className='border' disablePadding>
-                        <ListItemText className='titleFilter' primary="Product Categories"/>
-                            <ListItem button>
-                                <Filter ></Filter>
-                            </ListItem>
-                        </List>
+                        { categ.map( (value) => (
+                            <List component="div" key={value.name} className='border' disablePadding>
+                            <FilterTitle props={value.name} />
+                                <ListItem >
+                                    <Filter props={value.name}></Filter>
+                                </ListItem>
+                            </List>
+                        ))}
                     </Collapse>
 
                 </div>

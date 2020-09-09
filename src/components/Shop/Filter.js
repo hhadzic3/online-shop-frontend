@@ -8,9 +8,11 @@ import Checkbox from '@material-ui/core/Checkbox';
 import * as ApiService from '../../ApiService/ApiService'
 
 
-export default function CheckboxListSecondary() {
+export default function FilterList({props}) {
  
   const [checked, setChecked] = React.useState([1]);
+  
+  const {desc} = props;
 
   const handleToggle = (value) => () => {
     const currentIndex = checked.indexOf(value);
@@ -41,6 +43,7 @@ export default function CheckboxListSecondary() {
       {categories.map((value) => {
         const labelId = `checkbox-list-secondary-label-${value.name}`;
         return (
+          ( value.description === props ? ( 
           <ListItem key={value.name} button>
             
             <ListItemText id={labelId} primary={`${value.name}`} />
@@ -53,6 +56,8 @@ export default function CheckboxListSecondary() {
               />
             </ListItemSecondaryAction>
           </ListItem>
+          ) : null
+          )
         );
       })}
     </List>
