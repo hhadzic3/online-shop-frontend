@@ -21,11 +21,12 @@ function Shop() {
     const [products,
         setProducts] = useState([]);
 
-    const [age,
-        setAge] = React.useState('');
+    const [sort,
+        setSort] = React.useState('');
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setSort(event.target.value);
+        console.log(sort);
     };
 
     const categ = [
@@ -57,6 +58,14 @@ function Shop() {
         else return (<ListItemText className='titleFilter' primary="Filter by size"/>)
     }
 
+    function Products() {
+        return <div className="shop">
+                    {products && products.map((prod) => (
+                        <Item key={prod.id} className='item' product={prod}></Item>
+                    ))}
+                </div>
+    }
+
 
     return (
         <div className='shopPage'>
@@ -65,13 +74,13 @@ function Shop() {
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={age}
+                    value={sort}
                     onChange={handleChange}>
-                    <MenuItem value={10}>Best rating</MenuItem>
-                    <MenuItem value={25}>Sort by Popularity</MenuItem>
-                    <MenuItem value={25}>Sort by Newcomes</MenuItem>
-                    <MenuItem value={15}>Lowest price first</MenuItem>
-                    <MenuItem value={20}>Highest price first</MenuItem>
+                    <MenuItem value={'rating'}>Sort by Best rating</MenuItem>
+                    <MenuItem value={'popularity'}>Sort by Popularity</MenuItem>
+                    <MenuItem value={'newness'}>Sort by Newness</MenuItem>
+                    <MenuItem value={'price_asc'}>Lowest price first</MenuItem>
+                    <MenuItem value={'price_desc'}>Highest price first</MenuItem>
                 </Select>
             </FormControl>
             <div className="flex-container">
@@ -91,13 +100,10 @@ function Shop() {
                             </List>
                         ))}
                     </Collapse>
-
                 </div>
-                <div className="shop">
-                    {products && products.map((prod) => (
-                        <Item key={prod.id} className='item' product={prod}></Item>
-                    ))}
-                </div>
+                
+                <Products/>
+                
             </div>
         </div>
     );

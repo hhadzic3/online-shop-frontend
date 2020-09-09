@@ -11,21 +11,32 @@
         
         .title{
             width: 113%;
-            background: gainsboro;
+            margin-top: 10px;
+            height: 40px;
         }
         .form {
             width: 100%; // Fix IE 11 issue.
             margin-top: 5px;
-            
+            p{
+                margin-bottom: 3px;
+                font: bolder;
+            }
             .field{
-                border: 2px solid black;
+            }
+            .MuiInputBase-input {
+                border: 2px solid lightgray;
             }
         }
         
         .submit{
-            margin: 0px;
+            margin: 2px;
             color: whitesmoke;
             background: purple;
+        }
+        .end{
+            .link{
+                text-decoration: none;
+            }
         }
     }
 }

@@ -26,25 +26,23 @@ export default function SignIn() {
             </Typography>
             </div>
             <form className='form' noValidate>
+                <p>Enter Email</p>
                 <TextField
                     className='field'
                     variant="outlined"
-                    margin="normal"
                     required
                     fullWidth
                     id="email"
-                    label="Email Address"
                     name="email"
                     autoComplete="email"
                     autoFocus/>
+                    <p>Password</p>
                 <TextField
                     className='field'
                     variant="outlined"
-                    margin="normal"
                     required
                     fullWidth
                     name="password"
-                    label="Password"
                     type="password"
                     id="password"
                     autoComplete="current-password"/>
@@ -57,12 +55,12 @@ export default function SignIn() {
                 </Button>
                 <Grid className='end' container>
                     <Grid item xs>
-                        <Link to="/" variant="body2">
+                        <Link className='link' to="/" variant="body2">
                             Forgot password?
                         </Link>
                     </Grid>
                     <Grid item>
-                        <Link to='/signup' variant="body2">
+                        <Link className='link' to='/signup' variant="body2">
                             {"Don't have an account? Sign Up"}
                         </Link>
                     </Grid>
