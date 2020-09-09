@@ -1,6 +1,8 @@
+@import '../../global/constants.scss';
+
 .headerBar{
     height: 24px;
-    background: rgb(65, 65, 65);
+    background: $dark;
 }    
 
 .links{

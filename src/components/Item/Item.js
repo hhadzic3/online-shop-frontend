@@ -2,7 +2,7 @@ import React from "react";
 import img from '../images/nike.jpg'
 import './Item.scss'
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const ConnectedItem = (props) => {

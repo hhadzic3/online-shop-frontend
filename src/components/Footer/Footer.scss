@@ -1,7 +1,6 @@
-$nav-color: #242424;
+@import '../../global/constants.scss';
 
-.containerFooter{
-  
+.containerFooter{  
   background-color: $nav-color;
 }
 

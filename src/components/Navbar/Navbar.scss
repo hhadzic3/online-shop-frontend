@@ -1,6 +1,5 @@
-$nav-color: whitesmoke;
-$breakpoint-mobile: 750px;
-$color-items: purple;
+@import '../../global/constants.scss';
+
 .grow {
     flex-grow: 1;
    
@@ -10,7 +9,7 @@ $color-items: purple;
         width: 100%;*/
         
         margin-top: 0px;
-        background: $nav-color;
+        background: $white;
         padding: 0px 50px;
         a {
             text-decoration: none;

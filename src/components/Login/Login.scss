@@ -1,4 +1,4 @@
-$nav-color: purple;
+@import '../../global/constants.scss';
 
 .main{
     margin-bottom: 70px;
@@ -25,7 +25,7 @@ $nav-color: purple;
         .submit{
             margin: 0px;
             color: whitesmoke;
-            background: $nav-color;
+            background: purple;
         }
     }
 }

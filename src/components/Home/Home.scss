@@ -1,4 +1,4 @@
-$nav-color: #2E3B55;
+@import '../../global/constants.scss';
 
 .heroContent {
     background-color: gray;
@@ -16,16 +16,16 @@ $nav-color: #2E3B55;
             border-radius: 0px;
             border: 3px solid purple;
             min-width: 150px;
-            background: rgb(255, 255, 255);
+            background: $white;
             &:hover{
-                background: rgb(238, 238, 238);
+                background: $light;
             }
         }
     }
     
     .white {
-        color: #000000;
-        text-shadow: 2px 2px 4px #fff
+        color: $dark;
+        text-shadow: 2px 2px 4px $white
     }
     .price{
         color: purple;
