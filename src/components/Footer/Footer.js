@@ -1,7 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-//import Link from '@material-ui/core/Link';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import {Link} from "react-router-dom";
@@ -25,7 +24,7 @@ function Copyright() {
 }
 
 
-export default function Pricing() {
+export default function Footer() {
 
     return (
         <React.Fragment>
