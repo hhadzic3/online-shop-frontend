@@ -47,7 +47,7 @@ function Shop() {
             .then(res => {
                 setProducts(res);
             })
-    }, []); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, [sort]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
     function FilterTitle({props}) {
         if (props === 'primary')
@@ -77,7 +77,6 @@ function Shop() {
                     id="demo-simple-select"
                     value={sort}
                     onChange={handleChange}>
-                    <MenuItem value={'rating'}>Sort by Best rating</MenuItem>
                     <MenuItem value={'popularity'}>Sort by Popularity</MenuItem>
                     <MenuItem value={'newness'}>Sort by Newness</MenuItem>
                     <MenuItem value={'price_asc'}>Lowest price first</MenuItem>
