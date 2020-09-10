@@ -9,26 +9,12 @@ import * as ApiService from '../../ApiService/ApiService'
 
 
 export default function FilterList({props}) {
- 
+  
+  const [categories,setCategories] = React.useState([]);
+
   const [checked, setChecked] = React.useState([1]);
   
   const {desc} = props;
-
-  const handleToggle = (value) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
-
-  const [categories,
-    setCategories] = React.useState([]);
 
     useEffect(() => {
         ApiService
@@ -38,14 +24,29 @@ export default function FilterList({props}) {
             })
     }, []);
 
+  const handleToggle = (value) => () => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+    
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    setChecked(newChecked);
+    console.log(newChecked);
+  };
+
+
   return (
     <List dense className='rootFilter'>
       {categories.map((value) => {
         const labelId = `checkbox-list-secondary-label-${value.name}`;
         return (
           ( value.description === props ? ( 
+
           <ListItem key={value.name} button>
-            
             <ListItemText id={labelId} primary={`${value.name}`} />
             <ListItemSecondaryAction>
               <Checkbox

@@ -67,7 +67,6 @@ function Shop() {
         )
     }
 
-
     return (
         <div className='shopPage'>
             <FormControl className='formControl'>
