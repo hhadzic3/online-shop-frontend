@@ -22,11 +22,10 @@ function Shop() {
         setProducts] = useState([]);
 
     const [sort,
-        setSort] = React.useState('');
+        setSort] = React.useState('price_asc');
 
     const handleChange = (event) => {
-        setSort(event.target.value);
-        console.log(sort);
+        setSort(event.target.value)
     };
 
     const categ = [
@@ -44,7 +43,7 @@ function Shop() {
 
     useEffect(() => {
         ApiService
-            .get("/api/products", "")
+            .get("/api/products", "?sortby=" + sort)
             .then(res => {
                 setProducts(res);
             })
@@ -59,11 +58,13 @@ function Shop() {
     }
 
     function Products() {
-        return <div className="shop">
-                    {products && products.map((prod) => (
-                        <Item key={prod.id} className='item' product={prod}></Item>
-                    ))}
-                </div>
+        return ( 
+        <div className="shop">
+            {products && products.map((prod) => (
+                <Item key={prod.id} className='item' product={prod}></Item>
+            ))}
+        </div>
+        )
     }
 
 
