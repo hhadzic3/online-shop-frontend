@@ -7,7 +7,11 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import './Shop.scss';
-
+import ViewListIcon from '@material-ui/icons/ViewList';
+import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import Filter from './Filter'
 
 import List from '@material-ui/core/List';
@@ -27,6 +31,12 @@ function Shop() {
         setLimit] = React.useState(9);
     const [disabledButton,
         setDisabledButton] = React.useState(false);
+    const [view, setView] = React.useState('list');
+
+    const handleChangeView = (event, nextView) => {
+        setView(nextView);
+    };
+
 
     const handleChange = (event) => {
         setSort(event.target.value)
@@ -69,20 +79,29 @@ function Shop() {
     function Products() {
         return ( 
         <div className="shop">
+            <div className='row'>
+                <FormControl variant="outlined" className='formControl'>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={sort}
+                        onChange={handleChange}>
+                        {/*<MenuItem value={'newness'}>Sort by Newness</MenuItem>*/}
+                        <MenuItem value={'popularity'}>Sort by Popularity</MenuItem>
+                        <MenuItem value={'price_asc'}>Default sorting (Lowest price first)</MenuItem>
+                        <MenuItem value={'price_desc'}>Highest price first</MenuItem>
+                    </Select>
+                </FormControl>
 
-            <FormControl variant="outlined" className='formControl'>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={sort}
-                    onChange={handleChange}>
-                    {/*<MenuItem value={'newness'}>Sort by Newness</MenuItem>*/}
-                    <MenuItem value={'popularity'}>Sort by Popularity</MenuItem>
-                    <MenuItem value={'price_asc'}>Default sorting (Lowest price first)</MenuItem>
-                    <MenuItem value={'price_desc'}>Highest price first</MenuItem>
-                </Select>
-            </FormControl>
-
+                <ToggleButtonGroup className='toggle' value={view} exclusive onChange={handleChangeView}>
+                    <ToggleButton className='btn' value="module" aria-label="module">
+                        <ViewModuleIcon />  Grid
+                    </ToggleButton>
+                    <ToggleButton className='btn' value="list" aria-label="list">
+                        <ViewListIcon /> List
+                    </ToggleButton>
+                </ToggleButtonGroup>
+            </div>
             {products && products.map((prod) => (
                 <Item key={prod.id} className='item' product={prod}></Item>
             ))}
