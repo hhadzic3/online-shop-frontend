@@ -1,0 +1,113 @@
+@import '../../global/constants.scss';
+
+.product-card {
+    width: 250px;
+    height: auto;
+    position: relative;
+    box-shadow: 0 2px 7px $shadow;
+    margin: 20px 10px;
+    background: white;
+    display: inline-block; 
+}
+
+.badge {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    background: $nav-color;
+    color: $white;
+    padding: 3px 10px;
+}
+
+.product-tumb {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    padding: 0px;
+    //background: white;
+}
+
+.product-tumb img {
+    transition: transform .5s;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product-details {
+    padding: 10px;
+    text-align: left;
+}
+
+.product-details h4 a {
+    font-weight: 500;
+    display: block;
+    margin: 0px;
+    text-transform: uppercase;
+    color: $nav-color;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.product-details h4 a:hover {
+    color: $nav-color;
+}
+
+.product-details p {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 2px;
+    margin-top:2px;
+    color: black;
+
+}
+
+.product-bottom-details {
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.product-bottom-details div {
+    float: left;
+    width: 80%;
+}
+
+.product-price {
+    font-size: 14px;
+    color: black;
+    font-weight: 600;
+}
+
+.product-price small {
+    font-size: 80%;
+    font-weight: 400;
+    text-decoration: line-through;
+    display: inline-block;
+    margin-right: 0px;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .product-tumb:hover .ima {
+    opacity: 0.3;
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05); 
+  }
+  
+  .product-tumb:hover .middle {
+    opacity: 1;
+  }

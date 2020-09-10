@@ -1,0 +1,82 @@
+@import '../../global/constants.scss';
+
+.grow {
+    flex-grow: 1;
+   
+    .appBar{
+        /*position: fixed;
+        top: 0;
+        width: 100%;*/
+        margin-top: 0px;
+        background: white;
+        padding: 0px 50px;
+        a {
+            text-decoration: none;
+            color: $color-items;
+            margin-right: 10px;
+        }
+    }
+    
+    .menuButton {
+        visibility: hidden;
+        color: black;
+    }
+    .acc{
+        min-width: 110px;
+    }
+    .searchIcon {
+        padding-left: 10px;
+        height:  100% ;
+        position:  absolute ;
+        pointer-events:  none ;
+        display:  flex ;
+        align-items:  center ;
+        justify-content:  center ;
+        color: black;
+    }
+    .navButton{
+        color: $color-items;
+        border-radius: 0em;
+        font-size: 15px;
+        margin: 0px 10px;
+        padding: 5px;
+        height: 64px;
+    }
+    .navButton:hover{
+        box-shadow: inset 0 -5px 0 0 $color-items;
+    }
+}   
+
+
+@media (max-width: $breakpoint-mobile) {
+
+    .grow {
+        .menuButton {
+            visibility: visible;
+        }
+        #search{
+            min-width: 250px;
+            margin-right: 10px;
+        }
+    }
+
+}
+
+
+
+
+
+
+.list {
+    width: 220px;
+    
+    .menuItem{
+        margin-left: 10px;
+    }
+    .menuList:hover{
+        box-shadow: inset -5px 0 0 0 $nav-color;
+    }
+    .menuTitle{
+        color: $nav-color;
+    }
+}

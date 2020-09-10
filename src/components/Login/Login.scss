@@ -1,0 +1,43 @@
+@import '../../global/constants.scss';
+
+.main{
+    margin-bottom: 70px;
+    border: 2px solid gainsboro;
+    .paper {
+        margin: 0px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .title{
+            width: 113%;
+            margin-top: 10px;
+            height: 40px;
+        }
+        .form {
+            width: 100%; // Fix IE 11 issue.
+            margin-top: 5px;
+            p{
+                margin-bottom: 3px;
+                font: bolder;
+            }
+            .field{
+            }
+            .MuiInputBase-input {
+                border: 2px solid lightgray;
+            }
+        }
+        
+        .submit{
+            margin: 2px;
+            color: whitesmoke;
+            background: purple;
+        }
+        .end{
+            .link{
+                text-decoration: none;
+            }
+        }
+    }
+}
+

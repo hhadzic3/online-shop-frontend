@@ -1,0 +1,42 @@
+@import '../../global/constants.scss';
+
+.main{
+  margin-top: 40px;
+  .paper {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .avatar {
+      margin: 10px;
+    }
+    .form {
+      width: 100%; // Fix IE 11 issue.
+      margin-top: 30px;
+      text-align: left;
+      .field{
+        //border-radius: 0px;
+      }
+    }
+    .submit {
+      margin-top: 20px;
+      background: purple;
+      color: whitesmoke;
+      border-radius: 0px;
+    }
+    .register{
+      color: black;
+      background: white;
+      border: 4px solid purple;
+    }
+    .end{
+      margin-bottom: 30px;
+      .link{
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+  }
+}
