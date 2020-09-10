@@ -2,20 +2,33 @@
 
 .shopPage{
     .formControl {
-        margin: 30px 5px 5px 5px;
+        
+        margin: 0px 50% 0px 3px;
         min-width: 250px;
-        //border: 2px solid gainsboro;
+        
+
+        .MuiSelect-outlined {
+          border-radius: 0px;
+          border: 3px solid lightgray;
+        }
     }
     .shop{
         padding: 0px;
         width: 100%;
+        text-align: left;
+        .more{
+          border-radius: 0px;
+          margin: 30px;
+          background: $light-purple;
+        }
     }
 }
 
 .flex-container {
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
-    
+
     .titleFilter{
       color: purple;
       text-transform: uppercase;

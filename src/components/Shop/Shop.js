@@ -5,6 +5,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
 import './Shop.scss';
 
 import Filter from './Filter'
@@ -20,9 +21,12 @@ function Shop() {
 
     const [products,
         setProducts] = useState([]);
-
     const [sort,
         setSort] = React.useState('price_asc');
+    const [limit,
+        setLimit] = React.useState(9);
+    const [disabledButton,
+        setDisabledButton] = React.useState(false);
 
     const handleChange = (event) => {
         setSort(event.target.value)
@@ -40,14 +44,19 @@ function Shop() {
     const handleClick = () => {
         setOpen(!open);
     };
+    const handleButtonClick = () => {
+        if (limit <= products.length)
+            setLimit(limit*2);
+        else setDisabledButton(true);
+    };
 
     useEffect(() => {
         ApiService
-            .get("/api/products", "?sortby=" + sort)
+            .get("/api/products", `?limit=${limit}&sortby=${sort}`)
             .then(res => {
                 setProducts(res);
             })
-    }, [sort]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, [limit,sort]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
     function FilterTitle({props}) {
         if (props === 'primary')
@@ -60,28 +69,33 @@ function Shop() {
     function Products() {
         return ( 
         <div className="shop">
+
+            <FormControl variant="outlined" className='formControl'>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={sort}
+                    onChange={handleChange}>
+                    {/*<MenuItem value={'newness'}>Sort by Newness</MenuItem>*/}
+                    <MenuItem value={'popularity'}>Sort by Popularity</MenuItem>
+                    <MenuItem value={'price_asc'}>Default sorting (Lowest price first)</MenuItem>
+                    <MenuItem value={'price_desc'}>Highest price first</MenuItem>
+                </Select>
+            </FormControl>
+
             {products && products.map((prod) => (
                 <Item key={prod.id} className='item' product={prod}></Item>
             ))}
+            <Button onClick={handleButtonClick} className='more' disabled={disabledButton} variant="contained" size="large" color="primary" >
+                EXPLORE MORE
+            </Button>
         </div>
         )
     }
 
     return (
         <div className='shopPage'>
-            <FormControl className='formControl'>
-                <InputLabel id="demo-simple-select-label">Default Sorting</InputLabel>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={sort}
-                    onChange={handleChange}>
-                    <MenuItem value={'popularity'}>Sort by Popularity</MenuItem>
-                    <MenuItem value={'newness'}>Sort by Newness</MenuItem>
-                    <MenuItem value={'price_asc'}>Lowest price first</MenuItem>
-                    <MenuItem value={'price_desc'}>Highest price first</MenuItem>
-                </Select>
-            </FormControl>
+            
             <div className="flex-container">
                 <div className="filter">
                     <ListItem className='filterMobile' button onClick={handleClick}>
@@ -102,7 +116,6 @@ function Shop() {
                 </div>
                 
                 <Products/>
-                
             </div>
         </div>
     );
