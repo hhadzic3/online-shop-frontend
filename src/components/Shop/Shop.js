@@ -20,6 +20,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import ListProducts from './List'
+
 
 function Shop() {
 
@@ -31,7 +33,7 @@ function Shop() {
         setLimit] = React.useState(9);
     const [disabledButton,
         setDisabledButton] = React.useState(false);
-    const [view, setView] = React.useState('list');
+    const [view, setView] = React.useState('grid');
 
     const handleChangeView = (event, nextView) => {
         setView(nextView);
@@ -94,7 +96,7 @@ function Shop() {
                 </FormControl>
 
                 <ToggleButtonGroup className='toggle' value={view} exclusive onChange={handleChangeView}>
-                    <ToggleButton className='btn' value="module" aria-label="module">
+                    <ToggleButton className='btn' value="grid" aria-label="grid">
                         <ViewModuleIcon />  Grid
                     </ToggleButton>
                     <ToggleButton className='btn' value="list" aria-label="list">
@@ -102,9 +104,16 @@ function Shop() {
                     </ToggleButton>
                 </ToggleButtonGroup>
             </div>
-            {products && products.map((prod) => (
-                <Item key={prod.id} className='item' product={prod}></Item>
-            ))}
+                {view === 'grid' ? (
+                    products && products.map((prod) => (
+                        <Item key={prod.id} className='item' product={prod}></Item>
+                    ))
+                ) : ( 
+                    products && products.map((prod) => (
+                        <ListProducts key={prod.id} product={prod} ></ListProducts>
+                    ))
+                )
+                }
             <Button onClick={handleButtonClick} className='more' disabled={disabledButton} variant="contained" size="large" color="primary" >
                 EXPLORE MORE
             </Button>
