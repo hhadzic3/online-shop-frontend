@@ -11,7 +11,7 @@ const ConnectedItem = (props) => {
 
     if (!product || product.length === 0) 
         return <h2>No products, sorry</h2>;
-    
+    const linkUrl = `/detail/${product.id}`;
     const imageUrl= 'http://localhost:8080/api/product_images/'+ product.id;
     return (
 
@@ -22,7 +22,7 @@ const ConnectedItem = (props) => {
                 </div>
                 ) : null
             }
-            <Link to='/detail'>
+            <Link to={linkUrl}>
                 <div className="product-tumb">
                     <img
                         className='ima'

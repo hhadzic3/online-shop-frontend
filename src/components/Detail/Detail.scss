@@ -1,11 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Montserrat:300,400,700,800|Open+Sans:300');
-
-
 .card{
     text-align: left;
-    max-width: 720px;
+    max-width: 1020px;
   margin: 5% auto;
-  box-shadow: 0 6px 6px rgba(#000, 0.3);
   transition: 200ms;
   background: #fff;
   
@@ -30,7 +26,7 @@
           background: white;
           font-size: 20px;
           transition: 200ms;
-          
+          margin-bottom: 50px;
           &:hover{
             background: whitesmoke;
           }
@@ -39,31 +35,19 @@
 
     .featured_text{
       h1{
-        margin: 0;
+        margin: 20px 0px;
         padding: 0;
-        font-weight: 800;
-        font-family: "Montserrat", sans-serif;
-        font-size: 64px;
+        font-size: 44px;
         line-height: 50px;
         color: #181e28;
       }
       
       p{
-        margin: 0;
-        padding: 0;
-        
-        &.sub{
-          font-family: "Montserrat", sans-serif;
-          font-size: 26px;
-          text-transform: uppercase;
-          color: #686e77;
-          font-weight: 300;
-          margin-bottom: 5px;
-        }
-        
+        margin: 10px 0px;
+        padding: 10px;
         &.price{
           font-family: "Fjalla One", sans-serif;
-          color: #252525;
+          color: purple;
           font-size: 26px;
         }
       }
@@ -81,10 +65,12 @@
     }
     
     .description{
-      margin-bottom: 25px;
+      margin-bottom: 15px;
       
       p{
-        margin: 0;
+        border-top: 2px solid lightgray;
+        margin: 5px 0px;
+        padding-top: 10px;
         font-family: "Open Sans", sans-serif;
         font-weight: 300;
         line-height: 27px;

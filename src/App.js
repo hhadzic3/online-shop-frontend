@@ -26,8 +26,8 @@ function App() {
         <PrimarySearchAppBar/>
       
         <Switch>
-          <Route path="/detail">
-            <Detail />
+          <Route path="/detail/:id" component={Detail}>
+            
           </Route>
           <Route path="/privacy">
             <Privacy />
