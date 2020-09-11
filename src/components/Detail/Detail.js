@@ -43,7 +43,7 @@ const images = [
       <div className="card__body">
         <div className="half">
           <div className="image">
-            <ImageGallery showNav={false} showFullscreenButton={false} showPlayButton={false} items={images} />;
+            <ImageGallery showNav={false} showFullscreenButton={false} showPlayButton={false} items={images} />
           </div>
         </div>
         <div className="half">
