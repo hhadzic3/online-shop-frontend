@@ -19,24 +19,22 @@ export default function Detail(props) {
             })
     }, []); 
  
-const images = [
-  {
-    original: `http://localhost:8080/api/product_images/${productId}`,
-    thumbnail: `http://localhost:8080/api/product_images/${productId}`
-  },
-  {
-    original: `http://localhost:8080/api/product_images/${productId}`,
-    thumbnail: `http://localhost:8080/api/product_images/${productId}`,
-  },
-  {
-    original: `http://localhost:8080/api/product_images/${productId}`,
-    thumbnail: `http://localhost:8080/api/product_images/${productId}`,
-  }
-];
-
+    const images = [
+      {
+        original: `http://localhost:8080/api/product_images/${productId}`,
+        thumbnail: `http://localhost:8080/api/product_images/${productId}`
+      },
+      {
+        original: `http://localhost:8080/api/product_images/${productId}`,
+        thumbnail: `http://localhost:8080/api/product_images/${productId}`,
+      },
+      {
+        original: `http://localhost:8080/api/product_images/${productId}`,
+        thumbnail: `http://localhost:8080/api/product_images/${productId}`,
+      }
+    ];
 
     const imageUrl= `http://localhost:8080/api/product_images/${productId}`;
-    //<img src={imageUrl} alt=""/>
     
     return (       
     <div className="card">
@@ -55,7 +53,7 @@ const images = [
             <div className="action">
                 <button type="button">Buy now</button>
             </div>
-            <p className="sub">Description</p>
+            <p className="sub">Details</p>
           <div className="description">
             <p>{product.description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem nam pariatur voluptate perferendis, asperiores aspernatur! Porro similique consequatur, nobis soluta minima, quasi laboriosam hic cupiditate perferendis esse numquam magni.</p>
           </div>
