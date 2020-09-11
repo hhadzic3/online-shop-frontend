@@ -1,3 +1,4 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
 .card{
     text-align: left;
     max-width: 1020px;
@@ -36,6 +37,7 @@
     .featured_text{
       h1{
         margin: 20px 0px;
+        margin-top: 60px;
         padding: 0;
         font-size: 44px;
         line-height: 50px;
@@ -54,7 +56,7 @@
     }
     
     .image{
-      padding-top: 15px;
+      padding-top: 0px;
       width: 100%;
       
       img{

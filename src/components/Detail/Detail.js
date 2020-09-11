@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Detail.scss'
-import axios from 'axios';
+import ImageGallery from 'react-image-gallery';
 
 import * as ApiService from '../../ApiService/ApiService'
 
@@ -18,15 +18,32 @@ export default function Detail(props) {
                 setProduct(res);
             })
     }, []); 
-  
+ 
+const images = [
+  {
+    original: `http://localhost:8080/api/product_images/${productId}`,
+    thumbnail: `http://localhost:8080/api/product_images/${productId}`
+  },
+  {
+    original: `http://localhost:8080/api/product_images/${productId}`,
+    thumbnail: `http://localhost:8080/api/product_images/${productId}`,
+  },
+  {
+    original: `http://localhost:8080/api/product_images/${productId}`,
+    thumbnail: `http://localhost:8080/api/product_images/${productId}`,
+  }
+];
+
+
     const imageUrl= `http://localhost:8080/api/product_images/${productId}`;
+    //<img src={imageUrl} alt=""/>
     
     return (       
     <div className="card">
       <div className="card__body">
         <div className="half">
           <div className="image">
-            <img src={imageUrl} alt=""/>
+            <ImageGallery showNav={false} showFullscreenButton={false} showPlayButton={false} items={images} />;
           </div>
         </div>
         <div className="half">
