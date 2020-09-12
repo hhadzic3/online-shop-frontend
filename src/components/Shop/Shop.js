@@ -34,8 +34,11 @@ function Shop() {
         setLimit] = React.useState(9);
     const [disabledButton,
         setDisabledButton] = React.useState(false);
-    const [view, setView] = React.useState('grid');
-
+    const [view, 
+            setView] = React.useState('grid');
+    const [open,
+            setOpen] = React.useState(true);
+        
     const handleChangeView = (event, nextView) => {
         setView(nextView);
     };
@@ -51,8 +54,6 @@ function Shop() {
         {name:'size'}
     ]
 
-    const [open,
-        setOpen] = React.useState(true);
 
     const handleClick = () => {
         setOpen(!open);
@@ -69,7 +70,17 @@ function Shop() {
             .then(res => {
                 setProducts(res);
             })
-    }, [limit,sort]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+
+        function handleResize() {
+            if ( window.innerWidth <= 850 && view !== 'grid')
+                setView('grid');    
+            if ( window.innerWidth > 700 && open !== true)
+                setOpen(true);    
+                
+        }
+            
+        window.addEventListener('resize', handleResize)
+    }, [limit,sort,view,open]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
     function FilterTitle({props}) {
         if (props === 'primary')
