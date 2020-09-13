@@ -4,6 +4,7 @@
 
     .row{
       width: 100%;
+      text-align: left;
       .formControl {
           margin: 5px 0px 0px 30px;
           .MuiSelect-outlined {
@@ -14,8 +15,9 @@
           }
       }
       .toggle{
+        float: right;
         margin-top: 6px;
-        margin-left: 18%;
+        //margin-left: 18%;
         .btn{
           border: 0px;
           border-radius: 0px;
@@ -67,6 +69,11 @@
     .border{
       border: 2px solid gainsboro;
       margin-bottom: 10px;
+      
+      .MuiList-padding {
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
     }
     .shop {
       width: 69%;
@@ -91,6 +98,11 @@
 
 
 @media (max-width: $breakpoint-mobile) {
+  .shopPage{
+    .row{
+      text-align: center;
+    }
+  }
   .flex-container {
     display: flex;
     text-align: center;

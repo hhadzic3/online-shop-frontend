@@ -9,7 +9,6 @@ import Button from '@material-ui/core/Button';
 import './Shop.scss';
 import ViewListIcon from '@material-ui/icons/ViewList';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
-import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import Filter from './Filter'
@@ -47,13 +46,6 @@ function Shop() {
     const handleChange = (event) => {
         setSort(event.target.value)
     };
-
-    const categ = [
-        {name:'primary'},
-        {name:'color'},
-        {name:'size'}
-    ]
-
 
     const handleClick = () => {
         setOpen(!open);
@@ -94,6 +86,7 @@ function Shop() {
         return ( 
         <div className="shop">
             <div className='row'>
+                
                 <FormControl variant="outlined" className='formControl'>
                     <Select
                         labelId="demo-simple-select-label"
@@ -144,14 +137,14 @@ function Shop() {
                             : <ExpandMore/>}
                         </ListItem>
                     <Collapse in={open} timeout="auto" unmountOnExit>
-                        { categ.map( (value) => (
-                            <List component="div" key={value.name} className='border' disablePadding>
-                            <FilterTitle props={value.name} />
+                        
+                            <List component="div" key={1} className='border' disablePadding>
+                            <FilterTitle props={'primary'} />
                                 <ListItem >
-                                    <Filter props={value.name}></Filter>
+                                    <Filter props={'primary'}></Filter>
                                 </ListItem>
                             </List>
-                        ))}
+                        
                     </Collapse>
                 </div>
                 
