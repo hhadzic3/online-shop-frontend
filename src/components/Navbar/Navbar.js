@@ -167,26 +167,18 @@ export default function PrimarySearchAppBar() {
                 Shop
             </Button>
             <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit">
-                    <AccountCircle/>
-                </IconButton>
-                <p>Profile</p>
+                <p>My Account</p>
             </MenuItem>
         </Menu>
     );
 
     return (
         <>
+        <HeaderBar/>
         <div className='grow'>
             <AppBar position="static" className='appBar'>
                 <Toolbar>
-                    
                 <MenuCategories/>
-
                 <Link to='/'>
                     <Typography className={classes.title} variant="h6" noWrap>
                         SHOPIFY

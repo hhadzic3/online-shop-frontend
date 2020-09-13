@@ -9,10 +9,16 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import './Signup.scss'
+import Bar from '../BottomBar/BottomBar';
 
 export default function SignUp() {
-
+    const bar = {
+        title: 'REGISTER',
+        path: ' '
+    }
     return (
+        <>
+        <Bar props={bar} />
         <Container className='main' component="main" maxWidth="xs">
             <CssBaseline/>
             <div className='paper'>
@@ -121,5 +127,6 @@ export default function SignUp() {
             </div>
 
         </Container>
+        </>
     );
 }

@@ -21,7 +21,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
 import ListProducts from './List'
-
+import Bar from '../BottomBar/BottomBar' 
 
 function Shop() {
 
@@ -88,9 +88,11 @@ function Shop() {
             return (<ListItemText className='titleFilter' primary="Filter by color"/>)
         else return (<ListItemText className='titleFilter' primary="Filter by size"/>)
     }
-
+    
     function Products() {
         return ( 
+            <>
+            
         <div className="shop">
             <div className='row'>
                 
@@ -130,12 +132,18 @@ function Shop() {
                 EXPLORE MORE
             </Button>
         </div>
+        </>
         )
+    }
+
+    const bar = {
+        title: 'SHOP',
+        path: 'SHOP/ All categories'
     }
 
     return (
         <div className='shopPage'>
-            
+            <Bar props={bar}></Bar>
             <div className="flex-container">
                 <div className="filter">
                     <ListItem className='filterMobile' button onClick={handleClick}>

@@ -3,6 +3,7 @@ import './Detail.scss'
 import ImageGallery from 'react-image-gallery';
 
 import * as ApiService from '../../ApiService/ApiService'
+import Bar from '../BottomBar/BottomBar';
 
 export default function Detail(props) {
 
@@ -35,8 +36,13 @@ export default function Detail(props) {
     ];
 
     const imageUrl= `http://localhost:8080/api/product_images/${productId}`;
-    
+    const bar = {
+      title: 'SINGLE PRODUCT',
+      path: 'SHOP/ Single product'
+  }
     return (       
+      <>
+      <Bar props={bar}/>
     <div className="card">
       <div className="card__body">
         <div className="half">
@@ -61,6 +67,7 @@ export default function Detail(props) {
       </div>
       
     </div>
+    </>
         )
     
 }

@@ -12,11 +12,16 @@ import Typography from '@material-ui/core/Typography';
 
 import Container from '@material-ui/core/Container';
 import './Login.scss'
+import Bar from '../BottomBar/BottomBar';
 
 export default function SignIn() {
-
+    const bar = {
+        title: 'LOGIN',
+        path: ' '
+    }
     return ( 
     <> 
+    <Bar props={bar} />
     <Container className='main' component="main" maxWidth="xs">
         <CssBaseline/>
         <div className='paper'>
