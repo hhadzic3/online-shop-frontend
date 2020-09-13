@@ -28,7 +28,11 @@ function Shop() {
     const [products,
         setProducts] = useState([]);
     const [sort,
-        setSort] = React.useState('price_asc');
+        setSort] = React.useState('popularity');
+    const [categ,setCateg] = React.useState({
+        prim:'none',
+        sub:'none'});
+    
     const [limit,
         setLimit] = React.useState(9);
     const [disabledButton,
@@ -42,6 +46,9 @@ function Shop() {
         setView(nextView);
     };
 
+    function handleChangeCategory(newValue) {
+        setCateg(newValue);
+    }
 
     const handleChange = (event) => {
         setSort(event.target.value)
@@ -58,7 +65,7 @@ function Shop() {
 
     useEffect(() => {
         ApiService
-            .get("/api/products", `?limit=${limit}&sortby=${sort}`)
+            .get("/api/products", `?limit=${limit}&sortby=${sort}&category=${categ.prim}&sub_category=${categ.sub}`)
             .then(res => {
                 setProducts(res);
             })
@@ -72,7 +79,7 @@ function Shop() {
         }
             
         window.addEventListener('resize', handleResize)
-    }, [limit,sort,view,open]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, [limit,sort,view,open,categ.sub]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
     function FilterTitle({props}) {
         if (props === 'primary')
@@ -93,9 +100,9 @@ function Shop() {
                         id="demo-simple-select"
                         value={sort}
                         onChange={handleChange}>
-                        {/*<MenuItem value={'newness'}>Sort by Newness</MenuItem>*/}
+                        
                         <MenuItem value={'popularity'}>Sort by Popularity</MenuItem>
-                        <MenuItem value={'price_asc'}>Default sorting (Lowest price first)</MenuItem>
+                        <MenuItem value={'price_asc'}>Lowest price first</MenuItem>
                         <MenuItem value={'price_desc'}>Highest price first</MenuItem>
                     </Select>
                 </FormControl>
@@ -141,7 +148,7 @@ function Shop() {
                             <List component="div" key={1} className='border' disablePadding>
                             <FilterTitle props={'primary'} />
                                 <ListItem >
-                                    <Filter props={'primary'}></Filter>
+                                    <Filter handleChangeCategory={handleChangeCategory} ></Filter>
                                 </ListItem>
                             </List>
                         

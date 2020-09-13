@@ -14,11 +14,13 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
-export default function FilterList({props}) {
+export default function FilterList({handleChangeCategory}) {
   
   const [categories,setCategories] = React.useState([]);
+  const [primary,setPrimary] = React.useState('none');
+  const [subCategory,setSubCategory] = React.useState('none');
   
-  const {desc} = props;
+ 
 
     useEffect(() => {
         ApiService
@@ -28,6 +30,7 @@ export default function FilterList({props}) {
             })
     }, []);
 
+   
   
 
   return (
@@ -35,22 +38,29 @@ export default function FilterList({props}) {
       {categories.map((value) => {
         const op = `${value.name}`;
         return (
-          ( value.description === props ? ( 
+          ( value.description === 'primary' ? ( 
             
             <Accordion  key={value.name}>
               <AccordionSummary className='primary'
                 expandIcon={<AddIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
+                onClick={() => setPrimary(value.name)}
               >
                 <Typography >{value.name}</Typography>
               </AccordionSummary>
 
-                {categories.map((value) => (
-                  <List  key={value.id} className='' >
-                      { value.description.includes(op) ? ( 
-                            <ListItem className='' key={value.name} button>
-                              <ListItemText className='' primary={`${value.name}`}/> 
+                {categories.map((val) => (
+                  <List key={val.id} onClick={() => {
+                            let categ = {
+                              prim: value.name,
+                              sub: val.name
+                            }
+                            handleChangeCategory(categ);
+                            }}>
+                      { val.description.includes(op) ? ( 
+                            <ListItem className='' key={val.name}  button  >
+                              <ListItemText className=''  primary={`${val.name}`}/> 
                             </ListItem>
                         ) : null
                       }
