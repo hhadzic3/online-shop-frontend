@@ -19,7 +19,7 @@ export default function Bar({props}) {
             <div className='grow'/>
 
             <div className='path'>
-                <Typography className='title' variant="h6" noWrap>
+                <Typography className='' variant="h6" noWrap>
                     {props.path}
                 </Typography>
             </div>

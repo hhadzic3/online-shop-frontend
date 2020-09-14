@@ -155,7 +155,7 @@ function Shop() {
                         
                             <List component="div" key={1} className='border' disablePadding>
                             <FilterTitle props={'primary'} />
-                                <ListItem >
+                                <ListItem className='ul'>
                                     <Filter handleChangeCategory={handleChangeCategory} ></Filter>
                                 </ListItem>
                             </List>
