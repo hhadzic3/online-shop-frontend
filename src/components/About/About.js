@@ -3,10 +3,16 @@ import Grid from '@material-ui/core/Grid';
 import {Typography} from '@material-ui/core';
 
 import './About.scss'
-
+import Bar from '../BottomBar/BottomBar'
 function About() {
 
+    const bar = {
+        title: 'ABOUT',
+        path: ''
+    }
     return (
+        <>
+        <Bar props={bar}></Bar>
         <Grid container component="main" >
             <div className='textAbout'>
                 <h2>About us</h2>
@@ -29,6 +35,7 @@ function About() {
             
             </div>
         </Grid>
+        </>
     );
 }
 

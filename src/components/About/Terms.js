@@ -4,9 +4,15 @@ import './About.scss'
 
 import {Typography} from '@material-ui/core';
 
+import Bar from '../BottomBar/BottomBar'
 function Terms() {
-
+    const bar = {
+      title: 'ABOUT',
+      path: ''
+  }
   return (
+    <>
+    <Bar props={bar}></Bar>
     <Grid container component="main" >
     <div className='textAbout'>
         <h2>Terms of use</h2>
@@ -29,6 +35,7 @@ function Terms() {
     
       </div>
   </Grid>
+  </>
   );
 }
 

@@ -18,7 +18,8 @@
             min-width: 150px;
             background: $white;
             &:hover{
-                background: $light;
+                background: $light-purple;
+                color: white;
             }
         }
     }
@@ -31,7 +32,7 @@
         color: purple;
     }
     .txt{
-        margin-right: 19%;
+        margin-right: 23%;
     }
 }
 
