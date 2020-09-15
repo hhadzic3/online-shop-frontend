@@ -122,6 +122,24 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
+    /*const logOut = (e) => {
+        e.preventDefault()
+        localStorage.removeItem('usertoken')
+        this.props.history.push(`/`)
+    }*/
+    const loginRegLink = (
+        <div>
+            <MenuItem onClick={handleMenuClose} component={Link} to="/login">Login</MenuItem>
+            <MenuItem onClick={handleMenuClose} component={Link} to="/register">Register</MenuItem>
+        </div>
+    )
+    //<MenuItem onClick={handleMenuClose} component={Link} href="" onClick={this.logOut.bind(this)}>Logout</MenuItem>
+    const userLink = (
+        <div>
+            <MenuItem onClick={handleMenuClose} component={Link} to="/profile">My account</MenuItem>
+        </div>
+    )
+
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -138,9 +156,8 @@ export default function PrimarySearchAppBar() {
         }}
             open={isMenuOpen}
             onClose={handleMenuClose}>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-            <MenuItem onClick={handleMenuClose} component={Link} to="/login">Log in</MenuItem>
-            <MenuItem onClick={handleMenuClose} component={Link} to="/signup">Sign up</MenuItem>
+            {localStorage.usertoken ? userLink : loginRegLink}
+            
         </Menu>
     );
 
@@ -235,3 +252,5 @@ export default function PrimarySearchAppBar() {
         </>
     );
 }
+
+//export default withRouter(Landing)

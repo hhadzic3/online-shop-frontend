@@ -65,7 +65,7 @@ export default function SignIn() {
                         </Link>
                     </Grid>
                     <Grid item>
-                        <Link className='link' to='/signup' variant="body2">
+                        <Link className='link' to='/register' variant="body2">
                             {"Don't have an account? Sign Up"}
                         </Link>
                     </Grid>

@@ -8,9 +8,9 @@ import Privacy from './components/About/Privacy';
 import Tearms from './components/About/Terms';
 import Shop from './components/Shop/Shop';
 import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
+import Register from './components/Signup/Signup';
 import Detail from './components/Detail/Detail';
-import HeaderBar from './components/HeaderBar/HeaderBar';
+import Profile from './components/Profile/Profile';
 import {
   BrowserRouter as Router,
   Switch,
@@ -40,8 +40,11 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/signup">
-            <Signup />
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/profile">
+            <Profile/>
           </Route>
           <Route path="/shop">
             <Shop />
