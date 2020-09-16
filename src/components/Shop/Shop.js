@@ -26,10 +26,8 @@ import Bar from '../BottomBar/BottomBar'
 
 function Shop() {
 
-    const [products,
-        setProducts] = useState([]);
-    const [sort,
-        setSort] = React.useState('popularity');
+    const [products,setProducts] = useState([]);
+    const [sort,setSort] = React.useState('label_desc');
     const [categ,setCateg] = React.useState({
         prim:'none',
         sub:'none'});
@@ -71,7 +69,7 @@ function Shop() {
 
     useEffect(() => {
         ApiService
-            .get("/api/products", `?limit=${limit}&sortby=${sort}&category=${categ.prim}&sub_category=${categ.sub}&price=${priceLimit}`)
+            .get("/api/products", `?limit=${limit}&sort=${sort.split('_')[0]}&order=${sort.split('_')[1]}&category=${categ.prim}&sub_category=${categ.sub}&price=${priceLimit}`)
             .then(res => {
                 setProducts(res);
             })
@@ -81,7 +79,6 @@ function Shop() {
                 setView('grid');    
             if ( window.innerWidth > 700 && open !== true)
                 setOpen(true);    
-                
         }
             
         window.addEventListener('resize', handleResize)
@@ -94,7 +91,7 @@ function Shop() {
             return (<ListItemText className='titleFilter' primary="Filter by price"/>)
         else return (<ListItemText className='titleFilter' primary="Filter by size"/>)
     }
-    
+       
     function Products() {
         return ( 
             <>
@@ -107,8 +104,7 @@ function Shop() {
                         id="demo-simple-select"
                         value={sort}
                         onChange={handleChange}>
-                        
-                        <MenuItem value={'popularity'}>Sort by Popularity</MenuItem>
+                        <MenuItem value={'label_desc'}>Sort by Popularity</MenuItem>
                         <MenuItem value={'price_asc'}>Lowest price first</MenuItem>
                         <MenuItem value={'price_desc'}>Highest price first</MenuItem>
                     </Select>
