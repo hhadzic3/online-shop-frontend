@@ -29,6 +29,9 @@ export default function Home() {
             .then(res => {
                 setProductsFeature(res);
             })
+            .catch(err => {
+                console.log(err);
+            })
     }, []); // will only run once (like componentDidMount in classes)
 
     return (
