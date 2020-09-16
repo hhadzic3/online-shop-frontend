@@ -2,15 +2,10 @@ import React , {useEffect} from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
 import * as ApiService from '../../ApiService/ApiService'
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
@@ -20,7 +15,6 @@ export default function FilterList({handleChangeCategory}) {
   const [primary,setPrimary] = React.useState('none');
   const [subCategory,setSubCategory] = React.useState('none');
   
- 
 
     useEffect(() => {
         ApiService
@@ -29,9 +23,6 @@ export default function FilterList({handleChangeCategory}) {
                 setCategories(res);
             })
     }, []);
-
-   
-  
 
   return (
     <List dense className='rootFilter'>

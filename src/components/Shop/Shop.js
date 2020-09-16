@@ -12,6 +12,7 @@ import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import Filter from './Filter'
+import FilterPrice from './FilterPrice'
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -41,6 +42,8 @@ function Shop() {
             setView] = React.useState('grid');
     const [open,
             setOpen] = React.useState(true);
+    const [priceLimit,
+        setPriceLimit] = React.useState('none');
         
     const handleChangeView = (event, nextView) => {
         setView(nextView);
@@ -48,6 +51,9 @@ function Shop() {
 
     function handleChangeCategory(newValue) {
         setCateg(newValue);
+    }
+    function handleChangePriceLimit(newV){
+        setPriceLimit(newV);
     }
 
     const handleChange = (event) => {
@@ -65,7 +71,7 @@ function Shop() {
 
     useEffect(() => {
         ApiService
-            .get("/api/products", `?limit=${limit}&sortby=${sort}&category=${categ.prim}&sub_category=${categ.sub}`)
+            .get("/api/products", `?limit=${limit}&sortby=${sort}&category=${categ.prim}&sub_category=${categ.sub}&price=${priceLimit}`)
             .then(res => {
                 setProducts(res);
             })
@@ -79,20 +85,19 @@ function Shop() {
         }
             
         window.addEventListener('resize', handleResize)
-    }, [limit,sort,view,open,categ.sub]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, [limit,sort,view,open,categ.sub,priceLimit]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
     function FilterTitle({props}) {
         if (props === 'primary')
             return (<ListItemText className='titleFilter' primary="Product Categories"/>)
-        else if (props === 'color')
-            return (<ListItemText className='titleFilter' primary="Filter by color"/>)
+        else if (props === 'price')
+            return (<ListItemText className='titleFilter' primary="Filter by price"/>)
         else return (<ListItemText className='titleFilter' primary="Filter by size"/>)
     }
     
     function Products() {
         return ( 
             <>
-            
         <div className="shop">
             <div className='row'>
                 
@@ -161,6 +166,13 @@ function Shop() {
                                     <Filter handleChangeCategory={handleChangeCategory} ></Filter>
                                 </ListItem>
                             </List>
+                            <List component="div" key={2} className='border' disablePadding>
+                            <FilterTitle props={'price'} />
+                                <ListItem className='ul'>
+                                    <FilterPrice handleChangePriceLimit={handleChangePriceLimit}> </FilterPrice>
+                                </ListItem>
+                            </List>
+
                     </Collapse>
                 </div>
                 <Products/>
