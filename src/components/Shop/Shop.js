@@ -128,9 +128,11 @@ function Shop() {
                     ))
                 )
                 }
-            <Button onClick={handleButtonClick} className='more' disabled={disabledButton} variant="contained" size="large" color="primary" >
-                EXPLORE MORE
-            </Button>
+            <div className='moreDiv'>
+                <Button onClick={handleButtonClick} className='more' disabled={disabledButton} variant="contained" size="large" color="primary" >
+                    EXPLORE MORE
+                </Button>
+            </div>
         </div>
         </>
         )
@@ -159,10 +161,8 @@ function Shop() {
                                     <Filter handleChangeCategory={handleChangeCategory} ></Filter>
                                 </ListItem>
                             </List>
-                        
                     </Collapse>
                 </div>
-                
                 <Products/>
             </div>
         </div>

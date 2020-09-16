@@ -42,10 +42,15 @@
     width: 100%;
     text-align: left;
 
-    .more {
-      border-radius: 0px;
-      margin: 30px;
-      background: $light-purple;
+    .moreDiv{
+      clear: both;
+      vertical-align: bottom;
+      width: 100%;
+      .more {
+        border-radius: 0px;
+        margin: 30px;
+        background: $light-purple;
+      }
     }
   }
 }
