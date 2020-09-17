@@ -1,23 +1,17 @@
 import React from 'react'
 import 'components/Shop/List.scss'
 
-const List = (props) => {
-    
-    const {product} = props;
-
-    const imageUrl= 'http://localhost:8080/api/product_images/'+ product.id;
+const List = ({product}) => {
 
     return (
         <div className="listItem" key={product.id}>
             <div className="container">
                 <div className="images">
-                    <img alt='ProductImage' src={imageUrl}/>
+                    <img alt='ProductImage' src={`${process.env.REACT_APP_IMAGE}${product.id}`}/>
                 </div>  
                 <div className="product">
                     <h1>{product.name}</h1>
-                        <p className="desc">{product.description}The Nike Epic React Flyknit foam cushioning is responsive yet
-                        light-weight, durable yet soft. This creates a sensation that not only enhances
-                        the feeling of moving forward, but makes running feel fun, too.</p>
+                        <p className="desc">{product.description}</p>
                         <h2>$ {product.price}</h2>
                     <div className="buttons">
                         <button className="add">Buy now</button>

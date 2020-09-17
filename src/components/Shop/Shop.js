@@ -85,11 +85,7 @@ function Shop() {
     }, [limit,sort,view,open,categ.sub,priceLimit]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
     function FilterTitle({props}) {
-        if (props === 'primary')
-            return (<ListItemText className='titleFilter' primary="Product Categories"/>)
-        else if (props === 'price')
-            return (<ListItemText className='titleFilter' primary="Filter by price"/>)
-        else return (<ListItemText className='titleFilter' primary="Filter by size"/>)
+        return <ListItemText className='titleFilter' primary={props=='primary' ? "Product Categories" : "Filter by price"}/>
     }
        
     function Products() {

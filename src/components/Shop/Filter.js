@@ -41,17 +41,17 @@ export default function FilterList({handleChangeCategory}) {
                 <Typography >{value.name}</Typography>
               </AccordionSummary>
 
-                {categories.map((val) => (
-                  <List key={val.id} onClick={() => {
-                            let categ = {
-                              prim: value.name,
-                              sub: val.name
+                {categories.map((category) => (
+                  <List key={category.id} onClick={() => {
+                            let category = {
+                              primary: value.name,
+                              subCategory: category.name
                             }
-                            handleChangeCategory(categ);
+                            handleChangeCategory(category);
                             }}>
-                      { val.description.includes(op) ? ( 
-                            <ListItem className='' key={val.name}  button  >
-                              <ListItemText className=''  primary={`${val.name}`}/> 
+                      { category.description.includes(op) ? ( 
+                            <ListItem key={category.name}  button  >
+                              <ListItemText primary={`${category.name}`}/> 
                             </ListItem>
                         ) : null
                       }

@@ -61,9 +61,7 @@ export default function Home() {
                                 From $ 90
                             </Typography>
                             <Typography className='white txt' variant="h6" >
-                                Something short and leading about the collection below—its contents, the
-                                creator, etc. Make it short and sweet, but not too short so folks simply skip
-                                over it entirely.
+                            The Nike Epic React Flyknit foam cushioning is responsive yet light-weight, durable yet soft. This creates a sensation that not only enhances the feeling of moving forward, but makes running feel fun, too.
                             </Typography>
                             <div className='heroButtons'>
                                 <Grid container spacing={2} >
