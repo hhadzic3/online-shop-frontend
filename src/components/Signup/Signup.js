@@ -16,7 +16,7 @@ export default function SignUp() {
     }
     return (
         <>
-        <Bar props={bar} />
+        <Bar title={bar.title} path={bar.path} />
         <Container className='main' component="main" maxWidth="xs">
             <CssBaseline/>
             <div className='paper'>

@@ -12,7 +12,7 @@ function Terms() {
   }
   return (
     <>
-    <Bar props={bar}></Bar>
+    <Bar title={bar.title} path={bar.path}></Bar>
     <Grid container component="main" >
     <div className='textAbout'>
         <h2>Terms of use</h2>

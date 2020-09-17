@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 
 import './Bar.scss'
 
-export default function Bar({props}) {
+export default function Bar(props) {
   return (
         <>
           <div className='grow'>

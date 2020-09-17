@@ -146,7 +146,7 @@ function Shop() {
 
     return (
         <div className='shopPage'>
-            <Bar props={bar}></Bar>
+            <Bar title={bar.title} path={bar.path}></Bar>
             <div className="flex-container">
                 <div className="filter">
                     <ListItem className='filterMobile' button onClick={handleClick}>

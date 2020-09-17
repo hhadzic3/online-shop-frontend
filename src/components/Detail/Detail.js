@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Detail.scss'
 import ImageGallery from 'react-image-gallery';
-
 import * as ApiService from 'ApiService/ApiService'
 import Bar from 'components/BottomBar/BottomBar';
 
@@ -20,29 +19,29 @@ export default function Detail(props) {
             })
     }, []); 
  
+    const imageUrl= `http://localhost:8080/api/product_images/${productId}`;
     const images = [
       {
-        original: `http://localhost:8080/api/product_images/${productId}`,
-        thumbnail: `http://localhost:8080/api/product_images/${productId}`
+        original: `${imageUrl}`,
+        thumbnail: `${imageUrl}`
       },
       {
-        original: `http://localhost:8080/api/product_images/${productId}`,
-        thumbnail: `http://localhost:8080/api/product_images/${productId}`,
+        original: `${imageUrl}`,
+        thumbnail: `${imageUrl}`,
       },
       {
-        original: `http://localhost:8080/api/product_images/${productId}`,
-        thumbnail: `http://localhost:8080/api/product_images/${productId}`,
+        original: `${imageUrl}`,
+        thumbnail: `${imageUrl}`,
       }
     ];
 
-    const imageUrl= `http://localhost:8080/api/product_images/${productId}`;
     const bar = {
       title: 'SINGLE PRODUCT',
       path: 'SHOP/ Single product'
   }
     return (       
       <>
-      <Bar props={bar}/>
+      <Bar title={bar.title} path={bar.path}/>
     <div className="card">
       <div className="card__body">
         <div className="half">
