@@ -1,6 +1,5 @@
 import React from "react";
-import img from '../images/nike.jpg'
-import './Item.scss'
+import 'components/Item/Item.scss'
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 import { Link } from "react-router-dom";
 

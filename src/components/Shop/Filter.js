@@ -2,7 +2,7 @@ import React , {useEffect} from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import * as ApiService from '../../ApiService/ApiService'
+import * as ApiService from 'ApiService/ApiService'
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';

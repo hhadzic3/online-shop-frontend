@@ -4,8 +4,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import {Link} from 'react-router-dom';
-import * as ApiService from '../../ApiService/ApiService'
-import './Home.scss'
+import * as ApiService from 'ApiService/ApiService'
+import 'components/Home/Home.scss'
 
 function ListItemLink(props) {
     return <ListItem button component="a" {...props}/>;

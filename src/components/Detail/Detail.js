@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import './Detail.scss'
 import ImageGallery from 'react-image-gallery';
 
-import * as ApiService from '../../ApiService/ApiService'
-import Bar from '../BottomBar/BottomBar';
+import * as ApiService from 'ApiService/ApiService'
+import Bar from 'components/BottomBar/BottomBar';
 
 export default function Detail(props) {
 

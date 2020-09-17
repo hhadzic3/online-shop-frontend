@@ -1,5 +1,5 @@
 import React from 'react'
-import './List.scss'
+import 'components/Shop/List.scss'
 
 const List = (props) => {
     
@@ -11,12 +11,8 @@ const List = (props) => {
         <div className="listItem" key={product.id}>
             <div className="container">
                 <div className="images">
-
-                    <img alt='ProductImage'
-                        src={imageUrl}/>
+                    <img alt='ProductImage' src={imageUrl}/>
                 </div>  
-                
-                
                 <div className="product">
                     <h1>{product.name}</h1>
                         <p className="desc">{product.description}The Nike Epic React Flyknit foam cushioning is responsive yet

@@ -2,7 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import {Link} from 'react-router-dom';
 
-import './HeaderBar.scss'
+import 'components/HeaderBar/HeaderBar.scss'
 
 export default function DenseAppBar() {
 

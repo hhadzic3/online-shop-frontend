@@ -6,11 +6,11 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
 import Divider from '@material-ui/core/Divider';
-import Tab from './Tab';
-import Item from '../Item/Item'
-import './Home.scss'
-import List from './List'
-import * as ApiService from '../../ApiService/ApiService'
+import Tab from 'components/Home/Tab';
+import Item from 'components/Item/Item'
+import 'components/Home/Home.scss'
+import List from 'components/Home/List'
+import * as ApiService from 'ApiService/ApiService'
 
 export default function Home() {
 

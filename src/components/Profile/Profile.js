@@ -5,20 +5,13 @@ class Profile extends Component {
   constructor() {
     super()
     this.state = {
-      full_name: 'Harun Hadzic',
-      email: 'hhh@hhh.com',
+      full_name: 'Test Test',
+      email: 'test@gmail.com',
       errors: {}
     }
   }
 
-  componentDidMount() {
-    /*const token = localStorage.usertoken
-    const decoded = jwt_decode(token)
-    this.setState({
-      full_name: decoded.full_name,
-      email: decoded.email
-    })*/
-  }
+  componentDidMount() {}
 
   render() {
     return (

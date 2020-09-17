@@ -8,14 +8,13 @@ import InputBase from '@material-ui/core/InputBase';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {Button} from '@material-ui/core';
 import {Link} from "react-router-dom";
-import HeaderBar from "../HeaderBar/HeaderBar"
+import HeaderBar from "components/HeaderBar/HeaderBar"
 
-import './Navbar.scss'
-import MenuCategories from './MenuCategories';
+import 'components/Navbar/Navbar.scss'
+import MenuCategories from 'components/Navbar/MenuCategories';
 
 // TODO: Styles should be in a separate .scss file which is imported from javascript file.
 const useStyles = makeStyles((theme) => ({
@@ -122,18 +121,13 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
-    /*const logOut = (e) => {
-        e.preventDefault()
-        localStorage.removeItem('usertoken')
-        this.props.history.push(`/`)
-    }*/
+
     const loginRegLink = (
         <div>
             <MenuItem onClick={handleMenuClose} component={Link} to="/login">Login</MenuItem>
             <MenuItem onClick={handleMenuClose} component={Link} to="/register">Register</MenuItem>
         </div>
     )
-    //<MenuItem onClick={handleMenuClose} component={Link} href="" onClick={this.logOut.bind(this)}>Logout</MenuItem>
     const userLink = (
         <div>
             <MenuItem onClick={handleMenuClose} component={Link} to="/profile">My account</MenuItem>
@@ -252,5 +246,3 @@ export default function PrimarySearchAppBar() {
         </>
     );
 }
-
-//export default withRouter(Landing)

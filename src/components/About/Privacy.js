@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import './About.scss'
+import 'components/About/About.scss'
 
 import {Typography} from '@material-ui/core';
 

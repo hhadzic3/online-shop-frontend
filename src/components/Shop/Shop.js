@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import Item from '../Item/Item';
-import * as ApiService from '../../ApiService/ApiService'
+import Item from 'components/Item/Item';
+import * as ApiService from 'ApiService/ApiService'
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
-import './Shop.scss';
+import 'components/Shop/Shop.scss';
 import ViewListIcon from '@material-ui/icons/ViewList';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import Filter from './Filter'
-import FilterPrice from './FilterPrice'
+import Filter from 'components/Shop/Filter'
+import FilterPrice from 'components/Shop/FilterPrice'
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -21,8 +21,8 @@ import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
-import ListProducts from './List'
-import Bar from '../BottomBar/BottomBar' 
+import ListProducts from 'components/Shop/List'
+import Bar from 'components/BottomBar/BottomBar' 
 
 function Shop() {
 

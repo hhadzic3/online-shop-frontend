@@ -1,9 +1,9 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import {Typography} from '@material-ui/core';
+import 'components/About/About.scss'
+import Bar from 'components/BottomBar/BottomBar.js'
 
-import './About.scss'
-import Bar from '../BottomBar/BottomBar'
 function About() {
 
     const bar = {
