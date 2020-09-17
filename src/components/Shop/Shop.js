@@ -28,9 +28,9 @@ function Shop() {
 
     const [products,setProducts] = useState([]);
     const [sort,setSort] = React.useState('label_desc');
-    const [categ,setCateg] = React.useState({
-        prim:'none',
-        sub:'none'});
+    const [Category,setCategory] = React.useState({
+        primary:'none',
+        subCategory:'none'});
     
     const [limit,
         setLimit] = React.useState(9);
@@ -48,7 +48,7 @@ function Shop() {
     };
 
     function handleChangeCategory(newValue) {
-        setCateg(newValue);
+        setCategory(newValue);
     }
     function handleChangePriceLimit(newV){
         setPriceLimit(newV);
@@ -69,7 +69,7 @@ function Shop() {
 
     useEffect(() => {
         ApiService
-            .get("/api/products", `?limit=${limit}&sort=${sort.split('_')[0]}&order=${sort.split('_')[1]}&category=${categ.prim}&sub_category=${categ.sub}&price=${priceLimit}`)
+            .get("/api/products", `?limit=${limit}&sort=${sort.split('_')[0]}&order=${sort.split('_')[1]}&category=${Category.primary}&sub_category=${Category.subCategory}&price=${priceLimit}`)
             .then(res => {
                 setProducts(res);
             })
@@ -82,7 +82,7 @@ function Shop() {
         }
             
         window.addEventListener('resize', handleResize)
-    }, [limit,sort,view,open,categ.sub,priceLimit]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, [limit,sort,view,open,Category.subCategory,priceLimit]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
     function FilterTitle({props}) {
         return <ListItemText className='titleFilter' primary={props=='primary' ? "Product Categories" : "Filter by price"}/>
