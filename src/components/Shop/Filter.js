@@ -13,7 +13,6 @@ export default function FilterList({handleChangeCategory}) {
   
   const [categories,setCategories] = React.useState([]);
   
-
     useEffect(() => {
         ApiService
             .get("/api/categories", "")
@@ -24,31 +23,31 @@ export default function FilterList({handleChangeCategory}) {
 
   return (
     <List dense className='rootFilter'>
-      {categories.map((value) => {
-        const op = `${value.name}`;
+      {categories.map((OneCategory) => {
+        const op = `${OneCategory.name}`;
         return (
-          ( value.description === 'primary' ? ( 
+          ( OneCategory.description === 'primary' ? ( 
             
-            <Accordion  key={value.name}>
+            <Accordion  key={OneCategory.name}>
               <AccordionSummary className='primary'
                 expandIcon={<AddIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography >{value.name}</Typography>
+                <Typography >{OneCategory.name}</Typography>
               </AccordionSummary>
 
-                {categories.map((val) => (
-                  <List key={val.id} onClick={() => {
+                {categories.map((SubCategory) => (
+                  <List key={SubCategory.id} onClick={() => {
                             let Category = {
-                              primary: value.name,
-                              subCategory: val.name
+                              primary: OneCategory.name,
+                              subCategory: SubCategory.name
                             }
                             handleChangeCategory(Category);
                             }}>
-                      { val.description.includes(op) ? ( 
-                            <ListItem className='' key={val.name}  button  >
-                              <ListItemText className=''  primary={`${val.name}`}/> 
+                      { SubCategory.description.includes(op) ? ( 
+                            <ListItem className='' key={SubCategory.name}  button  >
+                              <ListItemText className=''  primary={`${SubCategory.name}`}/> 
                             </ListItem>
                         ) : null
                       }
