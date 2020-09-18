@@ -8,14 +8,13 @@ import InputBase from '@material-ui/core/InputBase';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {Button} from '@material-ui/core';
 import {Link} from "react-router-dom";
-import HeaderBar from "../HeaderBar/HeaderBar"
+import HeaderBar from "components/HeaderBar/HeaderBar"
 
-import './Navbar.scss'
-import MenuCategories from './MenuCategories';
+import 'components/Navbar/Navbar.scss'
+import MenuCategories from 'components/Navbar/MenuCategories';
 
 // TODO: Styles should be in a separate .scss file which is imported from javascript file.
 const useStyles = makeStyles((theme) => ({
@@ -122,6 +121,19 @@ export default function PrimarySearchAppBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
+
+    const loginRegLink = (
+        <div>
+            <MenuItem onClick={handleMenuClose} component={Link} to="/login">Login</MenuItem>
+            <MenuItem onClick={handleMenuClose} component={Link} to="/register">Register</MenuItem>
+        </div>
+    )
+    const userLink = (
+        <div>
+            <MenuItem onClick={handleMenuClose} component={Link} to="/profile">My account</MenuItem>
+        </div>
+    )
+
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -138,9 +150,8 @@ export default function PrimarySearchAppBar() {
         }}
             open={isMenuOpen}
             onClose={handleMenuClose}>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-            <MenuItem onClick={handleMenuClose} component={Link} to="/login">Log in</MenuItem>
-            <MenuItem onClick={handleMenuClose} component={Link} to="/signup">Sign up</MenuItem>
+            {localStorage.usertoken ? userLink : loginRegLink}
+            
         </Menu>
     );
 
@@ -167,26 +178,18 @@ export default function PrimarySearchAppBar() {
                 Shop
             </Button>
             <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit">
-                    <AccountCircle/>
-                </IconButton>
-                <p>Profile</p>
+                <p>My Account</p>
             </MenuItem>
         </Menu>
     );
 
     return (
         <>
+        <HeaderBar/>
         <div className='grow'>
             <AppBar position="static" className='appBar'>
                 <Toolbar>
-                    
                 <MenuCategories/>
-
                 <Link to='/'>
                     <Typography className={classes.title} variant="h6" noWrap>
                         SHOPIFY

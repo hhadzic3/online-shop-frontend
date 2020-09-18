@@ -1,4 +1,4 @@
-@import '../../global/constants.scss';
+@import 'src/global/constants.scss';
 
 .grow {
     flex-grow: 1;
@@ -20,6 +20,7 @@
     .menuButton {
         visibility: hidden;
         color: black;
+        font-family: $font;
     }
     .acc{
         min-width: 110px;
@@ -31,7 +32,7 @@
         pointer-events:  none ;
         display:  flex ;
         align-items:  center ;
-        justify-content:  center ;
+        justify-content:  center ; 
         color: black;
     }
     .navButton{
@@ -41,6 +42,7 @@
         margin: 0px 10px;
         padding: 5px;
         height: 64px;
+        font-family: $font;
     }
     .navButton:hover{
         box-shadow: inset 0 -5px 0 0 $color-items;

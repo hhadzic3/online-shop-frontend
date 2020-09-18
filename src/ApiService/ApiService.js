@@ -2,7 +2,6 @@ import axios from 'axios'
 
 const urlport = `${process.env.REACT_APP_BASEURL}:${process.env.REACT_APP_PORT}`
 
- 
 //axios.get(url', { params: { ID: 12345 } }) 
 
 export const get = (params,query) => {

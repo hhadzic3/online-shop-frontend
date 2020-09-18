@@ -1,12 +1,17 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import {Typography} from '@material-ui/core';
-
-import './About.scss'
+import 'components/About/About.scss'
+import Bar from 'components/BottomBar/BottomBar.js'
 
 function About() {
-
+    const bar = {
+        title: 'ABOUT',
+        path: ''
+    }
     return (
+        <>
+        <Bar title={bar.title} path={bar.path}></Bar>
         <Grid container component="main" >
             <div className='textAbout'>
                 <h2>About us</h2>
@@ -29,6 +34,7 @@ function About() {
             
             </div>
         </Grid>
+        </>
     );
 }
 

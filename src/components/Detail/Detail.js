@@ -1,37 +1,78 @@
-import React, {Component} from 'react'
+import React, {useEffect, useState} from 'react';
 import './Detail.scss'
+import ImageGallery from 'react-image-gallery';
+import * as ApiService from 'ApiService/ApiService'
+import Bar from 'components/BottomBar/BottomBar';
 
-export default class Detail extends Component {
-    render() {
-        return (
-            <div className="detailPage">
-                <div className="container">
-                    <div className="images">
-                        <img alt='ProductImage'
-                            src="http://mistillas.cl/wp-content/uploads/2018/04/Nike-Epic-React-Flyknit-%E2%80%9CPearl-Pink%E2%80%9D-01.jpg"/>
-                    </div>  
-                    <div className="slideshow-buttons">
-                        <div className="one"></div>
-                        <div className="two"></div>
-                        <div className="three"></div>
-                        <div className="four"></div>
-                    </div>
-                    
-                    <div className="product">
-                        <p>Women's Running Shoe</p>
-                        <h1>Nike Epic React Flyknit</h1>
-                        <h2>$150</h2>
-                        <p className="desc">The Nike Epic React Flyknit foam cushioning is responsive yet
-                            light-weight, durable yet soft. This creates a sensation that not only enhances
-                            the feeling of moving forward, but makes running feel fun, too.</p>
-                        <div className="buttons">
-                            <button className="add">Buy now</button>
-                            
-                        </div>
-                    </div>
-                </div>
+export default function Detail(props) {
 
-            </div>
-        )
+    const [product,
+        setProduct] = useState({});
+    const [productImages,
+        setProductImages] = useState([]);
+
+    const productId = props.match.params.id;
+
+    useEffect(() => {
+        ApiService
+            .get("/api/products", `/${productId}`)
+            .then(res => {
+                setProduct(res);
+            })
+        ApiService
+            .get("/api/product_images/all", `/${productId}`)
+            .then(res => {
+                setProductImages(res);
+            })
+    }, []);
+
+    const images = [];
+    productImages.forEach( data => {
+        images.push({
+            original: `${process.env.REACT_APP_IMAGE}id/${data.id}`,
+            thumbnail: `${process.env.REACT_APP_IMAGE}id/${data.id}`
+        })
+    })
+
+    const bar = {
+        title: 'SINGLE PRODUCT',
+        path: 'SHOP/ Single product'
     }
+    return ( 
+    <> 
+    <Bar title={bar.title} path={bar.path}/> 
+    < div className = "card" > 
+      <div className="card__body">
+        <div className="half">
+            <div className="image">
+                <ImageGallery
+                    showNav={false}
+                    showFullscreenButton={false}
+                    showPlayButton={false}
+                    items={images}/>
+            </div>
+        </div>
+        <div className="half">
+            <div className="featured_text">
+                <h1>{product.name}</h1>
+
+                <p className="price">$ {product.price}</p>
+            </div>
+            <div className="action">
+                <button type="button">Buy now</button>
+            </div>
+            <p className="sub">Details</p>
+            <div className="description">
+                <p>{product.description}
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem nam
+                    pariatur voluptate perferendis, asperiores aspernatur! Porro similique
+                    consequatur, nobis soluta minima, quasi laboriosam hic cupiditate perferendis
+                    esse numquam magni.</p>
+            </div>
+        </div>
+      </div> 
+    </div>
+    </>
+    )
+
 }

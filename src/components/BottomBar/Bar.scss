@@ -1,0 +1,27 @@
+@import 'src/global/constants.scss';
+
+.grow {
+    flex-grow: 1;
+    .appBarr{
+        background: rgb(247, 247, 247);
+        height: 60px;
+    }
+    .MuiPaper-elevation4 {
+        box-shadow: none;
+    }
+    .title {
+        margin: 0% 8%;
+        color: $dark; 
+    }
+    .path {
+        min-width: 250px;
+        margin: 0% 7%;
+        color: $dark; 
+    }
+}
+@media (max-width: $breakpoint-mobile){
+        .title{
+            display: none;
+        }
+    
+}

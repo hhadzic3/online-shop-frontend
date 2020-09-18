@@ -1,16 +1,16 @@
 import React from 'react';
-import './App.scss';
-import PrimarySearchAppBar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer';
-import Home from './components/Home/Home';
-import About from './components/About/About';
-import Privacy from './components/About/Privacy';
-import Tearms from './components/About/Terms';
-import Shop from './components/Shop/Shop';
-import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
-import Detail from './components/Detail/Detail';
-import HeaderBar from './components/HeaderBar/HeaderBar';
+import 'App.scss';
+import PrimarySearchAppBar from 'components/Navbar/Navbar'
+import Footer from 'components/Footer/Footer';
+import Home from 'components/Home/Home';
+import About from 'components/About/About';
+import Privacy from 'components/About/Privacy';
+import Tearms from 'components/About/Terms';
+import Shop from 'components/Shop/Shop';
+import Login from 'components/Login/Login';
+import Register from 'components/Signup/Signup';
+import Detail from 'components/Detail/Detail';
+import Profile from 'components/Profile/Profile';
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,12 +22,11 @@ function App() {
     <Router>
       <div className="App">
         
-      <HeaderBar></HeaderBar>
         <PrimarySearchAppBar/>
       
         <Switch>
-          <Route path="/detail">
-            <Detail />
+          <Route path="/detail/:id" component={Detail}>
+            
           </Route>
           <Route path="/privacy">
             <Privacy />
@@ -41,8 +40,11 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/signup">
-            <Signup />
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/profile">
+            <Profile/>
           </Route>
           <Route path="/shop">
             <Shop />

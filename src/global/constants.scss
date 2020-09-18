@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
-$font: 'Lato', sans-serif;
+//$font: 'Lato', sans-serif;
+$font: Georgia, serif;
 
-$white: #F5F5F5;
+$white: #fcfcfc;
 $light: #E0C9CB;
 $tan: #C3A1A0;
 $rose: #BA7E7E;
@@ -9,6 +10,6 @@ $dark: #4E4E4E;
 $nav-color: #2E3B55;
 $color-items: purple;
 $shadow: #dfdfdf;
-
-$breakpoint-tablet: 850px;
+$light-purple: rgb(148, 91, 148);
+$breakpoint-tablet: 890px;
 $breakpoint-mobile: 675px;

@@ -4,13 +4,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-
 import Divider from '@material-ui/core/Divider';
-import Tab from './Tab';
-import Item from '../Item/Item'
-import './Home.scss'
-import List from './List'
-import * as ApiService from '../../ApiService/ApiService'
+import Tab from 'components/Home/Tab';
+import Item from 'components/Item/Item'
+import 'components/Home/Home.scss'
+import List from 'components/Home/List'
+import * as ApiService from 'ApiService/ApiService'
 
 export default function Home() {
 
@@ -28,6 +27,9 @@ export default function Home() {
             .get("/api/products", "?label=feature")
             .then(res => {
                 setProductsFeature(res);
+            })
+            .catch(err => {
+                console.log(err);
             })
     }, []); // will only run once (like componentDidMount in classes)
 
@@ -58,9 +60,7 @@ export default function Home() {
                                 From $ 90
                             </Typography>
                             <Typography className='white txt' variant="h6" >
-                                Something short and leading about the collection below—its contents, the
-                                creator, etc. Make it short and sweet, but not too short so folks simply skip
-                                over it entirely.
+                            The Nike Epic React Flyknit foam cushioning is responsive yet light-weight, durable yet soft. This creates a sensation that not only enhances the feeling of moving forward, but makes running feel fun, too.
                             </Typography>
                             <div className='heroButtons'>
                                 <Grid container spacing={2} >

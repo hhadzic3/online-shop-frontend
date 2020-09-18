@@ -1,12 +1,18 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import './About.scss'
+import 'components/About/About.scss'
 
 import {Typography} from '@material-ui/core';
 
+import Bar from '../BottomBar/BottomBar'
 function Terms() {
-
+    const bar = {
+      title: 'ABOUT',
+      path: ''
+  }
   return (
+    <>
+    <Bar title={bar.title} path={bar.path}></Bar>
     <Grid container component="main" >
     <div className='textAbout'>
         <h2>Terms of use</h2>
@@ -29,6 +35,7 @@ function Terms() {
     
       </div>
   </Grid>
+  </>
   );
 }
 

@@ -4,8 +4,8 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import {Link} from "react-router-dom";
-import footers from '../../data/FooterData';
-import './Footer.scss'
+import footers from 'data/FooterData';
+import 'components/Footer/Footer.scss'
 import { AppBar } from '@material-ui/core';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
