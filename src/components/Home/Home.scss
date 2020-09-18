@@ -25,6 +25,7 @@
     }
     
     .white {
+        font-family: $font;
         color: $dark;
         text-shadow: 2px 2px 4px $white
     }
@@ -33,6 +34,7 @@
     }
     .txt{
         margin-right: 23%;
+        font-family: $font;
     }
 }
 
@@ -41,6 +43,8 @@
     float: left;
     height: 455px;
     margin-left: 8%;
+    
+    font-family: $font;
 } 
 .rightText{ 
     width: 60%;
@@ -62,6 +66,7 @@
     h2 {
         margin-bottom: 0px;
         font-weight: normal;
+        font-family: $font;
     }
 }
 
@@ -78,6 +83,7 @@
         text-align:left;
         
         .text{
+            font-family: $font;
             font-size: 20px;
             margin-bottom: 0px;
         }
@@ -98,7 +104,8 @@
         }
         .tabTitle{
             font-size: 18px;
-            text-transform: none;
+            text-transform: none; 
+            font-family: $font;
         }
     }
 }
@@ -118,6 +125,7 @@
             font-size: 1.5rem;
             font: bolder;
             line-height: 20px;
+            font-family: $font;
         }
     }
 }

@@ -21,57 +21,7 @@ export default function SignIn() {
     return ( 
     <> 
     <Bar title={bar.title} path={bar.path} />
-    <Container className='main' component="main" maxWidth="xs">
-        <CssBaseline/>
-        <div className='paper'>
-          <div className='title'>
-            <Typography  component="h1" variant="h5">
-                LOGIN
-            </Typography>
-            </div>
-            <form className='form' noValidate>
-                <p>Enter Email</p>
-                <TextField
-                    className='field'
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="email"
-                    name="email"
-                    autoComplete="email"
-                    autoFocus/>
-                    <p>Password</p>
-                <TextField
-                    className='field'
-                    variant="outlined"
-                    required
-                    fullWidth
-                    name="password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"/>
-                <FormControlLabel
-                    className='remember'
-                    control={< Checkbox value = "remember" color = "primary" />}
-                    label="Remember me"/>
-                <Button type="submit" fullWidth variant="contained" className='submit'>
-                    Log In
-                </Button>
-                <Grid className='end' container>
-                    <Grid item xs>
-                        <Link className='link' to="/" variant="body2">
-                            Forgot password?
-                        </Link>
-                    </Grid>
-                    <Grid item>
-                        <Link className='link' to='/register' variant="body2">
-                            {"Don't have an account? Sign Up"}
-                        </Link>
-                    </Grid>
-                </Grid>
-            </form>
-        </div>
-    </Container> 
+    
     </>
            
     );

@@ -8,6 +8,8 @@ export default function Detail(props) {
 
     const [product,
         setProduct] = useState({});
+    const [productImages,
+        setProductImages] = useState([]);
 
     const productId = props.match.params.id;
 
@@ -17,21 +19,21 @@ export default function Detail(props) {
             .then(res => {
                 setProduct(res);
             })
+        ApiService
+            .get("/api/product_images/all", `/${productId}`)
+            .then(res => {
+                setProductImages(res);
+            })
     }, []);
 
-    const imageUrl = `${process.env.REACT_APP_IMAGE}${product.id}`;
-    const images = [
-        {
-            original: `${imageUrl}`,
-            thumbnail: `${imageUrl}`
-        }, {
-            original: `${imageUrl}`,
-            thumbnail: `${imageUrl}`
-        }, {
-            original: `${imageUrl}`,
-            thumbnail: `${imageUrl}`
-        }
-    ];
+    const images = [];
+    productImages.forEach( data => {
+        images.push({
+            original: `${process.env.REACT_APP_IMAGE}id/${data.id}`,
+            thumbnail: `${process.env.REACT_APP_IMAGE}id/${data.id}`
+        })
+    })
+
     const bar = {
         title: 'SINGLE PRODUCT',
         path: 'SHOP/ Single product'

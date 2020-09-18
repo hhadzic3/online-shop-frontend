@@ -2,8 +2,8 @@
 @import 'src/global/constants.scss';
 
 .card{
-    text-align: left;
-    max-width: 1020px;
+  text-align: left;
+  max-width: 1020px;
   margin: 5% auto;
   transition: 200ms;
   background: #fff;
@@ -57,15 +57,14 @@
       }
     }
     
+    
     .image{
       padding-top: 0px;
       width: 95%;
-      
-      img{
-        display: block;
-        max-width: 950%;
-        height: auto;
-      }
+    }
+    
+    .image-gallery-thumbnail .image-gallery-thumbnail-image {
+      width: 90px;
     }
     
     .description{
@@ -89,6 +88,9 @@
   .card{
     .card__body{
       display: block;
+      .image-gallery-thumbnail.active, .image-gallery-thumbnail:hover, .image-gallery-thumbnail:focus{
+        border: none;
+      }
     }
   }
 }

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Item from 'components/Item/Item';
 import * as ApiService from 'ApiService/ApiService'
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
@@ -85,7 +84,7 @@ function Shop() {
     }, [limit,sort,view,open,Category.subCategory,priceLimit]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
     function FilterTitle({props}) {
-        return <ListItemText className='titleFilter' primary={props=='primary' ? "Product Categories" : "Filter by price"}/>
+        return <ListItemText className='titleFilter' primary={ props === 'primary' ? "Product Categories" : "Filter by price"}/>
     }
        
     function Products() {
