@@ -4,8 +4,10 @@
 2.npm start
 
 .env:
-REACT_APP_BASEURL=http://localhost
-REACT_APP_PORT=8080
+REACT_APP_BASEURL=http://localhost <br/>
+REACT_APP_PORT=8080 <br/>
+REACT_APP_PORT=http://localhost:8080/api/product_images/
+
 
 ## Available Scripts
 
