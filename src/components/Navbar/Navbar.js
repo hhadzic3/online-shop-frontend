@@ -10,7 +10,7 @@ import Menu from '@material-ui/core/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {Button} from '@material-ui/core';
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import HeaderBar from "components/HeaderBar/HeaderBar"
 
 import 'components/Navbar/Navbar.scss'
@@ -92,45 +92,43 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function PrimarySearchAppBar() {
+function Navbar() {
 
     const classes = useStyles();
-/*const logOut = (e) => {
-        e.preventDefault()
-        localStorage.removeItem('usertoken')
-        this.props.history.push(`/`)
-    }*/
-
- //<MenuItem onClick={handleMenuClose} component={Link} href="" onClick={this.logOut.bind(this)}>Logout</MenuItem>
-   
-//export default withRouter(Landing)
-
+    
+    
     const [anchorEl,
         setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl,
-        setMobileMoreAnchorEl] = React.useState(null);
+        const [mobileMoreAnchorEl,
+            setMobileMoreAnchorEl] = React.useState(null);
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
+    
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
-
+    
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
-
+    
     const handleMenuClose = () => {
         setAnchorEl(null);
         handleMobileMenuClose();
     };
-
+    
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
+    
+    function logOut(e) {
+        e.preventDefault()
+        localStorage.removeItem('usertoken')
+        this.props.history.push(`/`)
+    }
 
-
+    
     const loginRegLink = (
         <div>
             <MenuItem onClick={handleMenuClose} component={Link} to="/login">Login</MenuItem>
@@ -140,6 +138,7 @@ export default function PrimarySearchAppBar() {
     const userLink = (
         <div>
             <MenuItem onClick={handleMenuClose} component={Link} to="/profile">My account</MenuItem>
+            <MenuItem onClick={handleMenuClose} component={Link} href="" onClick={logOut}>Logout</MenuItem>
         </div>
     )
 
@@ -255,3 +254,5 @@ export default function PrimarySearchAppBar() {
         </>
     );
 }
+
+export default withRouter(Navbar);

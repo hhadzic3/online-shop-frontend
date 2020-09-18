@@ -41,10 +41,10 @@ function App() {
             <Login />
           </Route>
           <Route path="/register">
-            <Register />
+            <Register/>
           </Route>
-          <Route path="/profile">
-            <Profile/>
+          <Route path="/profile" component={Profile}>
+            
           </Route>
           <Route path="/shop">
             <Shop />

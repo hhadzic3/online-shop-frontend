@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component }  from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -6,20 +6,56 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import {Link} from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-
 import Container from '@material-ui/core/Container';
 import 'components/Login/Login.scss'
 import Bar from 'components/BottomBar/BottomBar';
+import { login } from 'ApiService/ApiService';
 
-export default function SignIn() {
-    const bar = {
-        title: 'LOGIN',
-        path: ' '
-    }
-    return ( 
-    <> 
+import { Route , withRouter} from 'react-router-dom';
+
+class Login extends Component {
+    
+    constructor() {
+        super();
+        this.state = {
+          email: '',
+          password: '',
+          errors: {}
+        }
+        this.onChange = this.onChange.bind(this)
+        this.onSubmit = this.onSubmit.bind(this)
+      }
+    
+      onChange(e) {
+        this.setState({ [e.target.name]: e.target.value })
+      }
+
+      onSubmit(e) {
+        e.preventDefault()
+    
+        const user = {
+          email: this.state.email,
+          password: this.state.password
+        }
+    
+        login(user).then(res => {
+          if (res){
+            this.props.history.push(`/profile`)
+          }
+        })
+
+      }
+    
+    render() {
+        
+        const bar = {
+            title: 'LOGIN',
+            path: ' '
+        }
+
+     return ( 
+      <> 
         <Bar title={bar.title} path={bar.path} />
         <Container className='main' component="main" maxWidth="xs">
         <CssBaseline/>
@@ -29,7 +65,7 @@ export default function SignIn() {
                 LOGIN
             </Typography>
             </div>
-            <form className='form' noValidate>
+            <form className='form' noValidate onSubmit={this.onSubmit}>
                 <p>Enter Email</p>
                 <TextField
                     className='field'
@@ -39,6 +75,8 @@ export default function SignIn() {
                     id="email"
                     name="email"
                     autoComplete="email"
+                    value={this.state.email}
+                    onChange={this.onChange}
                     autoFocus/>
                     <p>Password</p>
                 <TextField
@@ -49,6 +87,8 @@ export default function SignIn() {
                     name="password"
                     type="password"
                     id="password"
+                    value={this.state.password}
+                    onChange={this.onChange}
                     autoComplete="current-password"/>
                 <FormControlLabel
                     className='remember'
@@ -59,7 +99,7 @@ export default function SignIn() {
                 </Button>
                 <Grid className='end' container>
                     <Grid item xs>
-                        <Link className='link' to="/" variant="body2">
+                        <Link className='link' to="/home" variant="body2">
                             Forgot password?
                         </Link>
                     </Grid>
@@ -72,7 +112,9 @@ export default function SignIn() {
             </form>
         </div>
         </Container> 
-
-    </>    
-    );
+      </>    
+     );
+    }
 }
+
+export default withRouter(Login);
