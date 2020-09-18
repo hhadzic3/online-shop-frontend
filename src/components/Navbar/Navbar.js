@@ -95,6 +95,15 @@ const useStyles = makeStyles((theme) => ({
 export default function PrimarySearchAppBar() {
 
     const classes = useStyles();
+/*const logOut = (e) => {
+        e.preventDefault()
+        localStorage.removeItem('usertoken')
+        this.props.history.push(`/`)
+    }*/
+
+ //<MenuItem onClick={handleMenuClose} component={Link} href="" onClick={this.logOut.bind(this)}>Logout</MenuItem>
+   
+//export default withRouter(Landing)
 
     const [anchorEl,
         setAnchorEl] = React.useState(null);

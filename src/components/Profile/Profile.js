@@ -10,8 +10,14 @@ class Profile extends Component {
       errors: {}
     }
   }
-
-  componentDidMount() {}
+  componentDidMount() {
+    /*const token = localStorage.usertoken
+      const decoded = jwt_decode(token)
+      this.setState({
+        full_name: decoded.full_name,
+        email: decoded.email
+      })*/
+  }
 
   render() {
     return (
