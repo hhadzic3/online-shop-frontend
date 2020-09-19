@@ -8,10 +8,17 @@
         text-align: center;
         .icon{
             margin: 5px auto;
+            margin-top: 20px;
         }
         .title {
           color: grey;
           font-size: 18px;
+        }
+    }
+    .tableHead{
+        background: lightgray;
+        .header{
+            font-size: 16px;
         }
     }
 }

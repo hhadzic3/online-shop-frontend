@@ -59,6 +59,19 @@ function SimpleTabs() {
 
     }, []);
 
+    function createData(Name, Price, Label) {
+        return { Name, Price, Label };
+      }
+      
+      const rows = [
+        createData('Frozen yoghurt', 159, "Top rated"),
+        createData('Ice cream sandwich', 237, "Top rated"),
+        createData('Eclair', 262, "Top rated"),
+        createData('Cupcake', 305, "Top rated"),
+        createData('Gingerbread', 356, "Top rated")
+      ];
+      
+
     return (
         <div className='tab'>
             <AppBar className='tabBar' position="static">
@@ -75,7 +88,7 @@ function SimpleTabs() {
                 <SubTab/>
             </TabPanel>
             <TabPanel value={value} index={2}>
-                <Table></Table>
+                <Table rows={rows} ></Table>
             </TabPanel>
         </div>
     );
