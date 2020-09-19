@@ -12,6 +12,8 @@ import 'components/Login/Login.scss'
 import Bar from 'components/BottomBar/BottomBar';
 import { login } from 'ApiService/ApiService';
 
+import Alert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar';
 import { Route , withRouter} from 'react-router-dom';
 
 class Login extends Component {
@@ -21,41 +23,62 @@ class Login extends Component {
         this.state = {
           email: '',
           password: '',
+          open: false,
           errors: {}
         }
         this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
-      }
+    }
     
-      onChange(e) {
-        this.setState({ [e.target.name]: e.target.value })
-      }
+    
+    onChange(e) {
+      this.setState({ [e.target.name]: e.target.value })
+    }
 
-      onSubmit(e) {
-        e.preventDefault()
-    
-        const user = {
-          email: this.state.email,
-          password: this.state.password
+    handleClose(e, reason) {
+      if (reason === 'clickaway') {
+        return;
+      }
+      
+      this.setState({ open: false });
+    };
+  
+
+    onSubmit(e) {
+      e.preventDefault()
+  
+      const user = {
+        email: this.state.email,
+        password: this.state.password
+      }
+      if (!user.email || !user.password){
+        this.setState({ open: true });
+        return;
+      }
+  
+      login(user).then(res => {
+        if (!res.includes('not')){
+          this.props.history.push(`/profile`)
         }
-    
-        login(user).then(res => {
-          if (res){
-            this.props.history.push(`/profile`)
-          }
-        })
+        else this.setState({ open: true });
+      })
 
-      }
+    }
     
     render() {
         
-        const bar = {
-            title: 'LOGIN',
-            path: ' '
-        }
+      const bar = {
+          title: 'LOGIN',
+          path: ' '
+      }
 
      return ( 
       <> 
+      <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'center' }} autoHideDuration={6000} open={this.state.open} onClose={() => this.handleClose()}>
+        <Alert onClose={() => this.handleClose()} severity="error">
+            Error data!
+        </Alert>
+      </Snackbar>
         <Bar title={bar.title} path={bar.path} />
         <Container className='main' component="main" maxWidth="xs">
         <CssBaseline/>

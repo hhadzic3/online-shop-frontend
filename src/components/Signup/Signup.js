@@ -11,6 +11,8 @@ import Container from '@material-ui/core/Container';
 import 'components/Signup/Signup.scss'
 import Bar from 'components/BottomBar/BottomBar';
 
+import Alert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar';
 
 class Register extends Component {
 
@@ -25,6 +27,7 @@ class Register extends Component {
           shipping_address: '',
           country: '',
           phone: '',
+          open: false,
           errors: {}
         }
     
@@ -49,12 +52,25 @@ class Register extends Component {
           phone: this.state.phone,
           country: this.state.country
         }
+
+        if (!newUser.first_name || !newUser.last_name || !newUser.email || !newUser.password || !newUser.billing_address || !newUser.shipping_address || !newUser.phone || !newUser.country){
+            this.setState({ open: true });
+            return;
+          }
     
         register(newUser).then(res => {
           this.props.history.push(`/login`)
         })
       }
 
+      handleClose(e, reason) {
+        if (reason === 'clickaway') {
+          return;
+        }
+        
+        this.setState({ open: false });
+      };
+    
 
     render() {
     
@@ -65,6 +81,11 @@ class Register extends Component {
 
     return (
         <>
+            <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'center' }} autoHideDuration={6000} open={this.state.open} onClose={() => this.handleClose()}>
+            <Alert onClose={() => this.handleClose()} severity="error">
+                Error data!
+            </Alert>
+            </Snackbar>
             <Bar title={bar.title} path={bar.path} />
             <Container className='main' component="main" maxWidth="xs">
             <CssBaseline/>
