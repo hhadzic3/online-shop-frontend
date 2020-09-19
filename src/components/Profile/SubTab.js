@@ -8,6 +8,7 @@ import Item from 'components/Item/Item'
 
 import * as ApiService from 'ApiService/ApiService'
 import Table from 'components/Profile/Table'
+import Form from 'components/Profile/Form'
 
 function TabPanel(props) {
     const {
@@ -52,14 +53,8 @@ function SimpleTabs() {
     };
     const [productsTop,
         setProductsTop] = useState([]);
-    const [productsNew,
-        setProductsNew] = useState([]);
-    const [productsLast,
-        setProductsLast] = useState([]);
 
     useEffect(() => {
-
-       
     }, []);
 
     return (
@@ -68,6 +63,7 @@ function SimpleTabs() {
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                     <Tab className='tabTitle' label="Active" {...a11yProps(0)}/>
                     <Tab className='tabTitle' label="Sold" {...a11yProps(1)}/>
+                    <Tab className='tabTitle' label="Become seller" {...a11yProps(2)}/>
                 </Tabs>
             </AppBar>
             
@@ -76,6 +72,9 @@ function SimpleTabs() {
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <Table></Table>
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+                <Form></Form>
             </TabPanel>
         </div>
     );

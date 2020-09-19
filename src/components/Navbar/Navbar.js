@@ -96,7 +96,6 @@ function Navbar() {
 
     const classes = useStyles();
     
-    
     const [anchorEl,
         setAnchorEl] = React.useState(null);
         const [mobileMoreAnchorEl,

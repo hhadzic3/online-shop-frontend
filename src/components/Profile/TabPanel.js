@@ -9,6 +9,7 @@ import Item from 'components/Item/Item'
 import * as ApiService from 'ApiService/ApiService'
 import Table from 'components/Profile/Table'
 import SubTab from 'components/Profile/SubTab'
+import ProfileCard from 'components/Profile/ProfileCard';
 
 function TabPanel(props) {
     const {
@@ -53,14 +54,9 @@ function SimpleTabs() {
     };
     const [productsTop,
         setProductsTop] = useState([]);
-    const [productsNew,
-        setProductsNew] = useState([]);
-    const [productsLast,
-        setProductsLast] = useState([]);
-
+    
     useEffect(() => {
 
-       
     }, []);
 
     return (
@@ -73,7 +69,7 @@ function SimpleTabs() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-                Item 1
+                <ProfileCard />
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <SubTab/>
