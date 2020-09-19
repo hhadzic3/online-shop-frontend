@@ -12,7 +12,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import {Button} from '@material-ui/core';
 import {Link, withRouter} from "react-router-dom";
 import HeaderBar from "components/HeaderBar/HeaderBar"
-
+import { useHistory } from "react-router-dom";
 import 'components/Navbar/Navbar.scss'
 import MenuCategories from 'components/Navbar/MenuCategories';
 
@@ -121,11 +121,13 @@ function Navbar() {
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
-    
+
+    const history = useHistory();
+
     function logOut(e) {
         e.preventDefault()
         localStorage.removeItem('usertoken')
-        this.props.history.push(`/`)
+        history.push("/");
     }
 
     
@@ -138,7 +140,7 @@ function Navbar() {
     const userLink = (
         <div>
             <MenuItem onClick={handleMenuClose} component={Link} to="/profile">My account</MenuItem>
-            <MenuItem onClick={handleMenuClose} component={Link} href="" onClick={logOut}>Logout</MenuItem>
+            <MenuItem onClick={handleMenuClose}  onClick={logOut}>Logout</MenuItem>
         </div>
     )
 

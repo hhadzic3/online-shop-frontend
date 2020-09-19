@@ -11,6 +11,7 @@ import Container from '@material-ui/core/Container';
 import 'components/Signup/Signup.scss'
 import Bar from 'components/BottomBar/BottomBar';
 
+
 class Register extends Component {
 
     constructor() {
@@ -52,12 +53,13 @@ class Register extends Component {
     
         register(newUser).then(res => {
           this.props.history.push(`/login`)
+          //history.push("/home");
         })
       }
 
 
     render() {
-        
+    
         const bar = {
             title: 'REGISTER',
             path: ' '

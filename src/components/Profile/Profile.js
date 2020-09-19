@@ -18,8 +18,6 @@ class Profile extends Component {
       this.setState({
         full_name: decoded.full_name,
         email: decoded.email
-        /*full_name: 'bla',
-        email: 'bla'*/
       })
   }
 

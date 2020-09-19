@@ -37,14 +37,13 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/login">
-            <Login />
+          <Route path="/login" component={Login}>
+            
           </Route>
-          <Route path="/register">
-            <Register/>
+          <Route path="/register" component={Register}>
+            
           </Route>
           <Route path="/profile" component={Profile}>
-            
           </Route>
           <Route path="/shop">
             <Shop />
