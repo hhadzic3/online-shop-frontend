@@ -51,11 +51,6 @@ function SimpleTabs() {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    const [productsTop,
-        setProductsTop] = useState([]);
-
-    useEffect(() => {
-    }, []);
 
     function createData(Name, Price, Label) {
         return { Name, Price, Label };

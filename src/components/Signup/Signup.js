@@ -16,7 +16,6 @@ class Register extends Component {
 
     constructor() {
         super()
-
         this.state = {
           first_name: '',
           last_name: '',
@@ -53,7 +52,6 @@ class Register extends Component {
     
         register(newUser).then(res => {
           this.props.history.push(`/login`)
-          //history.push("/home");
         })
       }
 
