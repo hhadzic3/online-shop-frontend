@@ -56,11 +56,15 @@ class Register extends Component {
         if (!newUser.first_name || !newUser.last_name || !newUser.email || !newUser.password || !newUser.billing_address || !newUser.shipping_address || !newUser.phone || !newUser.country){
             this.setState({ open: true });
             return;
-          }
+        }
     
-        register(newUser).then(res => {
-          this.props.history.push(`/login`)
-        })
+        register(newUser)
+            .then(res => {
+            this.props.history.push(`/login`)
+            })
+            .catch(err => {
+                console.log(err)
+            })
       }
 
       handleClose(e, reason) {
@@ -82,9 +86,9 @@ class Register extends Component {
     return (
         <>
             <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'center' }} autoHideDuration={6000} open={this.state.open} onClose={() => this.handleClose()}>
-            <Alert onClose={() => this.handleClose()} severity="error">
-                Error data!
-            </Alert>
+                <Alert onClose={() => this.handleClose()} severity="error">
+                    Error data!
+                </Alert>
             </Snackbar>
             <Bar title={bar.title} path={bar.path} />
             <Container className='main' component="main" maxWidth="xs">

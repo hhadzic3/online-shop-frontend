@@ -121,11 +121,6 @@ class Login extends Component {
                     Log In
                 </Button>
                 <Grid className='end' container>
-                    <Grid item xs>
-                        <Link className='link' to="/home" variant="body2">
-                            Forgot password?
-                        </Link>
-                    </Grid>
                     <Grid item>
                         <Link className='link' to='/register' variant="body2">
                             {"Don't have an account? Sign Up"}

@@ -37,7 +37,10 @@ export const register = newUser => {
     })
     .then(response => {
       console.log('Registered')
-  })
+    })
+    .catch(err => {
+      console.log(err)
+    })
 }
 
 export const login = user => {
@@ -53,5 +56,5 @@ export const login = user => {
     })
     .catch(err => {
       console.log(err)
-  })
+    })
 }
