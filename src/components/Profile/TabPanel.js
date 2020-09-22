@@ -11,6 +11,8 @@ import Table from 'components/Profile/Table'
 import SubTab from 'components/Profile/SubTab'
 import ProfileCard from 'components/Profile/ProfileCard';
 
+import jwt_decode from 'jwt-decode'
+
 function TabPanel(props) {
     const {
         children,
@@ -48,6 +50,8 @@ function a11yProps(index) {
 function SimpleTabs() {
     const [value,
         setValue] = React.useState(0);
+    const [purchased,
+        setPurchased] = React.useState([]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -57,13 +61,24 @@ function SimpleTabs() {
         return { Name, Price, Label };
       }
       
-      const rows = [
-        createData('Frozen yoghurt', 159, "Top rated"),
-        createData('Ice cream sandwich', 237, "Top rated"),
-        createData('Eclair', 262, "Top rated"),
-        createData('Cupcake', 305, "Top rated"),
-        createData('Gingerbread', 356, "Top rated")
-      ];
+      useEffect(() => {
+        const token = localStorage.usertoken
+        const decoded = jwt_decode(token)
+        ApiService
+            .get("/api/order_details",`?label=sold&user=${decoded.id}`)
+            .then(res => {
+                setPurchased(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, []); // will only run once (like componentDidMount in classes)
+
+    const rowsPurchased = [];
+
+    purchased.forEach( order => {
+        rowsPurchased.push(createData( order.product.name , order.product.price , order.product.label))
+    });
       
 
     return (
@@ -82,7 +97,7 @@ function SimpleTabs() {
                 <SubTab/>
             </TabPanel>
             <TabPanel value={value} index={2}>
-                <Table rows={rows} ></Table>
+                <Table rows={rowsPurchased} ></Table>
             </TabPanel>
         </div>
     );
