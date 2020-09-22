@@ -1,1 +1,27 @@
-
+.profile{
+    padding: 2% 8%;
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 300px;
+        margin: 50px auto;
+        font-family: arial;
+        text-align: center;
+        .icon{
+            margin: 5px auto;
+            margin-top: 20px;
+        }
+        .title {
+          color: grey;
+          font-size: 18px;
+        }
+    }
+    .table{
+        min-width: 400px;
+    }
+    .tableHead{
+        background: lightgray;
+        .header{
+            font-size: 16px;
+        }
+    }
+}

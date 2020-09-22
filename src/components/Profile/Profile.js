@@ -1,36 +1,15 @@
 import React, { Component } from 'react'
-import jwt_decode from 'jwt-decode'
+import TabPanel from 'components/Profile/TabPanel';
+import 'components/Profile/Profile.scss';
 
 class Profile extends Component {
   constructor() {
-    super()
-    this.state = {
-      full_name: 'Test Test',
-      email: 'test@gmail.com',
-      errors: {}
-    }
+    super() 
   }
-
-  componentDidMount() {}
-
   render() {
     return (
-      <div className="container">
-        <h1 className="text-center">PROFILE</h1>
-          
-          <table className="table">
-            <tbody>
-              <tr>
-                <td>Name</td>
-                <td>{this.state.full_name}</td>
-              </tr>
-              <tr>
-                <td>Email</td>
-                <td>{this.state.email}</td>
-              </tr>
-            </tbody>
-          </table>
-        
+      <div className='profile'> 
+        <TabPanel></TabPanel>
       </div>
     )
   }
