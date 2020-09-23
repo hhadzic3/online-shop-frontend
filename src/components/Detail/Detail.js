@@ -10,6 +10,13 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+import { Alert, AlertTitle }  from '@material-ui/lab';
+import Snackbar from '@material-ui/core/Snackbar';
+import { useHistory } from "react-router-dom";
+import jwt_decode from 'jwt-decode'
+
+import { postOrder, putProduct } from 'ApiService/ApiService';
+
 export default function Detail(props) {
 
     const [product,
@@ -20,18 +27,47 @@ export default function Detail(props) {
     const productId = props.match.params.id;
 
     const [open, setOpen] = React.useState(false);
+    const [openAlert, setOpenAlert] = React.useState(false);
 
+    const history = useHistory();
     const handleClickOpen = () => {
-        setOpen(true);
+        if (localStorage.usertoken){
+            setOpen(true);
+        }
+        else history.push("/login");
     };
 
     const handleClose = () => {
         setOpen(false);
     };
+    const handleCloseAlert = () => {
+        setOpenAlert(false);
+    };
 
     const handleYas = () => {
         setOpen(false);
-        
+        //history.push("/shop");
+        const token = localStorage.usertoken
+        const decode = jwt_decode(token)
+        const newOrder = {
+            product_id: productId,
+            price: product.price,
+            order: {
+                customer_id: decode.id,
+                ammount: product.price,
+                shipping_address: decode.shipping_address,
+                order_address: decode.billing_address,
+                order_email: decode.email
+            }
+        }
+        postOrder(newOrder)
+        .then(res => {    
+        })
+        putProduct(productId)
+        .then( () => {
+            setOpenAlert(true);
+        })
+
     };
 
     useEffect(() => {
@@ -61,6 +97,12 @@ export default function Detail(props) {
     }
     return ( 
     <> 
+     <Snackbar anchorOrigin={{vertical: 'top', horizontal: 'center' }} autoHideDuration={6000} open={openAlert} onClose={handleCloseAlert}>
+        <Alert onClose={handleCloseAlert} severity="success">
+            <AlertTitle>Success</AlertTitle>
+            Congratulations, you bought <strong>{product.name}</strong>
+        </Alert>
+      </Snackbar>
     <Bar title={bar.title} path={bar.path}/> 
     < div className = "card" > 
       <div className="card__body">

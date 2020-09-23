@@ -46,5 +46,4 @@ const ConnectedItem = (props) => {
     );
 }
 
-//export default withRouter(connect()(ConnectedItem));
 export default ConnectedItem;
