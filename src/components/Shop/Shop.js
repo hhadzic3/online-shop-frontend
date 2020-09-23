@@ -21,27 +21,28 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
 import ListProducts from 'components/Shop/List'
-import Bar from 'components/BottomBar/BottomBar' 
+import Bar from 'components/BottomBar/BottomBar'
 
 function Shop() {
 
-    const [products,setProducts] = useState([]);
-    const [sort,setSort] = React.useState('label_desc');
-    const [Category,setCategory] = React.useState({
-        primary:'none',
-        subCategory:'none'});
-    
+    const [products,
+        setProducts] = useState([]);
+    const [sort,
+        setSort] = React.useState('label_desc');
+    const [Category,
+        setCategory] = React.useState({primary: 'none', subCategory: 'none'});
+
     const [limit,
         setLimit] = React.useState(9);
     const [disabledButton,
         setDisabledButton] = React.useState(false);
-    const [view, 
-            setView] = React.useState('grid');
+    const [view,
+        setView] = React.useState('grid');
     const [open,
-            setOpen] = React.useState(true);
+        setOpen] = React.useState(true);
     const [priceLimit,
         setPriceLimit] = React.useState('none');
-        
+
     const handleChangeView = (event, nextView) => {
         setView(nextView);
     };
@@ -49,7 +50,7 @@ function Shop() {
     function handleChangeCategory(newValue) {
         setCategory(newValue);
     }
-    function handleChangePriceLimit(newV){
+    function handleChangePriceLimit(newV) {
         setPriceLimit(newV);
     }
 
@@ -61,38 +62,49 @@ function Shop() {
         setOpen(!open);
     };
     const handleButtonClick = () => {
-        if (limit <= products.length)
-            setLimit(limit*2);
-        else setDisabledButton(true);
-    };
+        if (limit <= products.length) 
+            setLimit(limit * 2);
+        else 
+            setDisabledButton(true);
+        }
+    ;
 
     useEffect(() => {
-        ApiService
-            .get("/api/products", `?limit=${limit}&sort=${sort.split('_')[0]}&order=${sort.split('_')[1]}&category=${Category.primary}&sub_category=${Category.subCategory}&price=${priceLimit}`)
-            .then(res => {
-                setProducts(res);
-            })
+        ApiService.get("/api/products", `?limit=${limit}&sort=${sort.split('_')[0]}&order=${sort.split('_')[1]}&category=${Category.primary}&sub_category=${Category.subCategory}&price=${priceLimit}`).then(res => {
+            setProducts(res);
+        })
 
         function handleResize() {
-            if ( window.innerWidth <= 850 && view !== 'grid')
-                setView('grid');    
-            if ( window.innerWidth > 700 && open !== true)
-                setOpen(true);    
-        }
-            
+            if (window.innerWidth <= 850 && view !== 'grid') 
+                setView('grid');
+            if (window.innerWidth > 700 && open !== true) 
+                setOpen(true);
+            }
+        
         window.addEventListener('resize', handleResize)
-    }, [limit,sort,view,open,Category.subCategory,priceLimit]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, [
+        limit,
+        sort,
+        view,
+        open,
+        Category.subCategory,
+        priceLimit
+    ]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
     function FilterTitle({props}) {
-        return <ListItemText className='titleFilter' primary={ props === 'primary' ? "Product Categories" : "Filter by price"}/>
+        return <ListItemText
+            className='titleFilter'
+            primary={props === 'primary'
+            ? "Product Categories"
+            : "Filter by price"}/>
     }
-       
+
     function Products() {
         return ( 
-            <>
+        <> 
         <div className="shop">
             <div className='row'>
-                
+
                 <FormControl variant="outlined" className='formControl'>
                     <Select
                         labelId="demo-simple-select-label"
@@ -105,38 +117,53 @@ function Shop() {
                     </Select>
                 </FormControl>
 
-                <ToggleButtonGroup className='toggle' value={view} exclusive onChange={handleChangeView}>
+                <ToggleButtonGroup
+                    className='toggle'
+                    value={view}
+                    exclusive
+                    onChange={handleChangeView}>
                     <ToggleButton className='btn' value="grid" aria-label="grid">
-                        <ViewModuleIcon />  Grid
+                        <ViewModuleIcon/>
+                        Grid
                     </ToggleButton>
                     <ToggleButton className='btn' value="list" aria-label="list">
-                        <ViewListIcon /> List
+                        <ViewListIcon/>
+                        List
                     </ToggleButton>
                 </ToggleButtonGroup>
             </div>
-                {view === 'grid' ? (
-                    products && products.map((prod) => (
+            {view === 'grid'
+                ? (products && products.map((prod) => ((prod.label !== 'sold'
+                    ? (
                         <Item key={prod.id} className='item' product={prod}></Item>
-                    ))
-                ) : ( 
-                    products && products.map((prod) => (
-                        <ListProducts key={prod.id} product={prod} ></ListProducts>
-                    ))
-                )
-                }
+                    )
+                    : null))))
+                : (products && products.map((prod) => ((prod.label !== 'sold'
+                    ? (
+                        <ListProducts key={prod.id} product={prod}></ListProducts>
+                    )
+                    : null))))
+            }
             <div className='moreDiv'>
-                <Button onClick={handleButtonClick} className='more' disabled={disabledButton} variant="contained" size="large" color="primary" >
+                <Button
+                    onClick={handleButtonClick}
+                    className='more'
+                    disabled={disabledButton}
+                    variant="contained"
+                    size="large"
+                    color="primary">
                     EXPLORE MORE
                 </Button>
             </div>
-        </div>
+        </div> 
         </>
         )
     }
 
     const bar = {
         title: 'SHOP',
-        path: 'SHOP/ All categories'
+        path: 'SHOP/All categories '
+
     }
 
     return (
@@ -148,21 +175,21 @@ function Shop() {
                         <ListItemText className='titleFilter' primary="Filter"/> {open
                             ? <ExpandLess/>
                             : <ExpandMore/>}
-                        </ListItem>
+                    </ListItem>
                     <Collapse in={open} timeout="auto" unmountOnExit>
-                        
-                            <List component="div" key={1} className='border' disablePadding>
-                            <FilterTitle props={'primary'} />
-                                <ListItem className='ul'>
-                                    <Filter handleChangeCategory={handleChangeCategory} ></Filter>
-                                </ListItem>
-                            </List>
-                            <List component="div" key={2} className='border' disablePadding>
-                            <FilterTitle props={'price'} />
-                                <ListItem className='ul'>
-                                    <FilterPrice handleChangePriceLimit={handleChangePriceLimit}> </FilterPrice>
-                                </ListItem>
-                            </List>
+
+                        <List component="div" key={1} className='border' disablePadding>
+                            <FilterTitle props={'primary'}/>
+                            <ListItem className='ul'>
+                                <Filter handleChangeCategory={handleChangeCategory}></Filter>
+                            </ListItem>
+                        </List>
+                        <List component="div" key={2} className='border' disablePadding>
+                            <FilterTitle props={'price'}/>
+                            <ListItem className='ul'>
+                                <FilterPrice handleChangePriceLimit={handleChangePriceLimit}></FilterPrice>
+                            </ListItem>
+                        </List>
 
                     </Collapse>
                 </div>

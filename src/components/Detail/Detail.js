@@ -3,6 +3,12 @@ import './Detail.scss'
 import ImageGallery from 'react-image-gallery';
 import * as ApiService from 'ApiService/ApiService'
 import Bar from 'components/BottomBar/BottomBar';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 export default function Detail(props) {
 
@@ -12,6 +18,21 @@ export default function Detail(props) {
         setProductImages] = useState([]);
 
     const productId = props.match.params.id;
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleYas = () => {
+        setOpen(false);
+        
+    };
 
     useEffect(() => {
         ApiService
@@ -59,7 +80,7 @@ export default function Detail(props) {
                 <p className="price">$ {product.price}</p>
             </div>
             <div className="action">
-                <button type="button">Buy now</button>
+                <button type="button" onClick={handleClickOpen}>Buy now</button>
             </div>
             <p className="sub">Details</p>
             <div className="description">
@@ -72,7 +93,27 @@ export default function Detail(props) {
         </div>
       </div> 
     </div>
+    <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Are you shore?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Are you shore you whant to buy this product?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            No
+          </Button>
+          <Button onClick={handleYas} color="primary" autoFocus>
+            Yas
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
     )
-
 }
