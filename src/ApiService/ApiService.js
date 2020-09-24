@@ -48,16 +48,6 @@ export const postOrder = newOrder => {
     })
 }
 
-export const postProduct = newProduct => {
-    return axios
-    .post(`${urlport}/api/products`, newProduct)
-    .then(response => {
-      console.log(response)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-}
 
 export const putProduct = id => {
     return axios
@@ -87,6 +77,29 @@ export const register = newUser => {
     })
     .then(response => {
       console.log('Registered')
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
+export const postProduct = newProduct => {
+  return axios
+  .post(`${urlport}/api/products`, newProduct)
+  .then(response => {
+    console.log(response)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
+
+export const upload = data => {
+    return axios
+    .post(`${urlport}/api/product_images/upload`, data)
+    .then(response => {
+      console.log('Upload successful')
+      return response
     })
     .catch(err => {
       console.log(err)

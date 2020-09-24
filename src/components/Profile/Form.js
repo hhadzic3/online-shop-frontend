@@ -36,6 +36,7 @@ class Sell extends Component {
       categories: [],
       subcategories: [],
       open: false,
+      selectedFile: null,
       errors: {}
     }
     this.onChange = this.onChange.bind(this)
@@ -61,6 +62,18 @@ class Sell extends Component {
     const token = localStorage.usertoken
     const decoded = jwt_decode(token)
 
+    
+    if (!newProduct.name || !newProduct.price || !newProduct.weight || !newProduct.description  ){
+        this.setState({ open: true });
+        return;
+    }
+
+    const data = new FormData() 
+    let images = [];
+    for(var x = 0; x<this.state.selectedFile.length; x++) {
+      data.append('multi-files', this.state.selectedFile[x])
+      images.push(this.state.selectedFile[x].name);
+    }
     const newProduct = {
       seller_id: decoded.id ,
       name: this.state.name,
@@ -70,18 +83,19 @@ class Sell extends Component {
       label: "new_arrival", 
       stock: 1,
       categories: this.state.categories,
-      subcategories: this.state.subcategories
+      subcategories: this.state.subcategories,
+      images: images
     }
     
-
-    if (!newProduct.name || !newProduct.price || !newProduct.weight || !newProduct.description  ){
-        this.setState({ open: true });
-        return;
-    }
-
-    ApiService.postProduct(newProduct)
+    ApiService.upload(data)
       .then(res => {
-        window.location.reload(false);
+        ApiService.postProduct(newProduct)
+          .then(res => {
+            window.location.reload(false);
+          })
+          .catch(err => {
+              console.log(err)
+          })
       })
       .catch(err => {
           console.log(err)
@@ -94,6 +108,13 @@ class Sell extends Component {
     }
     this.setState({ open: false });
   };
+
+  onChangeHandler=event=>{
+    this.setState({
+      selectedFile: event.target.files
+    })
+    
+  }
 
   render() {
 
@@ -217,7 +238,7 @@ class Sell extends Component {
             </Grid>
 
             <Grid item xs={12}>
-              <input type="file" name="myImage" multiple />
+              <input type="file" name="multi-files" multiple onChange={this.onChangeHandler}/>
             </Grid>
           </Grid>
 
