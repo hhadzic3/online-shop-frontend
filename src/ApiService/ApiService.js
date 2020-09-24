@@ -48,6 +48,17 @@ export const postOrder = newOrder => {
     })
 }
 
+export const postProduct = newProduct => {
+    return axios
+    .post(`${urlport}/api/products`, newProduct)
+    .then(response => {
+      console.log(response)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
 export const putProduct = id => {
     return axios
     .put(`${urlport}/api/products/${id}`, {

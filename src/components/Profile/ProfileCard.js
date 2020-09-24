@@ -9,7 +9,7 @@ const ProfileCard = () => {
     const [profile, setProfile] = useState({});
 
     useEffect(() => {
-        const token = localStorage.usertoken
+      const token = localStorage.usertoken
       const decoded = jwt_decode(token)
       setProfile({
         full_name: decoded.full_name,
