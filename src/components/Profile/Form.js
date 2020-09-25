@@ -62,12 +62,6 @@ class Sell extends Component {
     const token = localStorage.usertoken
     const decoded = jwt_decode(token)
 
-    
-    if (!newProduct.name || !newProduct.price || !newProduct.weight || !newProduct.description  ){
-        this.setState({ open: true });
-        return;
-    }
-
     const data = new FormData() 
     let images = [];
     for(var x = 0; x<this.state.selectedFile.length; x++) {
@@ -86,6 +80,11 @@ class Sell extends Component {
       subcategories: this.state.subcategories,
       images: images
     }
+     
+    if (!newProduct.name || !newProduct.price || !newProduct.weight || !newProduct.description  ){
+      this.setState({ open: true });
+      return;
+  }
     
     ApiService.upload(data)
       .then(res => {

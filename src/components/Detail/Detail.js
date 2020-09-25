@@ -126,11 +126,7 @@ export default function Detail(props) {
             </div>
             <p className="sub">Details</p>
             <div className="description">
-                <p>{product.description}
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem nam
-                    pariatur voluptate perferendis, asperiores aspernatur! Porro similique
-                    consequatur, nobis soluta minima, quasi laboriosam hic cupiditate perferendis
-                    esse numquam magni.</p>
+                <p>{product.description}</p>
             </div>
         </div>
       </div> 

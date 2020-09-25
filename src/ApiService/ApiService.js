@@ -29,7 +29,7 @@ export const postOrder = newOrder => {
       price: newOrder.price,
       quantity: 1,
       product_id: newOrder.product_id,
-      order: {
+      order: {   
         ammount: newOrder.ammount,
         customer_id: newOrder.order.customer_id,
         shipping_address: newOrder.order.shipping_address,
