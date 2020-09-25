@@ -60,7 +60,8 @@ class Register extends Component {
     
         register(newUser)
             .then(res => {
-                this.props.history.push(`/login`)
+                console.log(res.data);
+                this.props.history.push(`/login`);
             })
             .catch(err => {
                 console.log(err)
