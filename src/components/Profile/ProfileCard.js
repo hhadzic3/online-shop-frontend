@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import 'components/Profile/Profile.scss'
-import { Link } from "react-router-dom";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import jwt_decode from 'jwt-decode'
 

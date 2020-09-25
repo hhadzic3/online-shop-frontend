@@ -81,7 +81,7 @@ export default function Detail(props) {
             .then(res => {
                 setProductImages(res);
             })
-    }, []);
+    }, [productId]);
 
     const images = [];
     productImages.forEach( data => {

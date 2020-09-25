@@ -4,10 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {Button} from '@material-ui/core';
 import {Link, withRouter} from "react-router-dom";
@@ -15,7 +13,10 @@ import HeaderBar from "components/HeaderBar/HeaderBar"
 import { useHistory } from "react-router-dom";
 import 'components/Navbar/Navbar.scss'
 import MenuCategories from 'components/Navbar/MenuCategories';
-
+/*
+import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from '@material-ui/icons/Search';
+*/
 // TODO: Styles should be in a separate .scss file which is imported from javascript file.
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -139,7 +140,7 @@ function Navbar() {
     const userLink = (
         <div>
             <MenuItem onClick={handleMenuClose} component={Link} to="/profile">My account</MenuItem>
-            <MenuItem onClick={handleMenuClose}  onClick={logOut}>Logout</MenuItem>
+            <MenuItem onClick={e => {handleMenuClose(); logOut(e);}} /*onClick={logOut}*/>Logout</MenuItem>
         </div>
     )
 
@@ -205,7 +206,7 @@ function Navbar() {
                     </Typography>
                 </Link>
         <div className='grow'/>
-            <div className={classes.search} id='search' >
+            {/*<div className={classes.search} id='search' >
                 <div className='searchIcon'>
                     <SearchIcon/>
                 </div>
@@ -218,7 +219,7 @@ function Navbar() {
                     inputProps={{
                     'aria-label': 'search'
                 }}/>
-            </div>
+            </div> */}
                 <div className={classes.sectionDesktop}>
                     <Button className='navButton' component={Link} to="/">
                         Home

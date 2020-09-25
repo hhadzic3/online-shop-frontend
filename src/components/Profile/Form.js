@@ -9,8 +9,6 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 
 import Alert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
-
-import { register } from 'ApiService/ApiService';
 import jwt_decode from 'jwt-decode'
 
 import Input from '@material-ui/core/Input';
@@ -36,7 +34,7 @@ class Sell extends Component {
       categories: [],
       subcategories: [],
       open: false,
-      selectedFile: null,
+      selectedFile: undefined,
       errors: {}
     }
     this.onChange = this.onChange.bind(this)
@@ -62,9 +60,14 @@ class Sell extends Component {
     const token = localStorage.usertoken
     const decoded = jwt_decode(token)
 
+    if (!this.state.selectedFile){
+      this.setState({ open: true });
+      return;
+    }
+
     const data = new FormData() 
     let images = [];
-    for(var x = 0; x<this.state.selectedFile.length; x++) {
+    for(var x = 0; x < this.state.selectedFile.length; x++) {
       data.append('multi-files', this.state.selectedFile[x])
       images.push(this.state.selectedFile[x].name);
     }
@@ -81,10 +84,10 @@ class Sell extends Component {
       images: images
     }
      
-    if (!newProduct.name || !newProduct.price || !newProduct.weight || !newProduct.description  ){
+    if (!newProduct.name || !newProduct.price || !newProduct.weight || !newProduct.description || !newProduct. categories || !newProduct.subcategories || !newProduct.images  ){
       this.setState({ open: true });
       return;
-  }
+    }
     
     ApiService.upload(data)
       .then(res => {
