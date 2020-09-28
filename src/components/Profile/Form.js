@@ -240,7 +240,7 @@ class Sell extends Component {
             </Grid>
 
             <Grid item xs={12}>
-              <input type="file" name="multi-files" multiple onChange={this.onChangeHandler}/>
+              <input type="file" className='file-input' name="multi-files" multiple onChange={this.onChangeHandler}/>
             </Grid>
           </Grid>
 

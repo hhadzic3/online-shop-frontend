@@ -23,7 +23,8 @@ export default function Detail(props) {
         setProduct] = useState({});
     const [productImages,
         setProductImages] = useState([]);
-
+    const [disabledButton,
+        setDisabledButton] = React.useState(false);
     const productId = props.match.params.id;
 
     const [open, setOpen] = React.useState(false);
@@ -67,7 +68,7 @@ export default function Detail(props) {
         .then( () => {
             setOpenAlert(true);
         })
-
+        setDisabledButton(true);
     };
 
     useEffect(() => {
@@ -122,7 +123,7 @@ export default function Detail(props) {
                 <p className="price">$ {product.price}</p>
             </div>
             <div className="action">
-                <button type="button" onClick={handleClickOpen}>Buy now</button>
+                <button type="button" onClick={handleClickOpen} disabled={disabledButton}>Buy now</button>
             </div>
             <p className="sub">Details</p>
             <div className="description">
@@ -140,7 +141,8 @@ export default function Detail(props) {
         <DialogTitle id="alert-dialog-title">{"Are you shore?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you shore you whant to buy this product?
+            Are you sure you want to buy this product?
+            Payment: Cash on Delivery!
           </DialogContentText>
         </DialogContent>
         <DialogActions>

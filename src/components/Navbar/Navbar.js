@@ -29,46 +29,6 @@ const useStyles = makeStyles((theme) => ({
             display: 'block'
         }
     },
-    search: {
-        position: 'relative',
-        borderRadius: 'none',
-        backgroundColor: fade(theme.palette.common.black, 0.15),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.common.black, 0.25)
-        },
-        marginRight: theme.spacing(8),
-        marginLeft: 0,
-        margin: '0px auto',
-        width: '100%',
-        minWidth: '360px',
-        [
-            theme
-                .breakpoints
-                .up('sm')
-        ]: {
-            marginLeft: theme.spacing(3),
-            width: 'auto'
-        }
-    },
-    inputRoot: {
-        color: 'black'
-    },
-    inputInput: {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: '0px',
-        transition: theme
-            .transitions
-            .create('width'),
-        width: '100%',
-        [
-            theme
-                .breakpoints
-                .up('md')
-        ]: {
-            width: '29ch'
-        }
-    },
     sectionDesktop: {
         marginRight: '2%',
         display: 'none',
@@ -206,49 +166,36 @@ function Navbar() {
                     </Typography>
                 </Link>
         <div className='grow'/>
-            {/*<div className={classes.search} id='search' >
-                <div className='searchIcon'>
-                    <SearchIcon/>
-                </div>
-                <InputBase
-                    placeholder="Try enter: Shoes"
-                    classes={{
-                        root: classes.inputRoot,
-                        input: classes.inputInput
-                    }}
-                    inputProps={{
-                    'aria-label': 'search'
-                }}/>
-            </div> */}
-                <div className={classes.sectionDesktop}>
-                    <Button className='navButton' component={Link} to="/">
-                        Home
-                    </Button>
-                    <Button className='navButton' component={Link} to="/shop">
-                        Shop
-                    </Button>
-                    <Button className='navButton acc'
-                        edge="end"
-                        aria-label="account of current user"
-                        aria-controls={menuId}
-                        aria-haspopup="true"
-                        onClick={handleProfileMenuOpen}
-                        color="inherit">
-                            My Account
-                    </Button>
-                </div>
-                <div className={classes.sectionMobile}>
+                
+            <div className={classes.sectionDesktop}>
+                <Button className='navButton' component={Link} to="/">
+                    Home
+                </Button>
+                <Button className='navButton' component={Link} to="/shop">
+                    Shop
+                </Button>
+                <Button className='navButton acc'
+                    edge="end"
+                    aria-label="account of current user"
+                    aria-controls={menuId}
+                    aria-haspopup="true"
+                    onClick={handleProfileMenuOpen}
+                    color="inherit">
+                        My Account
+                </Button>
+            </div>
+            <div className={classes.sectionMobile}>
 
-                    <IconButton
-                        aria-label="show more"
-                        aria-controls={mobileMenuId}
-                        aria-haspopup="true"
-                        onClick={handleMobileMenuOpen}
-                        color="default">
-                        <MoreIcon />
-                    </IconButton>
-                </div>
-                </Toolbar>
+                <IconButton
+                    aria-label="show more"
+                    aria-controls={mobileMenuId}
+                    aria-haspopup="true"
+                    onClick={handleMobileMenuOpen}
+                    color="default">
+                    <MoreIcon />
+                </IconButton>
+            </div>
+            </Toolbar>
             </AppBar>
             {renderMobileMenu}
             {renderMenu}
