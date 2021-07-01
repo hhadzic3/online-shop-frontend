@@ -1,7 +1,9 @@
 ## -> [Backend repository](https://github.com/hhadzic3/online-shop-backend)
+![image](https://user-images.githubusercontent.com/48292553/124112501-a421d000-da6a-11eb-8bfa-7c26bb5d2f1b.png)
 
-1.npm install
-2.npm start
+## Run with
+- 1.npm install
+- 2.npm start
 
 .env:
 REACT_APP_BASEURL=http://localhost <br/>
