@@ -1,4 +1,7 @@
 ## -> [Backend repository](https://github.com/hhadzic3/online-shop-backend)
+## -> [Demo video](https://www.youtube.com/watch?v=rxPSM95rJ_Q&list=PLGhcOhF_qFzAl5bU-QSWHUmZRnbf1Rw7q)
+
+## ERD
 ![image](https://user-images.githubusercontent.com/48292553/124112501-a421d000-da6a-11eb-8bfa-7c26bb5d2f1b.png)
 
 ## Run with
