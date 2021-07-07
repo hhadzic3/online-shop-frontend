@@ -10,23 +10,29 @@ import Item from 'components/Item/Item'
 import 'components/Home/Home.scss'
 import List from 'components/Home/List'
 import * as ApiService from 'ApiService/ApiService'
+import { Link } from "react-router-dom";
 
 export default function Home() {
 
     const [productsFeature,
         setProductsFeature] = useState([]);
+    const [collections,
+        setCollections] = useState([]);
     
-    const collections = [
-        {id:1,name:'Shoes nike',price:'start from 200'},
-        {id:2,name:'Addidas',price:'start from 200'},
-        {id:3,name:'HP laptops',price:'start from 200'}
-    ]
 
     useEffect(() => {
         ApiService
             .get("/api/products", "?label=feature")
             .then(res => {
                 setProductsFeature(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        ApiService
+            .get("/api/products", "?label=classic")
+            .then(res => {
+                setCollections(res);
             })
             .catch(err => {
                 console.log(err);
@@ -65,8 +71,8 @@ export default function Home() {
                             <div className='heroButtons'>
                                 <Grid container spacing={2} >
                                     <Grid item>
-                                        <Button className='MUIbutton' variant="contained">
-                                            Buy now 
+                                        <Button className='MUIbutton' component={Link} to='/shop' variant="contained">
+                                            Shop now 
                                         </Button>
                                     </Grid>
                                 </Grid>

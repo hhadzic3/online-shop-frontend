@@ -4,10 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import {Button} from '@material-ui/core';
 import {Link, withRouter} from "react-router-dom";
@@ -15,7 +13,10 @@ import HeaderBar from "components/HeaderBar/HeaderBar"
 import { useHistory } from "react-router-dom";
 import 'components/Navbar/Navbar.scss'
 import MenuCategories from 'components/Navbar/MenuCategories';
-
+/*
+import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from '@material-ui/icons/Search';
+*/
 // TODO: Styles should be in a separate .scss file which is imported from javascript file.
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -26,46 +27,6 @@ const useStyles = makeStyles((theme) => ({
                 .up('sm')
         ]: {
             display: 'block'
-        }
-    },
-    search: {
-        position: 'relative',
-        borderRadius: 'none',
-        backgroundColor: fade(theme.palette.common.black, 0.15),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.common.black, 0.25)
-        },
-        marginRight: theme.spacing(8),
-        marginLeft: 0,
-        margin: '0px auto',
-        width: '100%',
-        minWidth: '360px',
-        [
-            theme
-                .breakpoints
-                .up('sm')
-        ]: {
-            marginLeft: theme.spacing(3),
-            width: 'auto'
-        }
-    },
-    inputRoot: {
-        color: 'black'
-    },
-    inputInput: {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: '0px',
-        transition: theme
-            .transitions
-            .create('width'),
-        width: '100%',
-        [
-            theme
-                .breakpoints
-                .up('md')
-        ]: {
-            width: '29ch'
         }
     },
     sectionDesktop: {
@@ -139,7 +100,7 @@ function Navbar() {
     const userLink = (
         <div>
             <MenuItem onClick={handleMenuClose} component={Link} to="/profile">My account</MenuItem>
-            <MenuItem onClick={handleMenuClose}  onClick={logOut}>Logout</MenuItem>
+            <MenuItem onClick={e => {handleMenuClose(); logOut(e);}} /*onClick={logOut}*/>Logout</MenuItem>
         </div>
     )
 
@@ -205,49 +166,36 @@ function Navbar() {
                     </Typography>
                 </Link>
         <div className='grow'/>
-            <div className={classes.search} id='search' >
-                <div className='searchIcon'>
-                    <SearchIcon/>
-                </div>
-                <InputBase
-                    placeholder="Try enter: Shoes"
-                    classes={{
-                        root: classes.inputRoot,
-                        input: classes.inputInput
-                    }}
-                    inputProps={{
-                    'aria-label': 'search'
-                }}/>
+                
+            <div className={classes.sectionDesktop}>
+                <Button className='navButton' component={Link} to="/">
+                    Home
+                </Button>
+                <Button className='navButton' component={Link} to="/shop">
+                    Shop
+                </Button>
+                <Button className='navButton acc'
+                    edge="end"
+                    aria-label="account of current user"
+                    aria-controls={menuId}
+                    aria-haspopup="true"
+                    onClick={handleProfileMenuOpen}
+                    color="inherit">
+                        My Account
+                </Button>
             </div>
-                <div className={classes.sectionDesktop}>
-                    <Button className='navButton' component={Link} to="/">
-                        Home
-                    </Button>
-                    <Button className='navButton' component={Link} to="/shop">
-                        Shop
-                    </Button>
-                    <Button className='navButton acc'
-                        edge="end"
-                        aria-label="account of current user"
-                        aria-controls={menuId}
-                        aria-haspopup="true"
-                        onClick={handleProfileMenuOpen}
-                        color="inherit">
-                            My Account
-                    </Button>
-                </div>
-                <div className={classes.sectionMobile}>
+            <div className={classes.sectionMobile}>
 
-                    <IconButton
-                        aria-label="show more"
-                        aria-controls={mobileMenuId}
-                        aria-haspopup="true"
-                        onClick={handleMobileMenuOpen}
-                        color="default">
-                        <MoreIcon />
-                    </IconButton>
-                </div>
-                </Toolbar>
+                <IconButton
+                    aria-label="show more"
+                    aria-controls={mobileMenuId}
+                    aria-haspopup="true"
+                    onClick={handleMobileMenuOpen}
+                    color="default">
+                    <MoreIcon />
+                </IconButton>
+            </div>
+            </Toolbar>
             </AppBar>
             {renderMobileMenu}
             {renderMenu}

@@ -24,4 +24,24 @@
             font-size: 16px;
         }
     }
+    .submit{
+        margin: 10px 2px;
+    }
+    .form{
+        #outlined-multiline-static{
+            width: 365px;
+        }
+        #outlined-start-adornment{
+            width: 340px;
+        }
+        .formControl {
+            margin: 2px;
+            min-width: 400px;
+            max-width: 500px;
+        }
+        .file-input{
+            border: 1px solid gray;
+            padding: 10px;
+        }
+    }
 }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import 'components/Profile/Profile.scss'
-import { Link } from "react-router-dom";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import jwt_decode from 'jwt-decode'
 
@@ -9,7 +8,7 @@ const ProfileCard = () => {
     const [profile, setProfile] = useState({});
 
     useEffect(() => {
-        const token = localStorage.usertoken
+      const token = localStorage.usertoken
       const decoded = jwt_decode(token)
       setProfile({
         full_name: decoded.full_name,

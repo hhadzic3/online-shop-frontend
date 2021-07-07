@@ -26,7 +26,7 @@ const ConnectedItem = (props) => {
                     <img
                         className='ima'
                         src={imageUrl}
-                        alt='Product image'/>
+                        alt='Product'/>
                     <div className="middle">
                         <LocalMallOutlinedIcon fontSize='large'/>
                     </div>
@@ -46,5 +46,4 @@ const ConnectedItem = (props) => {
     );
 }
 
-//export default withRouter(connect()(ConnectedItem));
 export default ConnectedItem;

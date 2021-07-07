@@ -1,14 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import Item from 'components/Item/Item'
 
 import * as ApiService from 'ApiService/ApiService'
 import Table from 'components/Profile/Table'
 import Form from 'components/Profile/Form'
+import jwt_decode from 'jwt-decode'
+
 
 function TabPanel(props) {
     const {
@@ -47,6 +48,10 @@ function a11yProps(index) {
 function SimpleTabs() {
     const [value,
         setValue] = React.useState(0);
+    const [active,
+        setActive] = React.useState([]);
+    const [sold,
+        setSold] = React.useState([]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -55,14 +60,38 @@ function SimpleTabs() {
     function createData(Name, Price, Label) {
         return { Name, Price, Label };
     }
-      
-    const rows = [
-        createData('Frozen yoghurt', 159, "Top rated"),
-        createData('Ice cream sandwich', 237, "Top rated"),
-        createData('Eclair', 262, "Top rated"),
-        createData('Cupcake', 305, "Top rated"),
-        createData('Gingerbread', 356, "Top rated")
-    ];
+
+    useEffect(() => {
+        const token = localStorage.usertoken
+        const decoded = jwt_decode(token)
+        ApiService
+            .get("/api/products",`?user=${decoded.id}`)
+            .then(res => {
+                setActive(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        ApiService
+            .get("/api/products",`?label=sold&user=${decoded.id}`)
+            .then(res => {
+                setSold(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, []); // will only run once (like componentDidMount in classes)
+
+    const rowsActive = [];
+    const rowsSold = [];
+
+    active.forEach( product => {
+        rowsActive.push(createData( product.name , product.price , product.label))
+    });
+    
+    sold.forEach( product => {
+        rowsSold.push(createData( product.name , product.price , product.label))
+    });
 
     return (
         <div className='tab'>
@@ -75,10 +104,10 @@ function SimpleTabs() {
             </AppBar>
             
             <TabPanel value={value} index={0}>
-                <Table rows={rows}></Table>
+                <Table rows={rowsActive}></Table>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <Table rows={rows}></Table>
+                <Table rows={rowsSold}></Table>
             </TabPanel>
             <TabPanel value={value} index={2}>
                 <Form></Form>

@@ -11,10 +11,9 @@ import Container from '@material-ui/core/Container';
 import 'components/Login/Login.scss'
 import Bar from 'components/BottomBar/BottomBar';
 import { login } from 'ApiService/ApiService';
-
 import Alert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
-import { Route , withRouter} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 
 class Login extends Component {
     
